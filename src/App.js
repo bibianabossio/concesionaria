@@ -6,7 +6,7 @@ import Contrasenia from './pages/Login/components/Contrasenia/Contrasenia';
 function App() {
   return (
     <div className="App">
-     <Contrasenia/>
+     <Login/>
     </div>
   );
 }
