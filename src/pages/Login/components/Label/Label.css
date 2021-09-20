@@ -1,8 +1,9 @@
 .label {
     color: rgb(112, 49, 19) ;
     font-size: 20px;
-    text-align: left;
+    text-align: center;
     margin: 20px;
+    
 }
 .label::placeholder{
     font-size: 20px;

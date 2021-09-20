@@ -64,7 +64,8 @@ const Login = () => {
           </label>
         )}
         <br />
-        <Label className= "label"  text="Usuario" />
+        <div className="label">
+        <Label  text="Usuario" />
         <Input
           attribute={{
             id: "usuario",
@@ -74,7 +75,10 @@ const Login = () => {
           }}
           handleChange={handleChange}
         />
-        <br />
+      </div>
+      <br />
+    
+      <div className="label">
         <Label text="Contraseña" />
         <Input
           attribute={{
@@ -86,6 +90,8 @@ const Login = () => {
           handleChange={handleChange}
           param={passwordError}
         />
+        </div>
+        
         {passwordError && (
           <label className="label-error">
             Contraseña inválida o incompleta
@@ -94,7 +100,7 @@ const Login = () => {
         <br />
         <div className="submit-button-container">
           <button onClick={handleSubmit} className="submit-button">
-            Ingresar
+           Ingresar
           </button>
 
           <button onClick={handleSubmit} className="submit-button">
