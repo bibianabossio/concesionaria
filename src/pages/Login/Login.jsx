@@ -1,4 +1,4 @@
-import React, { useState }from "react";
+import React, { useState } from "react";
 import Title from "./components/Title/Title";
 import Label from "./components/Label/Label";
 import Input from "./components/Input/Input";
@@ -7,9 +7,8 @@ import "../Login/components/Label/Label.css";
 import { func } from "prop-types";
 
 const Login = () => {
+  const classes = useState();
 
-  const classes = useState ();
-  
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
@@ -65,33 +64,33 @@ const Login = () => {
         )}
         <br />
         <div className="label">
-        <Label  text="Usuario" />
-        <Input
-          attribute={{
-            id: "usuario",
-            name: "usuario",
-            type: "text",
-            placeholder: "",
-          }}
-          handleChange={handleChange}
-        />
-      </div>
-      <br />
-    
-      <div className="label">
-        <Label text="Contraseña" />
-        <Input
-          attribute={{
-            id: "contraseña",
-            name: "contraseña",
-            type: "password",
-            placeholder: "",
-          }}
-          handleChange={handleChange}
-          param={passwordError}
-        />
+          <Label text="Usuario" />
+          <Input
+            attribute={{
+              id: "usuario",
+              name: "usuario",
+              type: "text",
+              placeholder: "",
+            }}
+            handleChange={handleChange}
+          />
         </div>
-        
+        <br />
+
+        <div className="label">
+          <Label text="Contraseña" />
+          <Input
+            attribute={{
+              id: "contraseña",
+              name: "contraseña",
+              type: "password",
+              placeholder: "",
+            }}
+            handleChange={handleChange}
+            param={passwordError}
+          />
+        </div>
+
         {passwordError && (
           <label className="label-error">
             Contraseña inválida o incompleta
@@ -100,22 +99,24 @@ const Login = () => {
         <br />
         <div className="submit-button-container">
           <button onClick={handleSubmit} className="submit-button">
-           Ingresar
+            Ingresar al Sistema
           </button>
 
-        <div className="submit-button-container">
-          <button onClick={handleSubmit} className="submit-button">
-           Crear Usuario
-          </button> 
-      
-        <button onClick={handleSubmit} className="submit-button">
-            Actualizar Contraseña
-          </button>
-          <br />
+         
+            <button onClick={handleSubmit} className="submit-button">
+              Actualizar Usuario
+            </button>
+
+            
+            <button onClick={handleSubmit} className="submit-button">
+              Salir del Sistema
+            </button>
+           
+            <br />
+          </div>
         </div>
       </div>
-    </div>
-  </div>
+   
   );
 };
 
