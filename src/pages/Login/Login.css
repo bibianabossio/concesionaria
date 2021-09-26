@@ -23,7 +23,7 @@
 }
 
 .submit-button-container {
-    flex-direction: row;
+    flex-direction: column;
    
 }
 

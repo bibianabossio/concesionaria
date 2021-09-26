@@ -103,13 +103,19 @@ const Login = () => {
            Ingresar
           </button>
 
+        <div className="submit-button-container">
           <button onClick={handleSubmit} className="submit-button">
-            Restablecer Contraseña
+           Crear Usuario
+          </button> 
+      
+        <button onClick={handleSubmit} className="submit-button">
+            Actualizar Contraseña
           </button>
           <br />
         </div>
       </div>
     </div>
+  </div>
   );
 };
 
