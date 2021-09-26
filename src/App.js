@@ -6,36 +6,31 @@ import Contrasenia from "./pages/Login/components/Contrasenia/Contrasenia";
 import Menu from "./pages/Login/components/Menu/Menu";
 import Post from "./pages/Login/components/Post";
 
-
-
 function App() {
-  return <div className="App">
+  return (
+    <div className="App">
       <Router>
         <Link to="/">Home</Link> <br />
         <Link to="/contraseña">Actualizar Usuario</Link> <br />
         <Link to="/menu">Inicio</Link> <br />
         <Link to="/post">Listado de Repuestos</Link> <br />
         <Route
-         exact path="/"
+          exact
+          path="/"
           render={() => {
-            return <div>
+            return (
+              <div>
                 <Login />
-           
               </div>
-
-            
-            
+            );
           }}
-          
-          
         ></Route>
         <Route path="/contraseña" component={Contrasenia} />
         <Route path="/menu" component={Menu} />
         <Route path="/post" component={Post} />
       </Router>
     </div>
-
- 
+  );
 }
 
 export default App;
