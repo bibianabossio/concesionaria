@@ -6,27 +6,33 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import StarIcon from "@mui/icons-material/Star";
 import Tabla from "./Repuestos/Tabla";
+import { Link } from "react-router-dom";
+
 
 export default function InsetList() {
   return (
     <List
-      sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+      sx={{ bgcolor: "background.paper" }}
       aria-label="contacts"
     >
       <ListItem disablePadding>
         <ListItemButton>
           <ListItemIcon>
-            <StarIcon />
+            <StarIcon/>
           </ListItemIcon>
           <ListItemText primary="Automóviles" />
         </ListItemButton>
       </ListItem>
+     
       <ListItem disablePadding>
-        <ListItemButton>
+          <ListItemButton>
           <ListItemText inset primary="Repuestos" />
         </ListItemButton>
+      
       </ListItem>
       <Tabla />
-    </List>
+       </List>
+        
   );
+
 }

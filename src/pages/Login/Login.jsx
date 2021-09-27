@@ -5,6 +5,9 @@ import Input from "./components/Input/Input";
 import "./Login.css";
 import "../Login/components/Label/Label.css";
 import { func } from "prop-types";
+import { Menu } from "@mui/material";
+import { Link } from "react-router-dom";
+
 
 const Login = () => {
   const classes = useState();
@@ -98,25 +101,25 @@ const Login = () => {
         )}
         <br />
         <div className="submit-button-container">
-          <button onClick={handleSubmit} className="submit-button">
+          <Link to="menu">
+          <button onClick={handleSubmit}  className="submit-button">
             Ingresar al Sistema
           </button>
-
-         
+          </Link>  
+      
+         <Link to= "contraseña"> 
             <button onClick={handleSubmit} className="submit-button">
               Actualizar Usuario
             </button>
+            </Link> 
 
-            
-            <button onClick={handleSubmit} className="submit-button">
-              Salir del Sistema
-            </button>
+          
            
             <br />
           </div>
         </div>
       </div>
-   
+  
   );
 };
 

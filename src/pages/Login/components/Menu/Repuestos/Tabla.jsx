@@ -1,12 +1,16 @@
 import React from "react";
 import Post from '../../Post';
 
+
+
+
 const Tabla = () => {
   return (
-    <table>
+      <div className= "contenedor-tabla">
+             <table className= "tabla-style">
       <thead>
         <tr>
-          <th>ID</th>
+          
           <th>Tipo</th>
           <th>Marca</th>
           <th>Modelo</th>
@@ -15,9 +19,17 @@ const Tabla = () => {
         </tr>
       </thead>
       <tbody>
-        <tr><Post/></tr>
+          
+        <Post/> 
+        <div className="submit-button-container">
+        <button className="submit-button">Crear Nuevo Repuesto</button>
+        <button className="submit-button">Editar Repuesto</button>
+        <button className="submit-button">Eliminar Repuesto</button>
+        </div>
       </tbody>
     </table>
+      </div>
+ 
   );
 };
 export default Tabla;
