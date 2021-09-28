@@ -7,21 +7,28 @@ class Menu extends Component {
   render() {
     return (
       <>
-        <form>
-          <br />
-          <div className="list-container">
-            <div className="list-content">
-              <div className="list">
-                <Label text="Automoviles" />
-                <Label text="Repuestos" />
-              </div>
-            </div>
-          </div>
-        </form>
-        <Tabla />
+        <tabla>
+          <tr>
+            <td>
+              <form>
+                <div>
+                  <div className="list-content">
+                    <div className="list">
+                      <Label text="Automoviles" />
+                      <Label text="Repuestos" />
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </td>
+
+            <td>
+              <Tabla />
+            </td>
+          </tr>
+        </tabla>
       </>
     );
   }
-}
-
+};
 export default Menu;

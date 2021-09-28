@@ -89,7 +89,7 @@ function Contrasenia() {
           <button onClick={handleSubmit} className="submit-button">
             Eliminar Usuario
           </button>
-          <Link to= "/"> 
+          <Link to= "menu"> 
           <button onClick={handleSubmit} className="submit-button">
             Volver al inicio
           </button>

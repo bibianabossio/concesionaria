@@ -4,24 +4,15 @@ import Post from "../../Post";
 const Tabla = () => {
   return (
     <div className="contenedor-tabla">
-      <table className="tabla-style">
+      <table className="tabla-style2">
         <thead>
-          <tr className="label">
-            <th>Tipo</th>
-            <th>Marca</th>
-            <th>Modelo</th>
-            <th>Precio</th>
-            <th>Stock</th>
-          </tr>
+          <th>Tipo</th>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>Precio</th>
+          <th>Stock</th>
         </thead>
-        <tbody>
-          <Post />
-          <div className="submit-button-container">
-            <button className="submit-button">Crear Nuevo Repuesto</button>
-            <button className="submit-button">Editar Repuesto</button>
-            <button className="submit-button">Eliminar Repuesto</button>
-          </div>
-        </tbody>
+        <Post />
       </table>
     </div>
   );

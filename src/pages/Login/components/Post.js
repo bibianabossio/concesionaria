@@ -14,7 +14,7 @@ export default class Post extends Component {
 
   render() {
     return (
-      <tr>
+      <tbody>
         {this.state.post.map((post) => {
           return (
             <tr>
@@ -24,12 +24,18 @@ export default class Post extends Component {
                 <td>{post.modelo}</td>
                 <td>{post.precio}</td>
                 <td>{post.stock}</td>
-                <br />
               </>
             </tr>
           );
         })}
-      </tr>
+        <tr>
+          <td colspan="5">
+            <button className="submit-button">Crear Nuevo Repuesto</button>
+            <button className="submit-button">Editar Repuesto</button>
+            <button className="submit-button">Eliminar Repuesto</button>
+          </td>
+        </tr>
+      </tbody>
     );
   }
 }
