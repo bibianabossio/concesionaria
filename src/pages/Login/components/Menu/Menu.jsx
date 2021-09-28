@@ -1,30 +1,26 @@
 import React, { Component } from "react";
 import Label from "../Label/Label";
 import "../Label/Label.css";
-import Login from "../../Login";
 import Tabla from "./Repuestos/Tabla";
-
 
 class Menu extends Component {
   render() {
-    
     return (
       <>
-    <form>
-      <br />
-        <div className="list-container">
-          <div className="list-content">
-            <div>
-              <Label className="list" text="Automoviles" />
-              <Label className="list" text="Repuestos" />
+        <form>
+          <br />
+          <div className="list-container">
+            <div className="list-content">
+              <div className="list">
+                <Label text="Automoviles" />
+                <Label text="Repuestos" />
+              </div>
             </div>
           </div>
-        </div>
-      </form>
-          <Tabla />
-          </>
+        </form>
+        <Tabla />
+      </>
     );
-   
   }
 }
 
