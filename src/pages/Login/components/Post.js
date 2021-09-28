@@ -14,28 +14,22 @@ export default class Post extends Component {
 
   render() {
     return (
-    <tr>
-         {this.state.post.map((post) => {
+      <tr>
+        {this.state.post.map((post) => {
           return (
-          <tr>
+            <tr>
               <>
-              <td>{post.tipo}</td>
-              <td>{post.marca}</td>
-              <td>{post.modelo}</td>
-              <td>{post.precio}</td>
-              <td>{post.stock}</td>
-              <br />
-          </>
-          </tr> 
-              
-                      
-            
+                <td>{post.tipo}</td>
+                <td>{post.marca}</td>
+                <td>{post.modelo}</td>
+                <td>{post.precio}</td>
+                <td>{post.stock}</td>
+                <br />
+              </>
+            </tr>
           );
         })}
-    </tr>
-       
-       
-      
+      </tr>
     );
   }
 }

@@ -1,38 +1,31 @@
-import * as React from "react";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import StarIcon from "@mui/icons-material/Star";
+import React, { Component } from "react";
+import Label from "../Label/Label";
+import "../Label/Label.css";
+import Login from "../../Login";
 import Tabla from "./Repuestos/Tabla";
-import { Link } from "react-router-dom";
 
 
-export default function InsetList() {
-  return (
-    <List
-      sx={{ bgcolor: "background.paper" }}
-      aria-label="contacts"
-    >
-      <ListItem disablePadding>
-        <ListItemButton>
-          <ListItemIcon>
-            <StarIcon/>
-          </ListItemIcon>
-          <ListItemText primary="Automóviles" />
-        </ListItemButton>
-      </ListItem>
-     
-      <ListItem disablePadding>
-          <ListItemButton>
-          <ListItemText inset primary="Repuestos" />
-        </ListItemButton>
-      
-      </ListItem>
-      <Tabla />
-       </List>
-        
-  );
-
+class Menu extends Component {
+  render() {
+    
+    return (
+      <>
+    <form>
+      <br />
+        <div className="list-container">
+          <div className="list-content">
+            <div>
+              <Label className="list" text="Automoviles" />
+              <Label className="list" text="Repuestos" />
+            </div>
+          </div>
+        </div>
+      </form>
+          <Tabla />
+          </>
+    );
+   
+  }
 }
+
+export default Menu;

@@ -8,6 +8,17 @@
     height: 100vh;
     background:  rgb(238, 238, 241);
 }
+
+.list-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    position: sticky;
+    width: 20%;
+    height: 50vh;
+    background:  rgb(238, 238, 241);
+}
 .login-content{
     display: flex;
     flex-direction: column;
@@ -19,6 +30,21 @@
     border: 2px solid rgb(235,101,40);
     align-items: center;
     box-shadow:4px 4px rgb(112, 49, 19) ;
+
+}
+
+.list-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    margin: auto;
+    position: relative;
+    width: 80%;
+    height: 80%;
+    border: 2px solid rgb(235,101,40);
+    align-items: center;
+    box-shadow:4px 4px rgb(112, 49, 19);
+    
 
 }
 
@@ -126,11 +152,16 @@ height: 50px;
 .tabla-style{
     margin-left: auto;
     margin-right: auto;
+    padding: 2px;
+
 
 
 }
 
 .contenedor-tabla{
-    text-align: center;
+    text-align: right;
+    padding: 2px;
+  
+   
 
 }
