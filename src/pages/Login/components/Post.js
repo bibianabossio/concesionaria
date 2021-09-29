@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+
 export default class Post extends Component {
   state = {
     post: [],
@@ -11,10 +12,12 @@ export default class Post extends Component {
     const data = await res.json();
     this.setState({ post: data });
   }
-
+  
   render() {
     return (
+    
       <tbody>
+     
         {this.state.post.map((post) => {
           return (
             <tr>
