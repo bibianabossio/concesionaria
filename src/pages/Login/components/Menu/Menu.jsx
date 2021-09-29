@@ -15,26 +15,20 @@ class Menu extends Component {
                 <div>
                   <div className="list-content">
                     <div className="list">
-                    <Router>
-                    <Label text="Automoviles" />
-                    <Link to="/tabla">Listado de Repuestos</Link> <br />
-
-                    <Route path="/tabla" component={Tabla} />
-                    </Router>
-                     
+                      <Router>
+                        <Label text="Automoviles" />
+                        <Link to="/tabla">Listado de Repuestos</Link> <br />
+                        <Route path="/tabla" component={Tabla} />
+                      </Router>
                     </div>
                   </div>
                 </div>
               </form>
-            </td>
-
-            <td>
-              <Tabla />
             </td>
           </tr>
         </tabla>
       </>
     );
   }
-};
+}
 export default Menu;
