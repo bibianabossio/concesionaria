@@ -20,14 +20,14 @@ export default class Post extends Component {
      
         {this.state.post.map((post) => {
           return (
-            <tr>
-              <>
+            <tr key={post.id}>
+             
                 <td>{post.tipo}</td>
                 <td>{post.marca}</td>
                 <td>{post.modelo}</td>
                 <td>{post.precio}</td>
                 <td>{post.stock}</td>
-              </>
+              
             </tr>
           );
         })}
