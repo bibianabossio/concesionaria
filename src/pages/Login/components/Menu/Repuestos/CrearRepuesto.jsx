@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Title from "../../Title/Title";
 import Label from "../../Label/Label";
+import Login from "../../../Login";
 
 export default class CrearRep extends Component {
   state = {
@@ -40,7 +41,7 @@ export default class CrearRep extends Component {
                     <input type="text" name="precio" /><br />
                     <Label text="Stock" />
                     <input type="text" name="stock" /><br />
-                    <button type="submit" className="submit-button">Confirmar</button>
+                    <button type="submit" className="petit-submit-button">Confirmar</button>
                   </form>
                 </td>
                 <td></td>

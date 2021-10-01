@@ -34,7 +34,7 @@ export default class Post extends Component {
                     method="GET"
                   >
                     <input type="text" name="id" value={post.id} />
-                    <button type="submit">Eliminar</button>
+                    <button type="submit"className="petit-submit-button">Eliminar</button>
                   </form>
                 </td>
                 <td>
@@ -43,7 +43,7 @@ export default class Post extends Component {
                     method="GET"
                   >
                     <input type="text" name="id" value={post.id} />
-                    <button type="submit">Modificar</button>
+                    <button type="submit" className="petit-submit-button">Modificar</button>
                   </form>
                 </td>
               </>
@@ -53,12 +53,12 @@ export default class Post extends Component {
         <tr>
           <td colspan="5">
             <Router>
-              <button className="submit-button">Crear Repuesto</button>
-              <Route path="/CrearRepuesto" component={CrearRepuesto} />
+              
+              <Link className="submit-button"  to="/crearrepuesto">Crear Repuesto</Link> 
+              <Route path="/crearrepuesto" component={CrearRepuesto} />
             </Router>
           </td>
-          < CrearRepuesto />
-        </tr>
+          </tr>
       </tbody>
     );
   }
