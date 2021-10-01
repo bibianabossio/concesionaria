@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {render, BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CrearRepuesto from "./Menu/Repuestos/CrearRepuesto";
-import Label from "./Label/Label";
+
 
 export default class Post extends Component {
   state = {
@@ -53,12 +53,11 @@ export default class Post extends Component {
         <tr>
           <td colspan="5">
             <Router>
-              <Label text="Crear Nuevo Repuesto" />
-              <Link to="/crearRepuesto"></Link> <br />
+              <button className="submit-button">Crear Repuesto</button>
               <Route path="/CrearRepuesto" component={CrearRepuesto} />
             </Router>
           </td>
-          <CrearRepuesto />
+          < CrearRepuesto />
         </tr>
       </tbody>
     );
