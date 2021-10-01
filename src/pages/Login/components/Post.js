@@ -53,7 +53,6 @@ export default class Post extends Component {
         <tr>
           <td colspan="5">
             <Router>
-              
               <Link className="submit-button"  to="/crearrepuesto">Crear Repuesto</Link> 
               <Route path="/crearrepuesto" component={CrearRepuesto} />
             </Router>
