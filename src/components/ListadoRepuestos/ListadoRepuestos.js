@@ -74,7 +74,21 @@ export default class Post extends Component {
                   </form>
                 </td>
                 <td>
-                    <Link className="submit-button"  to="/EditarRepuesto">Modificar</Link> 
+                    <Link 
+                    
+                    className="submit-button"  to={{
+                      pathname: `EditarRepuesto/${post.id}`,
+                      
+                      state: { detail: post,
+                      id:post.id,
+                      tipo:post.tipo,
+                      marca:post.marca,
+                      modelo:post.modelo,
+                      precio:post.precio,
+                      post:post.stock
+
+                      }
+                    }} value={post.id}>Modificar</Link> 
                 </td>
               </>
             </tr>
@@ -83,7 +97,7 @@ export default class Post extends Component {
         })}
         <tr>
           <td colspan="5">
-              <Link className="submit-button"  to="/crearrepuesto">Crear Repuesto</Link> 
+              <Link className="submit-button"  to="/crearrepuesto" >Crear Repuesto</Link> 
           </td>
           </tr>
       </tbody>

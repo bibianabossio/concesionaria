@@ -29,7 +29,7 @@ class Menu extends Component {
                         
                         <Route path="/tabla" component={Tabla} />
                         <Route path="/crearrepuesto" component={CrearRepuesto} />
-                        <Route path="/EditarRepuesto" component={EditarRepuesto} />
+                        <Route path="/EditarRepuesto/:id" component={EditarRepuesto} />
 
                       </Router>
                      
