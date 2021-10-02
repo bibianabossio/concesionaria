@@ -3,7 +3,7 @@ import Title from "./components/Title/Title";
 import Label from "./components/Label/Label";
 import Input from "./components/Input/Input";
 import "./Login.css";
-import "../Login/components/Label/Label.css";
+import "./components/Label/Label.css";
 import { func } from "prop-types";
 import { Menu } from "@mui/material";
 import { Link } from "react-router-dom";

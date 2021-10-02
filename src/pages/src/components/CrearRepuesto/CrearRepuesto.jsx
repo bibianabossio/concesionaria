@@ -1,18 +1,15 @@
 import React, { Component } from "react";
-import Title from "../../Title/Title";
-import Label from "../../Label/Label";
-import Login from "../../../Login";
+import Title from "../Title/Title";
+import Label from "../Label/Label";
+import Login from "../../Login";
 
 export default class CrearRep extends Component {
-  state = {
-    crearRep: [],
-  };
-  async componentDidMount() {
-    const editRep = await fetch(
-      "https://api-taller-mecanico.herokuapp.com/repuestos/id"
-    );
-    const data = await editRep.json();
-    this.setState({ post: data });
+  
+  crearRepuesto=(event)=>{
+    event.preventDefault()
+    console.log("hice click");
+
+
   }
 
   render() {
@@ -41,7 +38,7 @@ export default class CrearRep extends Component {
                     <input type="text" name="precio" /><br />
                     <Label text="Stock" />
                     <input type="text" name="stock" /><br />
-                    <button type="submit" className="petit-submit-button">Confirmar</button>
+                    <button onClick={this.crearRepuesto} /* type="submit" */ className="petit-submit-button">Confirmar</button>
                   </form>
                 </td>
                 <td></td>

@@ -1,10 +1,19 @@
 import React, { Component } from "react";
 import {render, BrowserRouter as Router, Route, Link } from "react-router-dom";
-import CrearRepuesto from "./Menu/Repuestos/CrearRepuesto";
+import CrearRepuesto from "../CrearRepuesto/CrearRepuesto";
 
 
 
 export default class Post extends Component {
+   userHandler = (value) => {
+    
+      setUrlUser(`https://api-taller-mecanico.herokuapp.com/repuestos/=${value}`);
+      setRequestOptionsUser({
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}` },
+      });
+    }
+  
   state = {
     post: [],
   };
@@ -37,17 +46,11 @@ export default class Post extends Component {
                     method="GET"
                   >
                     <input type="text" name="id" hidden value={post.id} />
-                    <button type="submit"className="petit-submit-button">Eliminar</button>
+                    <Link type="submit" className="submit-button">Eliminar</Link>                    
                   </form>
                 </td>
                 <td>
-                  <form
-                    action="https://api-taller-mecanico.herokuapp.com/repuestos/"
-                    method="GET"
-                  >
-                    <input type="text" name="id" hidden value={post.id} />
-                    <button type="submit" className="petit-submit-button">Modificar</button>
-                  </form>
+                    <Link className="submit-button"  to="/EditarRepuesto">Modificar</Link> 
                 </td>
               </>
             </tr>
@@ -56,11 +59,7 @@ export default class Post extends Component {
         })}
         <tr>
           <td colspan="5">
-            <Router>
-              
               <Link className="submit-button"  to="/crearrepuesto">Crear Repuesto</Link> 
-              <Route path="/crearrepuesto" component={CrearRepuesto} />
-            </Router>
           </td>
           </tr>
       </tbody>

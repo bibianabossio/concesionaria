@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./App.css";
-import Login from "./pages/Login/Login";
-import Contrasenia from "./pages/Login/components/Contrasenia/Contrasenia";
-import Menu from "./pages/Login/components/Menu/Menu";
-import CrearRepuesto from "./pages/Login/components/Menu/Repuestos/CrearRepuesto"
+import Login from "./pages/src/Login";
+import Contrasenia from "./pages/src/components/Contrasenia/Contrasenia";
+import Menu from "./pages/src/components/Menu/Menu";
+import CrearRepuesto from "./pages/src/components/CrearRepuesto/CrearRepuesto"
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
-import Post from "../../Post";
-import Title from "../../Title/Title";
+import Post from "../ListadoRepuestos/ListadoRepuestos";
+import Title from "../Title/Title";
 
 
 const Tabla = () => {
