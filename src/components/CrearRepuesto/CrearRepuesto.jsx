@@ -5,29 +5,54 @@ import Login from "../Login/Login";
 
 export default class CrearRep extends Component {
   
-  crearRepuesto=(event)=>{
+  crearRepuesto= async(event)=>{
     event.preventDefault()
-    console.log("hice click");
+    console.log("hice click",event.target.form.tipo.value);
+    let resTipo=event.target.form.tipo.value?event.target.form.tipo.value:""
+    let resMarca=event.target.form.marca.value?event.target.form.marca.value:""
+    let resModelo=event.target.form.modelo.value?event.target.form.modelo.value:""
+    let resPrecio=event.target.form.precio.value?event.target.form.precio.value:""
+    let resStock=event.target.form.stock.value?event.target.form.stock.value:""
 
+    try {
+      let config = {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          "tipo":resTipo,
+          "marca":resMarca,
+          "resModelo":resModelo,
+          "precio":resPrecio,
+          "stock":resStock
+      
+            }),
+      };
+      let res = await fetch(
+        `https://api-taller-mecanico.herokuapp.com/repuestos`,
+        config
+      );
+      let resEnJson = await res.json();
+      console.log(" SE CREO UN NUEVO REPUESTOOO :", resEnJson);
+    } catch (error) {
+      console.log(" hubo un error :( EN LA ACTUALIZAXCION :", error);
+    }
 
   }
 
   render() {
-    return (
-      
-        <div className="login-content">
+    return (      
+      <>
           <Title text="Crear Nuevo Repuesto" />
-
+        <table className="login-content">
           <tbody>
             <tr>
               <>
                 <td>
-                  <form
-                    action="https://api-taller-mecanico.herokuapp.com/repuesto/crear"
-                    method="POST"
-                  >
-                     <Label text="Id" />
-                     <input type="text" name="id" /><br />
+                  <form >
+                     
                     <Label text="Tipo" />
                     <input type="text" name="tipo" /><br />
                     <Label text="Marca" />
@@ -45,7 +70,8 @@ export default class CrearRep extends Component {
               </>
             </tr>
           </tbody>
-        </div>
+        </table>
+        </>
       
     );
   }
