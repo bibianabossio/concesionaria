@@ -5,14 +5,14 @@ import CrearRepuesto from "../CrearRepuesto/CrearRepuesto";
 
 
 export default class Post extends Component {
-   userHandler = (value) => {
+ /*   userHandler = (value) => {
     
       setUrlUser(`https://api-taller-mecanico.herokuapp.com/repuestos/=${value}`);
       setRequestOptionsUser({
         method: 'GET',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}` },
       });
-    }
+    } */
   
   state = {
     post: [],
@@ -25,7 +25,35 @@ export default class Post extends Component {
     this.setState({ post: data });
   }
 
+  
+
+  funcionBorrar=async(event)=>{
+    event.preventDefault()
+    console.log(" se hizo click para borara el coso :",event.target.value)
+    
+    try {
+      let config={
+        method:'DELETE',
+        headers:{
+          'Accept':'application/json' ,
+          'content-type': 'application/json'
+        },
+        body:JSON.stringify(event.target.value)
+      }
+      let res=await fetch(`https://api-taller-mecanico.herokuapp.com/repuestos/${event.target.value}`,config);
+      let resEnJson=await res.json()
+    console.log(" SE BORRO! :",resEnJson)
+  
+    
+      
+    } catch (error) {
+    console.log(" hubo un error :( :",error)
+      
+    }
+  }
+
   render() {
+
     return (
       
       <tbody>
@@ -41,12 +69,8 @@ export default class Post extends Component {
                 <td>{post.precio}</td>
                 <td>{post.stock}</td>
                 <td>
-                  <form
-                    action="https://api-taller-mecanico.herokuapp.com/repuestos/"
-                    method="GET"
-                  >
-                    <input type="text" name="id" hidden value={post.id} />
-                    <Link type="submit" className="submit-button">Eliminar</Link>                    
+                  <form>                    
+                    <button type="submit" onClick={this.funcionBorrar} value={post.id} className="submit-button">Eliminar</button>                    
                   </form>
                 </td>
                 <td>

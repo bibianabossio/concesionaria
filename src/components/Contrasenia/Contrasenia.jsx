@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Input from "../../components/Input/Input";
+import Input from "../Input/Input";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
-import "../../Login.css";
+import "../Login/Login.css"
 import "../Label/Label.css";
 import { Link } from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../Login.css';
+import '../Login/Login.css';
 
 const Input = ({attribute, handleChange, param}) => {
     return (

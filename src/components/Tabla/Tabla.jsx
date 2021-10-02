@@ -1,5 +1,5 @@
 import React from "react";
-import Post from "../ListadoRepuestos/ListadoRepuestos";
+import ListadoRepuestos from "../ListadoRepuestos/ListadoRepuestos";
 import Title from "../Title/Title";
 
 
@@ -22,7 +22,7 @@ const Tabla = () => {
           <th></th>
           <th></th>
         </thead>
-        <Post />
+        <ListadoRepuestos />
       </table>
       
     </div>
