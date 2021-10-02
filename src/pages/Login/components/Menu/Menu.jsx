@@ -4,11 +4,16 @@ import Label from "../Label/Label";
 import "../Label/Label.css";
 import Tabla from "./Repuestos/Tabla";
 import CrearRepuesto from "./Repuestos/CrearRepuesto";
+import Dolar from "../Dolar/Dolar"
 
 class Menu extends Component {
+ 
+
   render() {
+   
     return (
       <>
+      
         <tabla>
           <tr>
             <td>
@@ -16,6 +21,7 @@ class Menu extends Component {
                 <div>
                   <div className="list-content">
                     <div className="list">
+                     
                       <Router>
                         <Label text="Automoviles" />
                         <Link to="/tabla">Listado de Repuestos</Link> <br />
@@ -23,6 +29,7 @@ class Menu extends Component {
                         <Route path="/tabla" component={Tabla} />
                         <Route path="/crearrepuesto" component={CrearRepuesto} />
                       </Router>
+                     
                     </div>
                   </div>
                 </div>
@@ -30,6 +37,7 @@ class Menu extends Component {
             </td>
           </tr>
         </tabla>
+        <Dolar/>
       </>
     );
   }

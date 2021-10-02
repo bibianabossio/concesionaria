@@ -3,6 +3,7 @@ import {render, BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CrearRepuesto from "./Menu/Repuestos/CrearRepuesto";
 
 
+
 export default class Post extends Component {
   state = {
     post: [],
@@ -17,9 +18,11 @@ export default class Post extends Component {
 
   render() {
     return (
+      
       <tbody>
         {this.state.post.map((post) => {
           return (
+            
             <tr key={post.id}>
               <>
                 <td>{post.id}</td>
@@ -33,7 +36,7 @@ export default class Post extends Component {
                     action="https://api-taller-mecanico.herokuapp.com/repuestos/"
                     method="GET"
                   >
-                    <input type="text" name="id" value={post.id} />
+                    <input type="text" name="id" hidden value={post.id} />
                     <button type="submit"className="petit-submit-button">Eliminar</button>
                   </form>
                 </td>
@@ -42,12 +45,13 @@ export default class Post extends Component {
                     action="https://api-taller-mecanico.herokuapp.com/repuestos/"
                     method="GET"
                   >
-                    <input type="text" name="id" value={post.id} />
+                    <input type="text" name="id" hidden value={post.id} />
                     <button type="submit" className="petit-submit-button">Modificar</button>
                   </form>
                 </td>
               </>
             </tr>
+            
           );
         })}
         <tr>
@@ -59,6 +63,8 @@ export default class Post extends Component {
           </td>
           </tr>
       </tbody>
+      
+      
     );
   }
 }
