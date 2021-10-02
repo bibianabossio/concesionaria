@@ -15,7 +15,7 @@
     justify-content: left;
     align-items: left;
     position: sticky;
-    width: 20%;
+    width:flex;
     height: 50vh;
     background:  rgb(238, 238, 241);
 }
@@ -39,8 +39,8 @@
     justify-content: left;
     margin: auto;
     position: relative;
-    width: 80%;
-    height: 80%;
+    width: flex;
+    height: flex;
     border: 2px solid rgb(235,101,40);
     align-items: center;
     box-shadow:4px 4px rgb(112, 49, 19);
@@ -80,6 +80,26 @@
     padding:0 5px;
     width: 100%;
     height: 40px;
+    border-radius: 25px;
+    
+}
+.petit-submit-button{
+    border: none;
+    outline: none;
+    color: white;
+    cursor: 'pointer';
+    align-items: center;
+    align-self: flex-end;
+    flex-direction: column;
+    background: rgb(235,101,40) ;
+    font-size: 10px;
+    font-weight: bold;
+    justify-content: 'center';
+    margin: flex;
+    margin-top: flex;
+    padding:0 5px;
+    width: 50%;
+    height: 20px;
     border-radius: 25px;
     
 }
@@ -162,13 +182,15 @@ height: 50px;
 .tabla-style{
     margin-left: auto;
     margin-right: auto;
-    padding: 2px;
+    padding: 3px;
 
 
 
 }
 
 .contenedor-tabla{
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
     padding: 2px;
   
