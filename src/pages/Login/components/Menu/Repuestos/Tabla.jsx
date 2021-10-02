@@ -2,6 +2,7 @@ import React from "react";
 import Post from "../../Post";
 import Title from "../../Title/Title";
 
+
 const Tabla = () => {
   return (
    
@@ -23,6 +24,7 @@ const Tabla = () => {
         </thead>
         <Post />
       </table>
+      
     </div>
   );
 };
