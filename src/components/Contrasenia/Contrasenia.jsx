@@ -65,7 +65,7 @@ function Contrasenia() {
         
 
         <div className="label">
-          <Label text="Validar Contraseña" />
+          <Label text="Recuperar Contraseña" />
           <Input
             attribute={{
               id: "contraseña",
