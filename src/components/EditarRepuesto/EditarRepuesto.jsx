@@ -27,7 +27,7 @@ export default class EditarRepuesto extends Component {
         body: JSON.stringify({
           "tipo":resTipo,
           "marca":resMarca,
-          "resModelo":resModelo,
+          "modelo":resModelo,
           "precio":resPrecio,
           "stock":resStock
       
