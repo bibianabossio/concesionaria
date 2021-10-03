@@ -24,7 +24,7 @@ export default class CrearRep extends Component {
         body: JSON.stringify({
           "tipo":resTipo,
           "marca":resMarca,
-          "resModelo":resModelo,
+          "modelo":resModelo,
           "precio":resPrecio,
           "stock":resStock
       
