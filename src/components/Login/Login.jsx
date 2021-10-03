@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Title from "./components/Title/Title";
-import Label from "./components/Label/Label";
-import Input from "./components/Input/Input";
+import Title from "../Title/Title";
+import Label from "../Label/Label";
+import Input from "../Input/Input";
 import "./Login.css";
-import "../Login/components/Label/Label.css";
+
 import { func } from "prop-types";
 import { Menu } from "@mui/material";
 import { Link } from "react-router-dom";
