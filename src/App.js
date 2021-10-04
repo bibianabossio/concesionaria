@@ -5,15 +5,18 @@ import Login from "./components/Login/Login";
 import Contrasenia from "./components/Contrasenia/Contrasenia";
 import Menu from "./components/Menu/Menu";
 import CrearRepuesto from "./components/CrearRepuesto/CrearRepuesto"
+import Registrarse from "./components/Registrarse/Registrarse";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Link to="/">Home</Link> <br />
+        <Link to="/registrarse"></Link> 
         <Link to="/contraseña">Actualizar Usuario</Link> <br />
         <Link to="/menu">Inicio</Link> <br />
         <Link to="/crearrepuesto"></Link> 
+
       
         <Route
           exact
@@ -26,6 +29,7 @@ function App() {
             );
           }}
         ></Route>
+          <Route path="/registrarse" component={Registrarse} />
         <Route path="/contraseña" component={Contrasenia} />
         <Route path="/menu" component={Menu} />
         <Route path="/crearrepuesto" component={CrearRepuesto} />

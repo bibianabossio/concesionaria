@@ -3,9 +3,9 @@ import Title from "../Title/Title";
 import Label from "../Label/Label";
 import Input from "../Input/Input";
 import "./Login.css";
+import Registrarse from "../Registrarse/Registrarse";
 
-import { func } from "prop-types";
-import { Menu } from "@mui/material";
+
 import { Link } from "react-router-dom";
 
 
@@ -107,9 +107,9 @@ const Login = () => {
           </button>
           </Link>  
       
-         <Link to= "contraseña"> 
+         <Link to= "registrarse"> 
             <button onClick={handleSubmit} className="submit-button">
-              Actualizar Usuario
+              Registrarse
             </button>
             </Link> 
 
