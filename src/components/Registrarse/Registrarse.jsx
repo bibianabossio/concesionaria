@@ -4,7 +4,7 @@ import Label from "../Label/Label";
 
 
 
-export default class Registrarse extends Component (){
+export default class Registrarse extends Component{
 
  /* 
     crearUsuario= async(event)=>{
@@ -24,11 +24,12 @@ export default class Registrarse extends Component (){
                 "content-type": "application/json",
               },
               body: JSON.stringify({
-                "apellido":resApellido,
+                "usuario":resUsuario,
                 "nombre":resNombre,
                 "dni":resDNI,
                 "mail":resMail,
-                "contrasenia":resContrasenia
+                "contrasenia":resContrasenia,
+                
             
                   }),
     };
@@ -56,15 +57,17 @@ export default class Registrarse extends Component (){
                 <td>
                   <form >
                      
-                    <Label text="Apellido" />
-                    <input type="text" name="apellido" /><br />
-                    <Label text="Nombre" />
+                    <Label text="Usuario" />
+                    <input type="text" name="usuario" /><br />
+                    <Label text="Apellido y Nombre" />
                     <input type="text" name="nombre" /> <br />
                     <Label text="DNI" />
                     <input type="text" name="dni" /><br />
                     <Label text="Mail" />
                     <input type="text" name="mail" /><br />
                     <Label text="Contraseña" />
+                    <input type="text" name="contrasenia" /><br />
+                    <Label text="Validar Contraseña" />
                     <input type="text" name="contrasenia" /><br />
                     <button onClick={this.crearUsuario} /* type="submit" */ className="petit-submit-button">Confirmar</button>
                   </form>

@@ -5,7 +5,8 @@ import "../Label/Label.css";
 import Tabla from "../Tabla/Tabla";
 import CrearRepuesto from "../CrearRepuesto/CrearRepuesto";
 import EditarRepuesto from "../EditarRepuesto/EditarRepuesto";
-import Dolar from "../Dolar/Dolar"
+import Dolar from "../Dolar/Dolar";
+import Perfil from "../Perfil/Perfil"
 
 class Menu extends Component {
  
@@ -26,7 +27,7 @@ class Menu extends Component {
                       <Router>
                         <Label text="Automoviles" />
                         <Link to="/tabla">Listado de Repuestos</Link> <br />
-                        
+                        <Route path="/perfil" component={Perfil} />
                         <Route path="/tabla" component={Tabla} />
                         <Route path="/crearrepuesto" component={CrearRepuesto} />
                         <Route path="/EditarRepuesto/:id" component={EditarRepuesto} />

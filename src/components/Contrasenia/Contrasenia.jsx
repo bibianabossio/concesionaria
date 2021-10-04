@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Input from "../Input/Input";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
-import "../Login/Login.css"
+import "../Login/Login.css";
 import "../Label/Label.css";
 import { Link } from "react-router-dom";
 
@@ -32,7 +32,7 @@ function Contrasenia() {
   return (
     <div className="login-container">
       <div className="login-content">
-        <Title text="Actualizar Datos del Usuario" />
+        <Title text="Mi Perfil" />
         <br />
         <div className="label">
           <Label text="Usuario" />
@@ -47,7 +47,6 @@ function Contrasenia() {
           />
         </div>
         <br />
-        
 
         <div className="label">
           <Label text="Contraseña" />
@@ -62,7 +61,6 @@ function Contrasenia() {
           />
         </div>
         <br />
-        
 
         <div className="label">
           <Label text="Recuperar Contraseña" />
@@ -77,22 +75,18 @@ function Contrasenia() {
           />
         </div>
         <br />
-        
 
         <div className="submit-button-container">
-        <button onClick={handleSubmit} className="submit-button">
-              Guardar Nuevo Usuario
-            </button>
-            <button onClick={handleSubmit} className="submit-button">
-            Modificar Datos 
+          <button onClick={handleSubmit} className="submit-button">
+            Modificar Datos
           </button>
           <button onClick={handleSubmit} className="submit-button">
             Eliminar Usuario
           </button>
-          <Link to= "menu"> 
-          <button onClick={handleSubmit} className="submit-button">
-            Volver al inicio
-          </button>
+          <Link to="menu">
+            <button onClick={handleSubmit} className="submit-button">
+              Volver al inicio
+            </button>
           </Link>
         </div>
 

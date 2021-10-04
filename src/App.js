@@ -6,6 +6,7 @@ import Contrasenia from "./components/Contrasenia/Contrasenia";
 import Menu from "./components/Menu/Menu";
 import CrearRepuesto from "./components/CrearRepuesto/CrearRepuesto"
 import Registrarse from "./components/Registrarse/Registrarse";
+import Perfil from "./components/Perfil/Perfil";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <Link to="/">Home</Link> <br />
         <Link to="/registrarse"></Link> 
+        <Link to="/perfil">Perfil</Link> <br />
         <Link to="/contraseña">Actualizar Usuario</Link> <br />
         <Link to="/menu">Inicio</Link> <br />
         <Link to="/crearrepuesto"></Link> 
@@ -31,6 +33,7 @@ function App() {
         ></Route>
           <Route path="/registrarse" component={Registrarse} />
         <Route path="/contraseña" component={Contrasenia} />
+        <Route path="/perfil" component={Perfil} />
         <Route path="/menu" component={Menu} />
         <Route path="/crearrepuesto" component={CrearRepuesto} />
 
