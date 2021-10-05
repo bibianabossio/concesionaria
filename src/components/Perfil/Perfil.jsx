@@ -50,22 +50,21 @@ export default class Perfil extends Component {
   render() {
     return (
       <>
-      <div className="login-container">
-      <div className="login-content">
-        <form>
-          <Label text="Usuario" />
-          <input type="text" disabled /*value={this.user.usuario}*/ />
-          <br />
-          <Label text="Apellido y Nombre" />
-          <input type="text" /*placeholder={this.user.nombre} */ /> <br />
-          <Label text="Número de DNI" />
-          <input type="text" /* placeholder={this.user.dni}*/ />
-          <br />
-          <Label text="Dirección de mail" />
-          <input type="text" /*placeholder={this.user.mail}*/ />
-          <br />
-          
-                         <button
+        <div className="login-container">
+          <div className="login-content">
+            <form>
+              <Label text="Usuario" />
+              <input type="text" /*value={this.user.usuario}*/ />
+              <br />
+              <Label text="Apellido y Nombre" />
+              <input type="text" /*placeholder={this.user.nombre} */ /> <br />
+              <Label text="Número de DNI" />
+              <input type="text" /* placeholder={this.user.dni}*/ />
+              <br />
+              <Label text="Dirección de mail" />
+              <input type="text" /*placeholder={this.user.mail}*/ />
+              <br />
+              <button
                 /*type="submit"*/
                 onClick={this.funcionBorrar}
                 className="submit-button"
@@ -80,11 +79,9 @@ export default class Perfil extends Component {
               >
                 Modificar
               </button>
-              </form>
-            </div>
-          
+            </form>
           </div>
-      
+        </div>
       </>
     );
   }

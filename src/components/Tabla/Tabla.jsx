@@ -2,18 +2,16 @@ import React from "react";
 import ListadoRepuestos from "../ListadoRepuestos/ListadoRepuestos";
 import Title from "../Title/Title";
 
-
 const Tabla = () => {
   return (
-   
     <div className="contenedor-tabla">
-       <tr>
-      <Title text="Listado de Repuestos" />
-      <br/>
-    </tr>
+      <tr>
+        <Title text="Listado de Repuestos" />
+        <br />
+      </tr>
       <table className="tabla-style2">
         <thead>
-        <th>Clave</th>
+          <th>Clave</th>
           <th>Tipo</th>
           <th>Marca</th>
           <th>Modelo</th>
@@ -24,7 +22,6 @@ const Tabla = () => {
         </thead>
         <ListadoRepuestos />
       </table>
-      
     </div>
   );
 };
