@@ -8,14 +8,24 @@ export default class EditarRepuesto extends Component {
     editRep: [],
   };
 
-  funcionEditarRep = async(event) => {
+  funcionEditarRep = async (event) => {
     event.preventDefault();
-    let resId=event.target.form.id.value
-    let resTipo=event.target.form.tipo.value?event.target.form.tipo.value:this.state.valor.tipo
-    let resMarca=event.target.form.marca.value?event.target.form.marca.value:this.state.valor.marca
-    let resModelo=event.target.form.modelo.value?event.target.form.modelo.value:this.state.valor.modelo
-    let resPrecio=event.target.form.precio.value?event.target.form.precio.value:this.state.valor.precio
-    let resStock=event.target.form.stock.value?event.target.form.stock.value:this.state.valor.stock
+    let resId = event.target.form.id.value;
+    let resTipo = event.target.form.tipo.value
+      ? event.target.form.tipo.value
+      : this.state.valor.tipo;
+    let resMarca = event.target.form.marca.value
+      ? event.target.form.marca.value
+      : this.state.valor.marca;
+    let resModelo = event.target.form.modelo.value
+      ? event.target.form.modelo.value
+      : this.state.valor.modelo;
+    let resPrecio = event.target.form.precio.value
+      ? event.target.form.precio.value
+      : this.state.valor.precio;
+    let resStock = event.target.form.stock.value
+      ? event.target.form.stock.value
+      : this.state.valor.stock;
 
     try {
       let config = {
@@ -25,13 +35,12 @@ export default class EditarRepuesto extends Component {
           "content-type": "application/json",
         },
         body: JSON.stringify({
-          "tipo":resTipo,
-          "marca":resMarca,
-          "modelo":resModelo,
-          "precio":resPrecio,
-          "stock":resStock
-      
-            }),
+          tipo: resTipo,
+          marca: resMarca,
+          modelo: resModelo,
+          precio: resPrecio,
+          stock: resStock,
+        }),
       };
       let res = await fetch(
         `https://api-taller-mecanico.herokuapp.com/repuestos/${resId}`,
@@ -44,68 +53,69 @@ export default class EditarRepuesto extends Component {
     }
   };
 
-
   render() {
     return (
-      <tbody>
-        <tr>
-          <>
-            <td>
-              <form id="formEditRep">
-                id
-                <input
-                  className="formEditRepInput"
-                  type="text"
-                  name="id"
-                  disabled
-                  value={this.state.valor.id}
-                />
-                Tipo
-                <input
-                  className="formEditRepInput"
-                  type="text"
-                  name="tipo"
-                  placeholder={this.state.valor.tipo}
-                />
-                Marca
-                <input
-                  className="formEditRepInput"
-                  type="text"
-                  name="marca"
-                  placeholder={this.state.valor.marca}
-                />
-                Modelo
-                <input
-                  className="formEditRepInput"
-                  type="text"
-                  name="modelo"
-                  placeholder={this.state.valor.modelo}
-                />
-                Precio
-                <input
-                  className="formEditRepInput"
-                  type="text"
-                  name="precio"
-                  placeholder={this.state.valor.precio}
-                />
-                Stock
-                <input
-                  className="formEditRepInput"
-                  type="text"
-                  name="stock"
-                  placeholder={this.state.valor.stock}
-                />
-                <button type="submit" onClick={this.funcionEditarRep}>
-                  Confirmar
-                </button>
-              </form>
-            </td>
-            <td>
-
-            </td>
-          </>
-        </tr>
-      </tbody>
+      <div className="login-container">
+        <div className="login-content">
+          <tbody>
+            <tr>
+              <>
+                <td>
+                  <form id="formEditRep">
+                    id
+                    <input
+                      className="formEditRepInput"
+                      type="text"
+                      name="id"
+                      disabled
+                      value={this.state.valor.id}
+                    />
+                    Tipo
+                    <input
+                      className="formEditRepInput"
+                      type="text"
+                      name="tipo"
+                      placeholder={this.state.valor.tipo}
+                    />
+                    Marca
+                    <input
+                      className="formEditRepInput"
+                      type="text"
+                      name="marca"
+                      placeholder={this.state.valor.marca}
+                    />
+                    Modelo
+                    <input
+                      className="formEditRepInput"
+                      type="text"
+                      name="modelo"
+                      placeholder={this.state.valor.modelo}
+                    />
+                    Precio
+                    <input
+                      className="formEditRepInput"
+                      type="text"
+                      name="precio"
+                      placeholder={this.state.valor.precio}
+                    />
+                    Stock
+                    <input
+                      className="formEditRepInput"
+                      type="text"
+                      name="stock"
+                      placeholder={this.state.valor.stock}
+                    />
+                    <button type="submit" onClick={this.funcionEditarRep}>
+                      Confirmar
+                    </button>
+                  </form>
+                </td>
+                <td></td>
+              </>
+            </tr>
+          </tbody>
+        </div>
+      </div>
     );
   }
 }

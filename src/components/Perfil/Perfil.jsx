@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { render, BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Label from "../Label/Label";
 
 export default class Perfil extends Component {
   state = {
@@ -49,26 +50,41 @@ export default class Perfil extends Component {
   render() {
     return (
       <>
+      <div className="login-container">
+      <div className="login-content">
         <form>
-          <input type="text" disabled /*value={this.user.usuario}*/ /><br />
+          <Label text="Usuario" />
+          <input type="text" disabled /*value={this.user.usuario}*/ />
+          <br />
+          <Label text="Apellido y Nombre" />
           <input type="text" /*placeholder={this.user.nombre} */ /> <br />
-          <input type="text" /* placeholder={this.user.dni}*/ /><br />
-          <input type="text" /*placeholder={this.user.mail}*/ /><br />
-          <button
-            type="submit"
-            onClick={this.funcionBorrar}
-            className="submit-button"
-          >
-            Eliminar
-          </button>
-          <button
-            type="submit"
-            onClick={this.funcionModificar}
-            className="submit-button"
-          >
-            Modificar
-          </button>
-        </form>
+          <Label text="Número de DNI" />
+          <input type="text" /* placeholder={this.user.dni}*/ />
+          <br />
+          <Label text="Dirección de mail" />
+          <input type="text" /*placeholder={this.user.mail}*/ />
+          <br />
+          
+                         <button
+                /*type="submit"*/
+                onClick={this.funcionBorrar}
+                className="submit-button"
+              >
+                Eliminar
+              </button>
+              <br />
+              <button
+                /*type="submit"*/
+                onClick={this.funcionModificar}
+                className="submit-button"
+              >
+                Modificar
+              </button>
+              </form>
+            </div>
+          
+          </div>
+      
       </>
     );
   }

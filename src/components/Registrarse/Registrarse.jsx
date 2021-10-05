@@ -2,11 +2,8 @@ import React, { Component } from "react";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
 
-
-
-export default class Registrarse extends Component{
-
- /* 
+export default class Registrarse extends Component {
+  /* 
     crearUsuario= async(event)=>{
         event.preventDefault()
         console.log("hice click",event.target.form.tipo.value);
@@ -47,29 +44,38 @@ export default class Registrarse extends Component{
   }
 */
   render() {
-    return (      
+    return (
       <>
-          <Title text="Registrarse" />
+        <Title text="Registrarse" />
         <table className="login-content">
           <tbody>
             <tr>
               <>
                 <td>
-                  <form >
-                     
+                  <form>
                     <Label text="Usuario" />
-                    <input type="text" name="usuario" /><br />
+                    <input type="text" name="usuario" />
+                    <br />
                     <Label text="Apellido y Nombre" />
                     <input type="text" name="nombre" /> <br />
                     <Label text="DNI" />
-                    <input type="text" name="dni" /><br />
+                    <input type="text" name="dni" />
+                    <br />
                     <Label text="Mail" />
-                    <input type="text" name="mail" /><br />
+                    <input type="text" name="mail" />
+                    <br />
                     <Label text="Contraseña" />
-                    <input type="text" name="contrasenia" /><br />
+                    <input type="text" name="contrasenia" />
+                    <br />
                     <Label text="Validar Contraseña" />
-                    <input type="text" name="contrasenia" /><br />
-                    <button onClick={this.crearUsuario} /* type="submit" */ className="petit-submit-button">Confirmar</button>
+                    <input type="text" name="contrasenia" />
+                    <br />
+                    <button
+                      onClick={this.crearUsuario}
+                      /* type="submit" */ className="petit-submit-button"
+                    >
+                      Confirmar
+                    </button>
                   </form>
                 </td>
                 <td></td>
@@ -77,8 +83,7 @@ export default class Registrarse extends Component{
             </tr>
           </tbody>
         </table>
-        </>
-      
+      </>
     );
   }
 }

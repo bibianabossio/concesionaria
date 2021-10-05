@@ -4,9 +4,9 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 80%;
-    height: 100vh;
-    background:  rgb(238, 238, 241);
+    width: flex;
+    height: flex;
+    background:  rgb(208, 240, 247);
 }
 
 .list-container{
@@ -15,9 +15,9 @@
     justify-content: left;
     align-items: left;
     position: sticky;
-    width:flex;
-    height: 50vh;
-    background:  rgb(238, 238, 241);
+    width:flex-end;
+    height: flex-end;
+    background:  rgb(208, 240, 247);
 }
 .login-content{
     display: flex;
@@ -25,9 +25,9 @@
     justify-content: center;
     margin: auto;
     position: relative;
-    width: 80%;
-    height: 80%;
-    border: 2px solid rgb(235,101,40);
+    width: flex-end;
+    height: flex-end;
+    border: 2px solid rgb(87, 29, 3);
     align-items: center;
     box-shadow:4px 4px rgb(112, 49, 19) ;
 
@@ -40,8 +40,8 @@
     margin: auto;
     position: relative;
     width: flex;
-    height: flex;
-    border: 2px solid rgb(235,101,40);
+    height: flex-end;
+    border: 2px solid rgb(87, 29, 3);
     align-items: center;
     box-shadow:4px 4px rgb(112, 49, 19);
     
@@ -71,12 +71,12 @@
     align-items: center;
     align-self: flex-end;
     flex-direction: column;
-    background: rgb(235,101,40) ;
+    background: rgb(87, 29, 3);
     font-size: 14px;
     font-weight: bold;
     justify-content: 'center';
-    margin: flex;
-    margin-top: flex;
+    margin: flex-end;
+    margin-top: flex-end;
     padding:0 5px;
     width: 100%;
     height: 40px;
@@ -91,7 +91,7 @@
     align-items: center;
     align-self: flex-end;
     flex-direction: column;
-    background: rgb(235,101,40) ;
+    background: rgb(87, 29, 3); 
     font-size: 10px;
     font-weight: bold;
     justify-content: 'center';
@@ -142,7 +142,7 @@ height: 35px;
 border-radius: 15px;
 border:none;
 box-sizing: border-box;
-color: rgb(112, 49, 19);
+color: rgb(87, 29, 3);
 outline: none;
 font-size: 20px;
 border: none;
