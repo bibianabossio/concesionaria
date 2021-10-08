@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import {render, BrowserRouter as Router, Route, Link } from "react-router-dom";
-import CrearRepuesto from "../CrearRepuesto/CrearRepuesto";
+import { Link } from "react-router-dom";
+/* import CrearRepuesto from "../CrearRepuesto/CrearRepuesto"; */
 
 
 

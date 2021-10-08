@@ -1,43 +1,53 @@
-import React from "react";
+import * as React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-//import "./App.css";
+import "./BarraNavegacion.css";
 import Login from "../Login/Login";
 import Contrasenia from "../Contrasenia/Contrasenia";
 import Menu from "../Menu/Menu";
 import CrearRepuesto from "../CrearRepuesto/CrearRepuesto";
 import Registrarse from "../Registrarse/Registrarse";
 import Perfil from "../Perfil/Perfil";
+import Box from "@mui/material/Box";
 
-const BarraNavegacion =()=>{
+import Typography from "@mui/material/Typography";
 
+const BarraNavegacion = () => {
+  return (
+    <>
+      <Router>
+        <Box className="barraNavegacion">
+          <Typography sx={{ minWidth: 100 }}>
+            <Link sx={{ margin: 100 }} to="/">
+              Login
+            </Link>
+          </Typography>
+          <Typography sx={{ minWidth: 100 }}>
+            <Link sx={{ minWidth: 100 }} to="/registrarse">
+              Registrarse
+            </Link>
+          </Typography>
+          <Typography sx={{ minWidth: 100 }}>
+            <Link to="/menu">Inicio</Link>
+          </Typography>
+          <Typography sx={{ minWidth: 100 }}>
+            <Link to="/perfil">Perfil</Link>
+          </Typography>
+          <Typography sx={{ minWidth: 170 }}>
+            <Link to="/contraseña">Actualizar Usuario</Link>
+          </Typography>
+          <Typography sx={{ minWidth: 140 }}>
+            <Link to="/crearrepuesto">Crear Repuesto</Link>
+          </Typography>
+        </Box>
 
-    return (
-        <>
-        <Router>
-        <Link to="/">Home</Link> <br />
-        <Link to="/registrarse"></Link>
-        <Link to="/perfil">Perfil</Link> <br />
-        <Link to="/contraseña">Actualizar Usuario</Link> <br />
-        <Link to="/menu">Inicio</Link> <br />
-        <Link to="/crearrepuesto"></Link>
-        <Route
-          exact
-          path="/"
-          render={() => {
-            return (
-              <div>
-                <Login />
-              </div>
-            );
-          }}
-        ></Route>
+        <Route exact path="/" component={Login} />
         <Route path="/registrarse" component={Registrarse} />
         <Route path="/contraseña" component={Contrasenia} />
         <Route path="/perfil" component={Perfil} />
         <Route path="/menu" component={Menu} />
         <Route path="/crearrepuesto" component={CrearRepuesto} />
       </Router>
-      </>
-    )
-}
-export default BarraNavegacion
+    </>
+  );
+};
+export default BarraNavegacion;

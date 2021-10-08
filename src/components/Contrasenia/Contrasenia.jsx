@@ -7,11 +7,11 @@ import "../Label/Label.css";
 import { Link } from "react-router-dom";
 
 function Contrasenia() {
-  const classes = useState();
+ /*  const classes = useState(); */
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const [isLogin, setIsLogin] = useState(false);
+  /* const [isLogin, setIsLogin] = useState(false); */
 
   function handleChange(name, value) {
     if (name === "usuario") {

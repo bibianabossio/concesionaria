@@ -3,14 +3,14 @@ import Title from "../Title/Title";
 import Label from "../Label/Label";
 import Input from "../Input/Input";
 import "./Login.css";
-import Registrarse from "../Registrarse/Registrarse";
+/* import Registrarse from "../Registrarse/Registrarse"; */
 
 
 import { Link } from "react-router-dom";
 
 
 const Login = () => {
-  const classes = useState();
+/*   const classes = useState(); */
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -38,7 +38,7 @@ const Login = () => {
         let ac = { user, password };
         let account = JSON.stringify(ac);
         localStorage.setItem("account", account);
-        setIsLogin(true);
+        setIsLogin(()=>{this.isLogin=true});
       } else {
         setIsLogin(false);
         setHasError(true);

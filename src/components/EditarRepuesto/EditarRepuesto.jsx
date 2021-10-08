@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./EditarRepuesto.css";
-import { useParams } from "react-router-dom";
+/* import { useParams } from "react-router-dom"; */
 
 export default class EditarRepuesto extends Component {
   state = {

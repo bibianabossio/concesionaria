@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { render, BrowserRouter as Router, Route, Link } from "react-router-dom";
+/* import { render, BrowserRouter as Router, Route, Link } from "react-router-dom"; */
 import Label from "../Label/Label";
 
 export default class Perfil extends Component {
