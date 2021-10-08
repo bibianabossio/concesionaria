@@ -64,6 +64,12 @@ export default class Perfil extends Component {
               <Label text="Dirección de mail" />
               <input type="text" /*placeholder={this.user.mail}*/ />
               <br />
+              <Label text="Contraseña Nueva" />
+              <input type="text" /*placeholder={this.user.contrasenia}*/ />
+              <br />
+              <Label text="Validar Contraseña Nueva" />
+              <input type="text" /*placeholder={this.user.contrasenia}*/ />
+              <br />
               <button
                 /*type="submit"*/
                 onClick={this.funcionBorrar}
