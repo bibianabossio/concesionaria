@@ -6,7 +6,7 @@
     position: relative;
     width: flex;
     height: flex;
-    background:  rgb(208, 240, 247);
+    background: rgb(32, 32, 32);
 }
 
 .list-container{
@@ -17,7 +17,7 @@
     position: sticky;
     width:flex-end;
     height: flex-end;
-    background:  rgb(208, 240, 247);
+    background:  rgb(32, 32, 32);
 }
 .login-content{
     display: flex;
@@ -27,9 +27,9 @@
     position: relative;
     width: flex-end;
     height: flex-end;
-    border: 2px solid rgb(87, 29, 3);
+    border: 4px solid rgb(158,6,5);
     align-items: center;
-    box-shadow:4px 4px rgb(112, 49, 19) ;
+    box-shadow:2px 2px #fbfbfb ;
 
 }
 
@@ -41,14 +41,14 @@
     position: relative;
     width: flex;
     height: flex-end;
-    border: 2px solid rgb(87, 29, 3);
+    border: 4px solid rgb(158,6,5);
     align-items: center;
-    box-shadow:4px 4px rgb(112, 49, 19);
+    box-shadow:2px 2px #fbfbfb;
     
 
 }
 .list {
-    color: rgb(112, 49, 19);
+    color: rgb(158,6,5);
     font-size: 15px;
     text-align: center;
     margin: 20px;
@@ -71,7 +71,7 @@
     align-items: center;
     align-self: flex-end;
     flex-direction: column;
-    background: rgb(87, 29, 3);
+    background: rgb(158,6,5);
     font-size: 14px;
     font-weight: bold;
     justify-content: 'center';
@@ -142,7 +142,7 @@ height: 35px;
 border-radius: 15px;
 border:none;
 box-sizing: border-box;
-color: rgb(87, 29, 3);
+color: #fbfbfb;
 outline: none;
 font-size: 20px;
 border: none;
