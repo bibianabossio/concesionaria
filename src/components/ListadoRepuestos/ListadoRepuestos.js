@@ -55,11 +55,11 @@ export default class Post extends Component {
   render() {
 
     return (
-      
+     
       <tbody>
         {this.state.post.map((post) => {
           return (
-            
+           
             <tr key={post.id}>
               <>
                 <td>{post.id}</td>
@@ -69,9 +69,11 @@ export default class Post extends Component {
                 <td>{post.precio}</td>
                 <td>{post.stock}</td>
                 <td>
+      
                   <form>                    
                     <button type="submit" onClick={this.funcionBorrar} value={post.id} className="submit-button">Eliminar</button>                    
                   </form>
+              
                 </td>
                 <td>
                     <Link 
@@ -92,7 +94,7 @@ export default class Post extends Component {
                 </td>
               </>
             </tr>
-            
+        
           );
         })}
         <tr>

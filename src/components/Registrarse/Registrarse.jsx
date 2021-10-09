@@ -46,9 +46,10 @@ export default class Registrarse extends Component {
   render() {
     return (
       <>
-        <Title text="Registrarse" />
-        <table className="login-content">
-          <tbody>
+        <div className="login-container">
+          <div className="login-content">  <br />
+            <Title text="Registrarse" />  <br />
+
             <tr>
               <>
                 <td>
@@ -69,20 +70,22 @@ export default class Registrarse extends Component {
                     <br />
                     <Label text="Validar Contraseña" />
                     <input type="text" name="contrasenia" />
-                    <br />
+                    <br />  <br />
                     <button
                       onClick={this.crearUsuario}
-                      /* type="submit" */ className="petit-submit-button"
+                      /* type="submit" */ className="submit-button"
                     >
                       Confirmar
                     </button>
+                
                   </form>
+                  <br />
                 </td>
                 <td></td>
               </>
             </tr>
-          </tbody>
-        </table>
+          </div>
+        </div>
       </>
     );
   }

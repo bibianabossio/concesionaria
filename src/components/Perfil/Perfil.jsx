@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 /* import { render, BrowserRouter as Router, Route, Link } from "react-router-dom"; */
 import Label from "../Label/Label";
+import Title from "../Title/Title";
 
 export default class Perfil extends Component {
   state = {
@@ -52,6 +53,9 @@ export default class Perfil extends Component {
       <>
         <div className="login-container">
           <div className="login-content">
+            {" "}
+            <br />
+            <Title text="Mi Perfil" /> <br />
             <form>
               <Label text="Usuario" />
               <input type="text" /*value={this.user.usuario}*/ />
@@ -70,6 +74,7 @@ export default class Perfil extends Component {
               <Label text="Validar Contraseña Nueva" />
               <input type="text" /*placeholder={this.user.contrasenia}*/ />
               <br />
+              <br />
               <button
                 /*type="submit"*/
                 onClick={this.funcionBorrar}
@@ -86,6 +91,7 @@ export default class Perfil extends Component {
                 Modificar
               </button>
             </form>
+            <br />
           </div>
         </div>
       </>

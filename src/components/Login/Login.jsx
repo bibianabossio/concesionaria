@@ -5,12 +5,10 @@ import Input from "../Input/Input";
 import "./Login.css";
 /* import Registrarse from "../Registrarse/Registrarse"; */
 
-
 import { Link } from "react-router-dom";
 
-
 const Login = () => {
-/*   const classes = useState(); */
+  /*   const classes = useState(); */
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -38,7 +36,9 @@ const Login = () => {
         let ac = { user, password };
         let account = JSON.stringify(ac);
         localStorage.setItem("account", account);
-        setIsLogin(()=>{this.isLogin=true});
+        setIsLogin(() => {
+          this.isLogin = true;
+        });
       } else {
         setIsLogin(false);
         setHasError(true);
@@ -57,7 +57,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div className="login-content">
+      <div className="login-content">  <br />
         <Title text="Concesionaria Citroën" />
         {hasError && (
           <label className="label-alert">
@@ -102,24 +102,21 @@ const Login = () => {
         <br />
         <div className="submit-button-container">
           <Link to="menu">
-          <button onClick={handleSubmit}  className="submit-button">
-            Ingresar al Sistema
-          </button>
-          </Link>  
-      
-         <Link to= "registrarse"> 
+            <button onClick={handleSubmit} className="submit-button">
+              Ingresar al Sistema
+            </button>
+          </Link>
+
+          <Link to="registrarse">
             <button onClick={handleSubmit} className="submit-button">
               Registrarse
-            </button>
-            </Link> 
+            </button>   <br />
+          </Link>
 
-          
-           
-            <br />
-          </div>
+          <br />
         </div>
       </div>
-  
+    </div>
   );
 };
 
