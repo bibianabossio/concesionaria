@@ -49,12 +49,12 @@ export default class Registrarse extends Component {
         <div className="login-container">
           <div className="login-content">
             {" "}
-            <br /> 
-            <Title text="Registrarse" /> <br />
+            <br />
+            <Title className="title-label" text="Registrarse" /> <br />
             <form className="form">
               <Label text="Usuario" />
               <input className="input-container" type="text" />
-              <br /> <br />
+              <br />
               <Label text="Apellido y Nombre" />
               <input className="input-container" type="text" /> <br />
               <Label text="DNI" />

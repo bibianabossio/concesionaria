@@ -50,7 +50,7 @@ export default class Perfil extends Component {
           <div className="login-content">
             {" "}
             <br />
-            <Title text="Mi Perfil" /> <br />
+            <Title className="title-label" text="Mi Perfil" /> <br />
             <form className="form">
               <Label text="Usuario" />
               <input
@@ -89,20 +89,24 @@ export default class Perfil extends Component {
               />
               <br />
               <br />
-              <button
-                /*type="submit"*/
-                onClick={this.funcionBorrar}
-                className="submit-button"
-              >
-                Eliminar
-              </button>
-              <button
-                /*type="submit"*/
-                onClick={this.funcionModificar}
-                className="submit-button"
-              >
-                Modificar
-              </button>
+              <div className="submit-button-container">
+                <button
+                  /*type="submit"*/
+                  onClick={this.funcionBorrar}
+                  className="submit-button"
+                >
+                  Eliminar
+                </button>
+              </div>
+              <div className="submit-button-container">
+                <button
+                  /*type="submit"*/
+                  onClick={this.funcionModificar}
+                  className="submit-button"
+                >
+                  Modificar
+                </button>
+              </div>
             </form>
             <br />
           </div>

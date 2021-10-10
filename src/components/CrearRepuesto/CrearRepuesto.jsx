@@ -55,38 +55,31 @@ export default class CrearRep extends Component {
         <div className="login-container">
           <div className="login-content">
             <br />
-            <Title text="Crear Nuevo Repuesto" /> <br />
-            <tr>
-              <>
-                <td>
-                  <form>
-                    <Label text="Tipo" />
-                    <input type="text" name="tipo" />
-                    <br />
-                    <Label text="Marca" />
-                    <input type="text" name="marca" /> <br />
-                    <Label text="Modelo" />
-                    <input type="text" name="modelo" />
-                    <br />
-                    <Label text="Precio" />
-                    <input type="text" name="precio" />
-                    <br />
-                    <Label text="Stock" />
-                    <input type="text" name="stock" />
-                    <br />
-                    <br />
-                    <button
-                      onClick={this.crearRepuesto}
-                      /* type="submit" */ className="submit-button"
-                    >
-                      Confirmar
-                    </button>
-                  </form>
-                  <br />
-                </td>
-                <td></td>
-              </>
-            </tr>
+            <Title className="title-label" text="Crear Nuevo Repuesto" /> <br />
+            <form className="form">
+              <Label text="Tipo" />
+              <input className="input-container" type="text" />
+              <br />
+              <Label text="Marca" />
+              <input className="input-container" type="text" /> <br />
+              <Label text="Modelo" />
+              <input className="input-container" type="text" />
+              <br />
+              <Label text="Precio" />
+              <input className="input-container" type="text" name="precio" />
+              <br />
+              <Label text="Stock" />
+              <input className="input-container" type="text" name="stock" />
+              <br />
+              <br />
+              <button
+                onClick={this.crearRepuesto}
+                /* type="submit" */ className="submit-button"
+              >
+                Confirmar
+              </button>
+            </form>
+            <br />
           </div>
         </div>
       </>

@@ -60,7 +60,7 @@ const Login = () => {
       <div className="login-content">
         {" "}
         <br />
-        <Title text="Concesionaria Citroën" />
+        <Title className="title-label" text="Concesionaria Citroën" />
         <form className="form">
           {hasError && (
             <label className="label-alert">
@@ -82,7 +82,6 @@ const Login = () => {
             />
           </div>
           <br />
-
           <div className="label">
             <Label text="Contraseña" />
             <Input
@@ -96,25 +95,24 @@ const Login = () => {
               param={passwordError}
             />
           </div>
-
           {passwordError && (
             <label className="label-error">
               Contraseña inválida o incompleta
             </label>
           )}
-          <br />
+          <br /> <br />
           <div className="submit-button-container">
             <Link to="menu">
               <button onClick={handleSubmit} className="submit-button">
                 Ingresar al Sistema
               </button>
             </Link>
-
+          </div>
+          <div className="submit-button-container">
             <Link to="registrarse">
               <button onClick={handleSubmit} className="submit-button">
                 Registrarse
               </button>{" "}
-              <br />
             </Link>
 
             <br />
