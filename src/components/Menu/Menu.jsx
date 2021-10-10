@@ -7,6 +7,7 @@ import CrearRepuesto from "../CrearRepuesto/CrearRepuesto";
 import EditarRepuesto from "../EditarRepuesto/EditarRepuesto";
 import Dolar from "../Dolar/Dolar";
 import Perfil from "../Perfil/Perfil"
+import ListadoRepuestos from "../ListadoRepuestos/ListadoRepuestos"
 
 class Menu extends Component {
  
@@ -19,8 +20,8 @@ class Menu extends Component {
         <tabla>
           <tr>
             <td>
-              <form>
-                <div>
+             
+               
                   <div className="list-content">
                     <div className="list">
                      
@@ -28,7 +29,7 @@ class Menu extends Component {
                         <Label text="Automoviles" />
                         <Link to="/tabla">Listado de Repuestos</Link> <br />
                         <Route path="/perfil" component={Perfil} />
-                        <Route path="/tabla" component={Tabla} />
+                        <Route path="/tabla" component={ListadoRepuestos} />
                         <Route path="/crearrepuesto" component={CrearRepuesto} />
                         <Route path="/EditarRepuesto/:id" component={EditarRepuesto} />
 
@@ -36,12 +37,12 @@ class Menu extends Component {
                      
                     </div>
                   </div>
-                </div>
-              </form>
+                
+             
             </td>
           </tr>
         </tabla>
-        <Dolar/>
+       
       </>
     );
   }

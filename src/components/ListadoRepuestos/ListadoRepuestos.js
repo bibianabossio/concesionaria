@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { BrowserRouter as Router,Route, Link } from "react-router-dom";
+import EditarRepuesto from "../EditarRepuesto/EditarRepuesto";
 /* import CrearRepuesto from "../CrearRepuesto/CrearRepuesto"; */
 
 
@@ -51,17 +52,36 @@ export default class Post extends Component {
       
     }
   }
+  editarRepuesto=(event)=>{
+    event.preventDefault()
+    console.log(event.target)
+  }
 
   render() {
 
     return (
-     
-      <tbody>
+
+      
+      <table className="tabla-style2">
+        <thead>
+          <th>Clave</th>
+          <th>Tipo</th>
+          <th>Marca</th>
+          <th>Modelo</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th></th>
+          <th></th>
+        </thead>
+           <tbody className="tabla-style2">
+        
         {this.state.post.map((post) => {
           return (
+            
            
             <tr key={post.id}>
               <>
+              
                 <td>{post.id}</td>
                 <td>{post.tipo}</td>
                 <td>{post.marca}</td>
@@ -76,6 +96,11 @@ export default class Post extends Component {
               
                 </td>
                 <td>
+               {/*  <form>                    
+                    <button type="submit" onClick={this.editarRepuesto} value={post.id} className="submit-button">Editar Repuesto</button>                    
+                  </form> */}
+                  <Router>
+                   
                     <Link 
                     
                     className="submit-button"  to={{
@@ -90,7 +115,9 @@ export default class Post extends Component {
                       post:post.stock
 
                       }
-                    }} value={post.id}>Modificar</Link> 
+                    }} value={post.id}>Modificar</Link>
+                    
+                     </Router>
                 </td>
               </>
             </tr>
@@ -99,10 +126,14 @@ export default class Post extends Component {
         })}
         <tr>
           <td colspan="5">
+          <Router>
               <Link className="submit-button"  to="/crearrepuesto" >Crear Repuesto</Link> 
+            </Router>
           </td>
           </tr>
       </tbody>
+      </table>
+        
       
       
     );

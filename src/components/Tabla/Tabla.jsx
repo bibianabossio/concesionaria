@@ -4,7 +4,8 @@ import Title from "../Title/Title";
 
 const Tabla = () => {
   return (
-    <div className="contenedor-tabla">
+        <ListadoRepuestos />
+    /* <div className="contenedor-tabla">
       <tr>
         <Title text="Listado de Repuestos" />
         <br />
@@ -20,9 +21,9 @@ const Tabla = () => {
           <th></th>
           <th></th>
         </thead>
-        <ListadoRepuestos />
+        
       </table>
-    </div>
+    </div> */
   );
 };
 export default Tabla;
