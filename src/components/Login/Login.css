@@ -48,12 +48,13 @@
 
 }
 .list {
-    color: rgb(158,6,5);
-    font-size: 15px;
+    color: #fbfbfb;
+    font-size: 20px;
     text-align: center;
     margin: 20px;
     display: "flex";
     justify-content: flex-end;
+    
    
     
 }
@@ -80,7 +81,7 @@
     padding:0 5px;
     width: 10vw;
     height: 6vh;
-    border-radius: 20px;
+    border-radius: 15px;
     
 }
 .petit-submit-button{
@@ -98,9 +99,9 @@
     margin: flex;
     margin-top: flex;
     padding:0 5px;
-    width: 50%;
+    width: 20%;
     height: 20px;
-    border-radius: 20px;
+    border-radius: 15px;
     
 }
 
@@ -133,7 +134,8 @@
 
 }.input-container{
     width: 100%;
-    
+    border-radius: 10px;
+    height: 30px;
     
 }
 
@@ -197,4 +199,8 @@ height: 50px;
   
    
 
+}
+
+.form {
+    padding: 10%
 }

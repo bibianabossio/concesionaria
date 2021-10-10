@@ -14,7 +14,6 @@ export default class Perfil extends Component {
     const data = await res.json();
     this.setState({ post: data });
   }*/
-
   funcionModificar = async (event) => {
     event.preventDefault();
     console.log(
@@ -39,15 +38,11 @@ export default class Perfil extends Component {
     let res=await fetch(`llamar a la api de merce/${event.target.value}`,config);
       let resEnJson=await res.json()
     console.log(" SE BORRO! :",resEnJson)
-  
-    
-      
+          
     } catch (error) {
     console.log(" hubo un error :( :",error)
-      
-    }*/
+     }*/
   };
-
   render() {
     return (
       <>
@@ -56,23 +51,42 @@ export default class Perfil extends Component {
             {" "}
             <br />
             <Title text="Mi Perfil" /> <br />
-            <form>
+            <form className="form">
               <Label text="Usuario" />
-              <input type="text" /*value={this.user.usuario}*/ />
+              <input
+                className="input-container"
+                type="text" /*value={this.user.usuario}*/
+              />
               <br />
               <Label text="Apellido y Nombre" />
-              <input type="text" /*placeholder={this.user.nombre} */ /> <br />
+              <input
+                className="input-container"
+                type="text" /*placeholder={this.user.nombre} */
+              />{" "}
+              <br />
               <Label text="Número de DNI" />
-              <input type="text" /* placeholder={this.user.dni}*/ />
+              <input
+                className="input-container"
+                type="text" /* placeholder={this.user.dni}*/
+              />
               <br />
               <Label text="Dirección de mail" />
-              <input type="text" /*placeholder={this.user.mail}*/ />
+              <input
+                className="input-container"
+                type="text" /*placeholder={this.user.mail}*/
+              />
               <br />
               <Label text="Contraseña Nueva" />
-              <input type="text" /*placeholder={this.user.contrasenia}*/ />
+              <input
+                className="input-container"
+                type="text" /*placeholder={this.user.contrasenia}*/
+              />
               <br />
               <Label text="Validar Contraseña Nueva" />
-              <input type="text" /*placeholder={this.user.contrasenia}*/ />
+              <input
+                className="input-container"
+                type="text" /*placeholder={this.user.contrasenia}*/
+              />
               <br />
               <br />
               <button

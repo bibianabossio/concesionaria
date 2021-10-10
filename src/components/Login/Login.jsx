@@ -57,64 +57,69 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div className="login-content">  <br />
+      <div className="login-content">
+        {" "}
+        <br />
         <Title text="Concesionaria Citroën" />
-        {hasError && (
-          <label className="label-alert">
-            {" "}
-            Datos incorrectos o No registrados
-          </label>
-        )}
-        <br />
-        <div className="label">
-          <Label text="Usuario" />
-          <Input
-            attribute={{
-              id: "usuario",
-              name: "usuario",
-              type: "text",
-              placeholder: "",
-            }}
-            handleChange={handleChange}
-          />
-        </div>
-        <br />
-
-        <div className="label">
-          <Label text="Contraseña" />
-          <Input
-            attribute={{
-              id: "contraseña",
-              name: "contraseña",
-              type: "password",
-              placeholder: "",
-            }}
-            handleChange={handleChange}
-            param={passwordError}
-          />
-        </div>
-
-        {passwordError && (
-          <label className="label-error">
-            Contraseña inválida o incompleta
-          </label>
-        )}
-        <br />
-        <div className="submit-button-container">
-          <Link to="menu">
-            <button onClick={handleSubmit} className="submit-button">
-              Ingresar al Sistema
-            </button>
-          </Link>
-
-          <Link to="registrarse">
-            <button onClick={handleSubmit} className="submit-button">
-              Registrarse
-            </button>   <br />
-          </Link>
-
+        <form className="form">
+          {hasError && (
+            <label className="label-alert">
+              {" "}
+              Datos incorrectos o No registrados
+            </label>
+          )}
           <br />
-        </div>
+          <div className="label">
+            <Label text="Usuario" />
+            <Input
+              attribute={{
+                id: "usuario",
+                name: "usuario",
+                type: "text",
+                placeholder: "",
+              }}
+              handleChange={handleChange}
+            />
+          </div>
+          <br />
+
+          <div className="label">
+            <Label text="Contraseña" />
+            <Input
+              attribute={{
+                id: "contraseña",
+                name: "contraseña",
+                type: "password",
+                placeholder: "",
+              }}
+              handleChange={handleChange}
+              param={passwordError}
+            />
+          </div>
+
+          {passwordError && (
+            <label className="label-error">
+              Contraseña inválida o incompleta
+            </label>
+          )}
+          <br />
+          <div className="submit-button-container">
+            <Link to="menu">
+              <button onClick={handleSubmit} className="submit-button">
+                Ingresar al Sistema
+              </button>
+            </Link>
+
+            <Link to="registrarse">
+              <button onClick={handleSubmit} className="submit-button">
+                Registrarse
+              </button>{" "}
+              <br />
+            </Link>
+
+            <br />
+          </div>
+        </form>
       </div>
     </div>
   );

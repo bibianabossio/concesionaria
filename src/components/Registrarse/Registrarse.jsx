@@ -47,43 +47,36 @@ export default class Registrarse extends Component {
     return (
       <>
         <div className="login-container">
-          <div className="login-content">  <br />
-            <Title text="Registrarse" />  <br />
-
-            <tr>
-              <>
-                <td>
-                  <form>
-                    <Label text="Usuario" />
-                    <input type="text" name="usuario" />
-                    <br />
-                    <Label text="Apellido y Nombre" />
-                    <input type="text" name="nombre" /> <br />
-                    <Label text="DNI" />
-                    <input type="text" name="dni" />
-                    <br />
-                    <Label text="Mail" />
-                    <input type="text" name="mail" />
-                    <br />
-                    <Label text="Contraseña" />
-                    <input type="text" name="contrasenia" />
-                    <br />
-                    <Label text="Validar Contraseña" />
-                    <input type="text" name="contrasenia" />
-                    <br />  <br />
-                    <button
-                      onClick={this.crearUsuario}
-                      /* type="submit" */ className="submit-button"
-                    >
-                      Confirmar
-                    </button>
-                
-                  </form>
-                  <br />
-                </td>
-                <td></td>
-              </>
-            </tr>
+          <div className="login-content">
+            {" "}
+            <br /> 
+            <Title text="Registrarse" /> <br />
+            <form className="form">
+              <Label text="Usuario" />
+              <input className="input-container" type="text" />
+              <br /> <br />
+              <Label text="Apellido y Nombre" />
+              <input className="input-container" type="text" /> <br />
+              <Label text="DNI" />
+              <input className="input-container" type="text" />
+              <br />
+              <Label text="Mail" />
+              <input className="input-container" type="text" />
+              <br />
+              <Label text="Contraseña" />
+              <input className="input-container" type="text" />
+              <br />
+              <Label text="Validar Contraseña" />
+              <input className="input-container" type="text" />
+              <br /> <br />
+              <button
+                onClick={this.crearUsuario}
+                /* type="submit" */ className="submit-button"
+              >
+                Confirmar
+              </button>
+            </form>
+            <br />
           </div>
         </div>
       </>
