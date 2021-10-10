@@ -82,7 +82,6 @@ export default class Perfil extends Component {
               >
                 Eliminar
               </button>
-              <br />
               <button
                 /*type="submit"*/
                 onClick={this.funcionModificar}

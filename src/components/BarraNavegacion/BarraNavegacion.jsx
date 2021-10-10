@@ -33,7 +33,7 @@ const BarraNavegacion = () => {
             <Link to="/perfil">Perfil</Link>
           </Typography>
           <Typography sx={{ minWidth: 170 }}>
-            <Link to="/contraseña">Actualizar Usuario</Link>
+            <Link to="/contraseña">Recuperar Contraseña</Link>
           </Typography>
           <Typography sx={{ minWidth: 140 }}>
             <Link to="/crearrepuesto">Crear Repuesto</Link>

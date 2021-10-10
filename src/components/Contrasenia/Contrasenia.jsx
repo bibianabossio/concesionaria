@@ -7,7 +7,7 @@ import "../Label/Label.css";
 import { Link } from "react-router-dom";
 
 function Contrasenia() {
- /*  const classes = useState(); */
+  /*  const classes = useState(); */
 
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -32,8 +32,9 @@ function Contrasenia() {
   return (
     <div className="login-container">
       <div className="login-content">
-        <Title text="Mi Perfil" />
-        <br />
+        {" "}
+        <br /> <br />
+        <Title text="Recuperar Contraseña" />
         <div className="label">
           <Label text="Usuario" />
           <Input
@@ -46,8 +47,6 @@ function Contrasenia() {
             handleChange={handleChange}
           />
         </div>
-        <br />
-
         <div className="label">
           <Label text="Contraseña" />
           <Input
@@ -60,8 +59,6 @@ function Contrasenia() {
             handleChange={handleChange}
           />
         </div>
-        <br />
-
         <div className="label">
           <Label text="Recuperar Contraseña" />
           <Input
@@ -75,7 +72,6 @@ function Contrasenia() {
           />
         </div>
         <br />
-
         <div className="submit-button-container">
           <button onClick={handleSubmit} className="submit-button">
             Modificar Datos
@@ -89,7 +85,6 @@ function Contrasenia() {
             </button>
           </Link>
         </div>
-
         <br />
       </div>
     </div>
