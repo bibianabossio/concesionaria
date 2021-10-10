@@ -1,10 +1,8 @@
 .label {
     color:#fbfbfb;
     font-size: 20px;
-    text-align: center;
-    margin: 10px;
-  
-   
+    text-align: left;
+      
     
 }
 .label::placeholder{

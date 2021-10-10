@@ -113,12 +113,9 @@ const Login = () => {
                 Registrarse
               </button>{" "}
             </Link>
-
-           
           </div>
         </form>
         <br />
-         
       </div>
     </div>
   );

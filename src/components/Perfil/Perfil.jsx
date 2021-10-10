@@ -53,7 +53,7 @@ export default class Perfil extends Component {
             <Title className="title-label" text="Mi Perfil" /> <br />
             <form className="form">
               <Label text="Usuario" />
-              <input 
+              <input
                 className="regular-style"
                 type="text" /*value={this.user.usuario}*/
               />
@@ -97,7 +97,7 @@ export default class Perfil extends Component {
                 >
                   Eliminar
                 </button>
-          
+
                 <button
                   /*type="submit"*/
                   onClick={this.funcionModificar}
