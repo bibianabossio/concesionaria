@@ -53,38 +53,38 @@ export default class Perfil extends Component {
             <Title className="title-label" text="Mi Perfil" /> <br />
             <form className="form">
               <Label text="Usuario" />
-              <input
-                className="input-container"
+              <input 
+                className="regular-style"
                 type="text" /*value={this.user.usuario}*/
               />
               <br />
               <Label text="Apellido y Nombre" />
               <input
-                className="input-container"
+                className="regular-style"
                 type="text" /*placeholder={this.user.nombre} */
               />{" "}
               <br />
               <Label text="Número de DNI" />
               <input
-                className="input-container"
+                className="regular-style"
                 type="text" /* placeholder={this.user.dni}*/
               />
               <br />
               <Label text="Dirección de mail" />
               <input
-                className="input-container"
+                className="regular-style"
                 type="text" /*placeholder={this.user.mail}*/
               />
               <br />
               <Label text="Contraseña Nueva" />
               <input
-                className="input-container"
+                className="regular-style"
                 type="text" /*placeholder={this.user.contrasenia}*/
               />
               <br />
               <Label text="Validar Contraseña Nueva" />
               <input
-                className="input-container"
+                className="regular-style"
                 type="text" /*placeholder={this.user.contrasenia}*/
               />
               <br />
@@ -97,8 +97,7 @@ export default class Perfil extends Component {
                 >
                   Eliminar
                 </button>
-              </div>
-              <div className="submit-button-container">
+          
                 <button
                   /*type="submit"*/
                   onClick={this.funcionModificar}

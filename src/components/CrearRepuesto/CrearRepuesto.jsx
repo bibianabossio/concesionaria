@@ -58,18 +58,18 @@ export default class CrearRep extends Component {
             <Title className="title-label" text="Crear Nuevo Repuesto" /> <br />
             <form className="form">
               <Label text="Tipo" />
-              <input className="input-container" type="text" />
+              <input className="regular-style" type="text" />
               <br />
               <Label text="Marca" />
-              <input className="input-container" type="text" /> <br />
+              <input className="regular-style" type="text" /> <br />
               <Label text="Modelo" />
-              <input className="input-container" type="text" />
+              <input className="regular-style" type="text" />
               <br />
               <Label text="Precio" />
-              <input className="input-container" type="text" name="precio" />
+              <input className="regular-style" type="text" name="precio" />
               <br />
               <Label text="Stock" />
-              <input className="input-container" type="text" name="stock" />
+              <input className="regular-style" type="text" name="stock" />
               <br />
               <br />
               <button

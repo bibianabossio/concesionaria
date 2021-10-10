@@ -50,24 +50,24 @@ export default class Registrarse extends Component {
           <div className="login-content">
             {" "}
             <br />
-            <Title className="title-label" text="Registrarse" /> <br />
+            <Title className="title-label" text="Registrarse" /> 
             <form className="form">
               <Label text="Usuario" />
-              <input className="input-container" type="text" />
+              <input className="regular-style" type="text" />
               <br />
               <Label text="Apellido y Nombre" />
-              <input className="input-container" type="text" /> <br />
+              <input className="regular-style" type="text" /> <br />
               <Label text="DNI" />
-              <input className="input-container" type="text" />
+              <input className="regular-style" type="text" />
               <br />
               <Label text="Mail" />
-              <input className="input-container" type="text" />
+              <input className="regular-style" type="text" />
               <br />
               <Label text="Contraseña" />
-              <input className="input-container" type="text" />
+              <input className="regular-style" type="text" />
               <br />
               <Label text="Validar Contraseña" />
-              <input className="input-container" type="text" />
+              <input className="regular-style" type="text" />
               <br /> <br />
               <button
                 onClick={this.crearUsuario}

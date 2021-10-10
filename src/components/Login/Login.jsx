@@ -100,24 +100,25 @@ const Login = () => {
               Contraseña inválida o incompleta
             </label>
           )}
-          <br /> <br />
+          <br />
           <div className="submit-button-container">
             <Link to="menu">
               <button onClick={handleSubmit} className="submit-button">
                 Ingresar al Sistema
               </button>
             </Link>
-          </div>
-          <div className="submit-button-container">
+
             <Link to="registrarse">
               <button onClick={handleSubmit} className="submit-button">
                 Registrarse
               </button>{" "}
             </Link>
 
-            <br />
+           
           </div>
         </form>
+        <br />
+         
       </div>
     </div>
   );
