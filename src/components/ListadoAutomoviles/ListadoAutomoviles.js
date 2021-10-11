@@ -6,9 +6,10 @@ export default class Auto extends Component {
     auto: [],
   };
   async componentDidMount() {
-    const res = await fetch("https://api-concesionario-taller6.herokuapp.com/");
+    const res = await fetch("https://api-concesionario-taller6.herokuapp.com/autos");
     const data = await res.json();
     this.setState({ auto: data });
+    console.log(data);
   }
   funcionBorrar = async (event) => {
     event.preventDefault();
@@ -24,7 +25,7 @@ export default class Auto extends Component {
         body: JSON.stringify(event.target.value),
       };
       let res = await fetch(
-        `https://api-concesionario-taller6.herokuapp.com/${event.target.value}`,
+        `https://api-concesionario-taller6.herokuapp.com/autos`,
         config
       );
       let resEnJson = await res.json();
@@ -81,7 +82,7 @@ export default class Auto extends Component {
                       <Link
                         className="submit-button"
                         to={{
-                          pathname: `EditarRepuesto/${auto.id}`,
+                          pathname: `EditarAutomovil/${auto.id}`,
 
                           state: {
                             detail: auto,

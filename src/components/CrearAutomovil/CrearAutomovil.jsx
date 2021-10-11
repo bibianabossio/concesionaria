@@ -21,8 +21,7 @@ export default class CrearAuto extends Component {
       : "";
     let resUser_id = event.target.form.user_id.value
       ? event.target.form.user_id.value
-      : "";
-
+      : ""; 
     try {
       let config = {
         method: "POST",
@@ -40,14 +39,15 @@ export default class CrearAuto extends Component {
         }),
       };
       let res = await fetch(
-        `https://api-concesionario-taller6.herokuapp.com/`,
-        config
+        `https://api-concesionario-taller6.herokuapp.com/auto`,
+        config, {mode:'no-cors'}
       );
       let resEnJson = await res.json();
       console.log(" SE CREO UN NUEVO AUTO :", resEnJson);
     } catch (error) {
       console.log(" hubo un error :( EN LA ACTUALIZAXCION :", error);
     }
+
   };
 
   render() {
@@ -59,23 +59,23 @@ export default class CrearAuto extends Component {
             <Title className="title-label" text="Crear Nuevo Automovil" /> <br />
             <form className="form">
               <Label text="Año" />
-              <input className="regular-style" type="text" />
+              <input className="regular-style" type="text" name="year"  />
               <br />
               <Label text="Modelo" />
-              <input className="regular-style" type="text" />
+              <input className="regular-style" type="text" name="name"/>
               <br />
               <Label text="Color" />
-              <input className="regular-style" type="text" />
+              <input className="regular-style" type="text" name="color"/>
               <br />
               <Label text="Precio" />
-              <input className="regular-style" type="text" name="precio" />
+              <input className="regular-style" type="text" name="price" />
               <br />
               <Label text="Vendedor" />
-              <input className="regular-style" type="text" name="text" />
+              <input className="regular-style" type="text" name="user_id" />
               <br />
               <br />
               <button
-                onClick={this.crearRepuesto}
+                onClick={this.crearAutomovil}
                 /* type="submit" */ className="submit-button"
               >
                 Confirmar
