@@ -7,6 +7,7 @@ import Menu from "../Menu/Menu";
 import ListadoRepuestos from "../ListadoRepuestos/ListadoRepuestos";
 import BarraNavegacion from '../BarraNavegacion/BarraNavegacion';
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
+import ListadoAutomoviles from "../ListadoAutomoviles/ListadoAutomoviles";
 
 const Main = () => {
   const {seleccion} = useContext(BarraNavegacionContexto)
@@ -28,7 +29,9 @@ const Main = () => {
         <Grid item xs={6} md={8}>
           <Item><ListadoRepuestos/></Item>
         </Grid>
-        
+        <Grid item xs={6} md={8}>
+          <Item><ListadoAutomoviles/></Item>
+        </Grid>
       </Grid>
     </>
    
