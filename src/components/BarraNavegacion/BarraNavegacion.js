@@ -29,9 +29,6 @@ const BarraNavegacion = () => {
     </>
   );
 };
-<<<<<<< HEAD
-/* skdsdk */
-=======
 /*
   <Router>
                         <Label text="Automoviles" />
@@ -45,5 +42,4 @@ const BarraNavegacion = () => {
                         <Route path="/EditarAutomovil/:id" component={EditarAutomovil} />
                       </Router>
 */
->>>>>>> recuperar_proyecto
 export default BarraNavegacion;
