@@ -31,7 +31,7 @@ const BarraNavegacion = () => {
           <Button onClick={handleSeleccion} style={{color:'white'}}  value="crear automovil" >Crear Automovil</Button>
        
         </Box>
-     
+     /*kjdnskd*/
     </>
   );
 };
