@@ -2,20 +2,14 @@ import * as React  from "react";
 import {useContext} from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./BarraNavegacion.css";
-import Login from "../Login/Login";
-import Contrasenia from "../Contrasenia/Contrasenia";
-import Menu from "../Menu/Menu";
-import CrearRepuesto from "../CrearRepuesto/CrearRepuesto";
-import Registrarse from "../Registrarse/Registrarse";
-import Perfil from "../Perfil/Perfil";
+
 import Box from "@mui/material/Box";
 import CrearAutomovil from "../CrearAutomovil/CrearAutomovil";
 
 import Typography from "@mui/material/Typography";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import { Button } from "@mui/material";
-import EditarRepuesto from "../EditarRepuesto/EditarRepuesto";
-import EditarAutomovil from "../EditarAutomovil/EditarAutomovil";
+
 
 const BarraNavegacion = () => {
 
@@ -35,7 +29,7 @@ const BarraNavegacion = () => {
     </>
   );
 };
-/* skdsdk 
+/*
   <Router>
                         <Label text="Automoviles" />
                         <Link to="/tabla">Listado de Repuestos</Link> <br />
