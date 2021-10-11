@@ -6,8 +6,12 @@ import Tabla from "../Tabla/Tabla";
 import CrearRepuesto from "../CrearRepuesto/CrearRepuesto";
 import EditarRepuesto from "../EditarRepuesto/EditarRepuesto";
 import Dolar from "../Dolar/Dolar";
-import Perfil from "../Perfil/Perfil"
-import ListadoRepuestos from "../ListadoRepuestos/ListadoRepuestos"
+import Perfil from "../Perfil/Perfil";
+import ListadoRepuestos from "../ListadoRepuestos/ListadoRepuestos";
+import ListadoAutomoviles from "../ListadoAutomoviles/ListadoAutomoviles";
+import CrearAutomovil from "../CrearAutomovil/CrearAutomovil";
+import EditarAutomovil from "../EditarAutomovil/EditarAutomovil";
+
 
 class Menu extends Component {
  
@@ -32,7 +36,9 @@ class Menu extends Component {
                         <Route path="/tabla" component={ListadoRepuestos} />
                         <Route path="/crearrepuesto" component={CrearRepuesto} />
                         <Route path="/EditarRepuesto/:id" component={EditarRepuesto} />
-
+                        <Route path="/tabla3" component={ListadoAutomoviles} />
+                        <Route path="/crearautomovil" component={CrearAutomovil} />
+                        <Route path="/EditarAutomovil/:id" component={EditarAutomovil} />
                       </Router>
                      
                     </div>

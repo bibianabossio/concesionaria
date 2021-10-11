@@ -9,11 +9,13 @@ import CrearRepuesto from "../CrearRepuesto/CrearRepuesto";
 import Registrarse from "../Registrarse/Registrarse";
 import Perfil from "../Perfil/Perfil";
 import Box from "@mui/material/Box";
+import CrearAutomovil from "../CrearAutomovil/CrearAutomovil";
 
 import Typography from "@mui/material/Typography";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import { Button } from "@mui/material";
 import EditarRepuesto from "../EditarRepuesto/EditarRepuesto";
+import EditarAutomovil from "../EditarAutomovil/EditarAutomovil";
 
 const BarraNavegacion = () => {
 
@@ -25,18 +27,19 @@ const BarraNavegacion = () => {
           <Button onClick={handleSeleccion} value="login" >Login</Button>
           <Button onClick={handleSeleccion} value="registrarse" >Registrarse</Button>
           <Button onClick={handleSeleccion} value="menu" >Inicio</Button>
-          <Button onClick={handleSeleccion} value="crear repuesto" >crear Repuesto</Button>
-          
+          <Button onClick={handleSeleccion} value="crear repuesto" >Crear Repuesto</Button>
+          <Button onClick={handleSeleccion} value="crear automovil" >Crear Automovil</Button>
        
         </Box>
       <Router>
         <Route exact path="/" component={Login} />
         <Route path="/registrarse" component={Registrarse} />
-        <Route path="/contraseña" component={Contrasenia} />
         <Route path="/perfil" component={Perfil} />
         <Route path="/menu" component={Menu} />
         <Route path="/crearrepuesto" component={CrearRepuesto} />
         <Route path="/EditarRepuesto/:id" component={EditarRepuesto} />
+        <Route path="/crearautomovil" component={CrearAutomovil} />
+        <Route path="/EditarAutomovil/:id" component={EditarAutomovil} />
       </Router>
     </>
   );

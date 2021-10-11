@@ -28,6 +28,7 @@ const Main = () => {
         <Grid item xs={6} md={8}>
           <Item><ListadoRepuestos/></Item>
         </Grid>
+        
       </Grid>
     </>
    
