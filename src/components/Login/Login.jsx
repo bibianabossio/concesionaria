@@ -5,7 +5,7 @@ import Input from "../Input/Input";
 import "./Login.css";
 /* import Registrarse from "../Registrarse/Registrarse"; */
 
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   /*   const classes = useState(); */
@@ -102,20 +102,17 @@ const Login = () => {
           )}
           <br />
           <div className="submit-button-container">
-            <Router>
             <Link to="menu">
               <button onClick={handleSubmit} className="submit-button">
                 Ingresar al Sistema
               </button>
             </Link>
-              </Router>
-            <Router>
+
             <Link to="registrarse">
               <button onClick={handleSubmit} className="submit-button">
                 Registrarse
               </button>{" "}
             </Link>
-              </Router>
           </div>
         </form>
         <br />

@@ -43,7 +43,7 @@ export default class EditarAutomovil extends Component {
         }),
       };
       let res = await fetch(
-        `https://api-concesionario-taller6.herokuapp.com/${resId}`,
+        `https://api-concesionario-taller6.herokuapp.com/auto/id${resId}`,
         config
       );
       let resEnJson = await res.json();
