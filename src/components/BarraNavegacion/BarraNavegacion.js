@@ -24,25 +24,28 @@ const BarraNavegacion = () => {
     <>
       
         <Box className="barraNavegacion">
-          <Button onClick={handleSeleccion} value="login" >Login</Button>
-          <Button onClick={handleSeleccion} value="registrarse" >Registrarse</Button>
-          <Button onClick={handleSeleccion} value="menu" >Inicio</Button>
-          <Button onClick={handleSeleccion} value="crear repuesto" >Crear Repuesto</Button>
-          <Button onClick={handleSeleccion} value="crear automovil" >Crear Automovil</Button>
+          <Button onClick={handleSeleccion} style={{color:'white'}} value="login" >Login</Button>
+          <Button onClick={handleSeleccion} style={{color:'white'}}   value="registrarse" >Registrarse</Button>
+          <Button onClick={handleSeleccion} style={{color:'white'}}  value="menu" >Inicio</Button>
+          <Button onClick={handleSeleccion} style={{color:'white'}}  value="crear repuesto" >Crear Repuesto</Button>
+          <Button onClick={handleSeleccion} style={{color:'white'}}  value="crear automovil" >Crear Automovil</Button>
        
         </Box>
-      <Router>
-        <Route exact path="/" component={Login} />
-        <Route path="/registrarse" component={Registrarse} />
-        <Route path="/perfil" component={Perfil} />
-        <Route path="/menu" component={Menu} />
-        <Route path="/crearrepuesto" component={CrearRepuesto} />
-        <Route path="/EditarRepuesto/:id" component={EditarRepuesto} />
-        <Route path="/crearautomovil" component={CrearAutomovil} />
-        <Route path="/EditarAutomovil/:id" component={EditarAutomovil} />
-      </Router>
+     
     </>
   );
 };
-/* skdsdk */
+/* skdsdk 
+  <Router>
+                        <Label text="Automoviles" />
+                        <Link to="/tabla">Listado de Repuestos</Link> <br />
+                        <Route path="/perfil" component={Perfil} />
+                        <Route path="/tabla" component={ListadoRepuestos} />
+                        <Route path="/crearrepuesto" component={CrearRepuesto} />
+                        <Route path="/EditarRepuesto/:id" component={EditarRepuesto} />
+                        <Route path="/tabla3" component={ListadoAutomoviles} />
+                        <Route path="/crearautomovil" component={CrearAutomovil} />
+                        <Route path="/EditarAutomovil/:id" component={EditarAutomovil} />
+                      </Router>
+*/
 export default BarraNavegacion;
