@@ -107,7 +107,7 @@ export default class Auto extends Component {
           <tr>
             <td colspan="5">
               <Router>
-                <Link className="submit-button" to="/crearrepuesto">
+                <Link className="submit-button" to="/crearautomovil">
                   Crear Automovil
                 </Link>
               </Router>
