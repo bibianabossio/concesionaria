@@ -22,6 +22,7 @@ export default class Registrarse extends Component {
               },
               body: JSON.stringify({
                 "usuario":resUsuario,
+                 "apellido":resApellido,
                 "nombre":resNombre,
                 "dni":resDNI,
                 "mail":resMail,
@@ -55,7 +56,9 @@ export default class Registrarse extends Component {
               <Label text="Usuario" />
               <input className="regular-style" type="text" />
               <br />
-              <Label text="Apellido y Nombre" />
+              <Label text="Apellido" />
+              <input className="regular-style" type="text" /> <br />
+              <Label text="Nombre" />
               <input className="regular-style" type="text" /> <br />
               <Label text="DNI" />
               <input className="regular-style" type="text" />

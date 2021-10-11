@@ -58,7 +58,13 @@ export default class Perfil extends Component {
                 type="text" /*value={this.user.usuario}*/
               />
               <br />
-              <Label text="Apellido y Nombre" />
+              <Label text="Apellido" />
+              <input
+                className="regular-style"
+                type="text" /*placeholder={this.user.apellido} */
+              />{" "}
+              <br />
+              <Label text="Nombre" />
               <input
                 className="regular-style"
                 type="text" /*placeholder={this.user.nombre} */
