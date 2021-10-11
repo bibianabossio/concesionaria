@@ -55,6 +55,7 @@ export default class Auto extends Component {
             return (
               <tr key={auto.id}>
                 <>
+                  <td>{auto.id}</td>
                   <td>{auto.year}</td>
                   <td>{auto.name}</td>
                   <td>{auto.color}</td>
@@ -84,6 +85,7 @@ export default class Auto extends Component {
 
                           state: {
                             detail: auto,
+                            id: auto.id,
                             year: auto.year,
                             name: auto.name,
                             color: auto.color,
