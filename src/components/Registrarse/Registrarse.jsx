@@ -3,15 +3,16 @@ import Title from "../Title/Title";
 import Label from "../Label/Label";
 
 export default class Registrarse extends Component {
-  /* 
+  
     crearUsuario= async(event)=>{
         event.preventDefault()
         console.log("hice click",event.target.form.tipo.value);
-        let resApellido=event.target.form.tipo.value?event.target.form.tipo.value:""
-        let resNombre=event.target.form.stock.value?event.target.form.stock.value:""
-        let resDNI=event.target.form.marca.value?event.target.form.marca.value:""
-        let resMail=event.target.form.modelo.value?event.target.form.modelo.value:""
-        let resContrasenia=event.target.form.precio.value?event.target.form.precio.value:""
+        let resUsuario=event.target.form.usuario.value?event.target.form.usuario.value:""
+        let resApellido=event.target.form.apellido.value?event.target.form.apellido.value:""
+        let resNombre=event.target.form.nombre.value?event.target.form.nombre.value:""
+        let resDNI=event.target.form.dni.value?event.target.form.dni.value:""
+        let resMail=event.target.form.mail.value?event.target.form.mail.value:""
+        let resContrasenia=event.target.form.contrasenia.value?event.target.form.contrasenia.value:""
         
         try {
             let config = {
@@ -22,7 +23,7 @@ export default class Registrarse extends Component {
               },
               body: JSON.stringify({
                 "usuario":resUsuario,
-                 "apellido":resApellido,
+                "apellido":resApellido,
                 "nombre":resNombre,
                 "dni":resDNI,
                 "mail":resMail,
@@ -33,7 +34,7 @@ export default class Registrarse extends Component {
     };
 
    let res = await fetch(
-        `https://merce`,
+        `https://concesionario2.herokuapp.com/`,
         config
       ); 
       let resEnJson = await res.json();
@@ -43,7 +44,7 @@ export default class Registrarse extends Component {
     }
 
   }
-*/
+
   render() {
     return (
       <>

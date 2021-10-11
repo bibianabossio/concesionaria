@@ -6,14 +6,14 @@ import Title from "../Title/Title";
 export default class Perfil extends Component {
   state = {
     user: [],
-  }; /*
+  }; 
   async componentDidMount() {
     const res = await fetch(
-      "llamado a api de merce"
+      "https://concesionario2.herokuapp.com/"
     );
     const data = await res.json();
     this.setState({ post: data });
-  }*/
+  }
   funcionModificar = async (event) => {
     event.preventDefault();
     console.log(
@@ -25,7 +25,7 @@ export default class Perfil extends Component {
   funcionBorrar = async (event) => {
     event.preventDefault();
     console.log(" se hizo click para borrar al usuario :", event.target.value);
-    /*
+    
     try {
       let config={
         method:'DELETE',
@@ -35,13 +35,13 @@ export default class Perfil extends Component {
         },
         body:JSON.stringify(event.target.value)
       }
-    let res=await fetch(`llamar a la api de merce/${event.target.value}`,config);
+    let res=await fetch(`https://concesionario2.herokuapp.com/${event.target.value}`,config);
       let resEnJson=await res.json()
     console.log(" SE BORRO! :",resEnJson)
           
     } catch (error) {
     console.log(" hubo un error :( :",error)
-     }*/
+     }
   };
   render() {
     return (
