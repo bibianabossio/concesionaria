@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+/*hola */
 export default class Auto extends Component {
   state = {
     auto: [],

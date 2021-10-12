@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import { Button } from "@mui/material";
 
-
+/*hola */
 const BarraNavegacion = () => {
 
   const {handleSeleccion} = useContext(BarraNavegacionContexto)
