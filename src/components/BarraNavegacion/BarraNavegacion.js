@@ -18,14 +18,14 @@ const BarraNavegacion = () => {
     <>
       
         <Box className="barraNavegacion">
-          <Button onClick={handleSeleccion} value="login" >Login</Button>
-          <Button onClick={handleSeleccion} value="registrarse" >Registrarse</Button>
-          <Button onClick={handleSeleccion} value="menu" >Inicio</Button>
-          <Button onClick={handleSeleccion} value="crear repuesto" >Crear Repuesto</Button>
-          <Button onClick={handleSeleccion} value="crear automovil" >Crear Automovil</Button>
+          <Button onClick={handleSeleccion} style={{color:'white'}} value="login" >Login</Button>
+          <Button onClick={handleSeleccion} style={{color:'white'}}   value="registrarse" >Registrarse</Button>
+          <Button onClick={handleSeleccion} style={{color:'white'}}  value="menu" >Inicio</Button>
+          <Button onClick={handleSeleccion} style={{color:'white'}}  value="crear repuesto" >Crear Repuesto</Button>
+          <Button onClick={handleSeleccion} style={{color:'white'}}  value="crear automovil" >Crear Automovil</Button>
        
         </Box>
-   
+     
     </>
   );
 };
@@ -43,3 +43,4 @@ const BarraNavegacion = () => {
                       </Router>
 */
 export default BarraNavegacion;
+

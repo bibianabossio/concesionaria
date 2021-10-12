@@ -54,7 +54,10 @@ export default class Post extends Component {
 /*hola */
   render() {
     return (
-      <table className="tabla-style2">
+      <>
+      <h2 style={{ height: 25, width: '100%' }}>Listado de Repuestos</h2>
+      
+      <table style={{ height: 25, width: '100%' }} className="tabla-style2">
         <thead>
           <th>Clave</th>
           <th>Tipo</th>
@@ -129,6 +132,7 @@ export default class Post extends Component {
           </tr>
         </tbody>
       </table>
+      </>
     );
   }
 }

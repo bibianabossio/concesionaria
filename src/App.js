@@ -8,6 +8,7 @@ import CrearRepuesto from "./components/CrearRepuesto/CrearRepuesto";
 import Registrarse from "./components/Registrarse/Registrarse";
 import Perfil from "./components/Perfil/Perfil"; */
 import Main from './components/Main/Main'
+import './index.css'
 import  {SeleccionProvider} from './context/BarraNavegacionContexto';
 
 function App() {

@@ -4,10 +4,13 @@ import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Menu from "../Menu/Menu";
-import ListadoRepuestos from "../ListadoRepuestos/ListadoRepuestos";
+import './Main.css'
 import BarraNavegacion from '../BarraNavegacion/BarraNavegacion';
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
-import ListadoAutomoviles from "../ListadoAutomoviles/ListadoAutomoviles";
+import Login from '../Login/Login';
+import Registrarse from '../Registrarse/Registrarse';
+import CrearRepuesto from '../CrearRepuesto/CrearRepuesto';
+import CrearAutomovil from '../CrearAutomovil/CrearAutomovil';
 
 const Main = () => {
   const {seleccion} = useContext(BarraNavegacionContexto)
@@ -35,7 +38,8 @@ const Main = () => {
     
     <>
         <BarraNavegacion/>
-      <Grid container spacing={2}>
+        {seleccionado()}
+      {/* <Grid container spacing={2}>
       
         <Grid item xs={6} md={4}>
           <Item><BarraNavegacion/></Item>
@@ -43,10 +47,8 @@ const Main = () => {
         <Grid item xs={6} md={8}>
           <Item><ListadoRepuestos/></Item>
         </Grid>
-        <Grid item xs={6} md={8}>
-          <Item><ListadoAutomoviles/></Item>
-        </Grid>
-      </Grid>
+        
+      </Grid> */}
     </>
    
   );

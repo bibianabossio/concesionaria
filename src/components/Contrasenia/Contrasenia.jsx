@@ -4,7 +4,7 @@ import Title from "../Title/Title";
 import Label from "../Label/Label";
 import "../Login/Login.css";
 import "../Label/Label.css";
-import { Link } from "react-router-dom";
+import { Link,Router } from "react-router-dom";
 
 function Contrasenia() {
   /*  const classes = useState(); */
@@ -79,11 +79,13 @@ function Contrasenia() {
           <button onClick={handleSubmit} className="submit-button">
             Eliminar Usuario
           </button>
+          <Router>
           <Link to="menu">
             <button onClick={handleSubmit} className="submit-button">
               Volver al inicio
             </button>
           </Link>
+            </Router>
         </div>
         <br />
       </div>

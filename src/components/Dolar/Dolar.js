@@ -24,6 +24,8 @@ fetch(`https://www.dolarsi.com/api/api.php?type=valoresprincipales`)
 export default class Dolar extends Component {
   render() {
     return (
+      <>
+      <h2 style={{ height: 25, width: '100%' }}>Dolar Cotizacion</h2>
       <TableContainer id="tabla" component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
           <TableHead>
@@ -55,6 +57,7 @@ export default class Dolar extends Component {
           </TableBody>
         </Table>
       </TableContainer>
+      </>
     );
   }
 }

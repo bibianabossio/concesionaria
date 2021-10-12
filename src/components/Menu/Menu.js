@@ -54,9 +54,9 @@ const Menu =()=> {
        }}   value='autos'>Listado de Autos</button>
         </Item>
       </Grid>
-      <Grid styled={{justifyContent:'center',background: '#0000'}} item xs={6} md={8}>
+      <Grid  item xs={6} md={8}>
         <Item>
-        {/* {Seleccion2==='dolar'?<Dolar>:null} */}
+        
 
         {Seleccion2==='dolar'?<Dolar/>:null}
         {Seleccion2==='repuestos'?<ListadoRepuestos/>:null}
