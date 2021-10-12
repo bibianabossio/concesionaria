@@ -17,6 +17,20 @@ const Main = () => {
     textAlign: 'center',
     color: theme.palette.text.secondary,
   }));
+/*hola */
+  const seleccionado = () => {
+    switch(seleccion) {
+
+      case "login":   return <Login/>;
+      case "registrarse":   return <Registrarse/>;
+      case "crear repuesto": return <CrearRepuesto/>;
+      case "menu":  return <Menu/>;
+      case "crear automovil":  return <CrearAutomovil/>;
+
+      default:      return <h1>No project match</h1>
+    }
+  }
+
   return (
     
     <>

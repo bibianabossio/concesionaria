@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
 /* import Login from "../Login/Login"; */
-
+/*hola */
 export default class CrearRep extends Component {
   crearRepuesto = async (event) => {
     event.preventDefault();

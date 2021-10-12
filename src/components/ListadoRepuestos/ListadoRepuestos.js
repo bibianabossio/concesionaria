@@ -51,7 +51,7 @@ export default class Post extends Component {
     event.preventDefault();
     console.log(event.target);
   };
-
+/*hola */
   render() {
     return (
       <table className="tabla-style2">
