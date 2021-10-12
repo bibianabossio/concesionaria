@@ -25,7 +25,7 @@ export default class EditarAutomovil extends Component {
       : this.state.valor.price;
     let resUser_id = event.target.form.user_id.value
       ? event.target.form.user_id.value
-      : this.state.user_id.stock;
+      : this.state.valor.user_id;
 
     try {
       let config = {

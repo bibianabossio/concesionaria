@@ -6,7 +6,9 @@ export default class Auto extends Component {
     auto: [],
   };
   async componentDidMount() {
-    const res = await fetch("https://api-concesionario-taller6.herokuapp.com/autos");
+    const res = await fetch(
+      "https://api-concesionario-taller6.herokuapp.com/autos"
+    );
     const data = await res.json();
     this.setState({ auto: data });
     console.log(data);
@@ -43,6 +45,7 @@ export default class Auto extends Component {
     return (
       <table className="tabla-style3">
         <thead>
+          <th>Clave</th>
           <th>Año</th>
           <th>Modelo</th>
           <th>Color</th>
