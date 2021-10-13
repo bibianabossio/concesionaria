@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import  { useState } from "react";
+import * as React from "react";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
 import Input from "../Input/Input";
 import "./Login.css";
-/* import Registrarse from "../Registrarse/Registrarse"; */
+import Menu from "../Menu/Menu"; 
+import {useContext} from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
-import { Router, Route, Link } from "react-router-dom";
 
 const Login = () => {
   /*   const classes = useState(); */
@@ -15,6 +18,9 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const {handleSeleccion} = useContext(BarraNavegacionContexto)
+
+  
 
   function handleChange(name, value) {
     if (name === "usuario") {
@@ -103,14 +109,19 @@ const Login = () => {
           <br />
           <div className="submit-button-container">
           
-              <button onClick={handleSubmit} className="submit-button">
-                Ingresar al Sistema
+              <Router >
+                <Link to="/menu">
+                Ingresar al Sistema con LINK
+                </Link>
+                <Route path="/menu" component={Menu} />
+              </Router>
+              <button onClick={handleSeleccion}  value="menu" className="submit-button">
+              Ingresar al Sistema
               </button>
-           
             
-              <button onClick={handleSubmit} className="submit-button">
+              <button onClick={handleSeleccion}  value="registrarse" className="submit-button">
                 Registrarse
-              </button>{" "}
+              </button>
             
 
           </div>
