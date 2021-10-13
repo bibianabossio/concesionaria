@@ -1,18 +1,51 @@
-import React, { Component } from "react";
+import { AvTimer } from "@mui/icons-material";
+import  { Component } from "react";
 import { BrowserRouter as Router,  Link } from "react-router-dom";
-
-/*hola */
+import * as React from 'react';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+ let datos = [];
+/*fetch("https://api-concesionario-taller6.herokuapp.com/autos")
+  .then((resnponde) => resnponde.json())
+  .then((data) => {
+    data.autos.map((item, index) => {
+      datos.push(item)
+    console.log("ES DE SDE ANTES",item)
+     
+    });
+  })
+  .catch((err) => console.log(err)); */
 export default class Auto extends Component {
-  state = {
-    auto: [],
-  };
+  constructor(props) {
+    super(props);
+    this.state = { objeto: [] };
+    fetch("https://api-concesionario-taller6.herokuapp.com/autos")
+  .then((resnponde) => resnponde.json())
+  .then((data) => {
+    data.autos.map((item, index) => {
+      datos.push(item)
+    console.log("ES DE SDE ANTES",item)
+     
+    });
+  })
+  .catch((err) => console.log(err));
+    
+  }
+  traerDatos=async()=>{
+
+  }
   async componentDidMount() {
     const res = await fetch(
       "https://api-concesionario-taller6.herokuapp.com/autos"
     );
     const data = await res.json();
-    this.setState({ auto: data });
-    console.log(this.state.auto);
+    this.setState({ objeto: data });
+    console.log(this.state.objeto);
   }
   funcionBorrar = async (event) => {
     event.preventDefault();
@@ -45,46 +78,37 @@ export default class Auto extends Component {
   render() {
     return (
       <>
-        <h2 style={{ height: 25, width: "100%" }}>Listado de Automóviles</h2>
-
-        <table style={{ height: 25, width: "100%" }} className="tabla-style2">
-          <thead>
-            <th>Clave</th>
-            <th>Año</th>
-            <th>Modelo</th>
-            <th>Color</th>
-            <th>Vendedor</th>
-            <th></th>
-            <th></th>
-          </thead>
-          <tbody className="tabla-style2">
-            {this.state.auto.map((auto) => {
-              return (
-                <tr key={auto.id}>
-                  <>
-                    <td>{auto.id}</td>
-                    <td>{auto.year}</td>
-                    <td>{auto.name}</td>
-                    <td>{auto.color}</td>
-                    <td>{auto.price}</td>
-                    <td>{auto.user_id}</td>
-                    <td>
-                      <form>
-                        <button
-                          type="submit"
-                          onClick={this.funcionBorrar}
-                          value={auto.id}
-                          className="submit-button"
-                        >
-                          Eliminar
-                        </button>
-                      </form>
-                    </td>
-                    <td>
-                      {/*  <form>                    
-                    <button type="submit" onClick={this.editarRepuesto} value={post.id} className="submit-button">Editar Repuesto</button>                    
-                  </form> */}
-                      <Router>
+      <h2 style={{ height: 25, width: '100%' }}>Listado de Automoviles</h2>
+       <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+        <TableHead>
+          <TableRow>
+            <TableCell>clave</TableCell>
+            <TableCell align="right">anio</TableCell>
+            <TableCell align="right">Modelo</TableCell>
+            <TableCell align="right">Color</TableCell>
+            <TableCell align="right">Precio</TableCell>
+            <TableCell align="right">Vendedor</TableCell>
+            <TableCell align="right"></TableCell>
+            <TableCell align="right"></TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+        {this.state.objeto.autos?this.state.objeto.autos.map((auto)=> (
+            <TableRow
+              key={auto.id}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+              {auto.id}
+              </TableCell>
+              <TableCell align="right">{auto.year}</TableCell>
+              <TableCell align="right">{auto.name}</TableCell>
+              <TableCell align="right">{auto.color}</TableCell>
+              <TableCell align="right">{auto.price}</TableCell>
+              <TableCell align="right">{auto.user_id}</TableCell>
+              <TableCell align="right">
+              <Router>
                         <Link
                           className="submit-button"
                           to={{
@@ -105,22 +129,24 @@ export default class Auto extends Component {
                           Modificar
                         </Link>
                       </Router>
-                    </td>
-                  </>
-                </tr>
-              );
-            })}
-            <tr>
-              <td colspan="5">
-                <Router>
-                  <Link className="submit-button" to="/crearautomovil">
-                    Crear Automovil
-                  </Link>
-                </Router>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+              </TableCell>
+              <TableCell align="right">
+              <form>
+                        <button
+                          type="submit"
+                          onClick={this.funcionBorrar}
+                          value={auto.id}
+                          className="submit-button"
+                        >
+                          Eliminar
+                        </button>
+                      </form>
+              </TableCell>
+            </TableRow>
+          )):null}
+        </TableBody>
+      </Table>
+    </TableContainer>
       </>
     );
   }
