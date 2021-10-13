@@ -6,13 +6,25 @@ export default class Registrarse extends Component {
   
     crearUsuario= async(event)=>{
         event.preventDefault()
-        console.log("hice click",event.target.form.tipo.value);
-        let resUsuario=event.target.form.usuario.value?event.target.form.usuario.value:""
-        let resApellido=event.target.form.apellido.value?event.target.form.apellido.value:""
-        let resNombre=event.target.form.nombre.value?event.target.form.nombre.value:""
-        let resDNI=event.target.form.dni.value?event.target.form.dni.value:""
-        let resMail=event.target.form.mail.value?event.target.form.mail.value:""
-        let resContrasenia=event.target.form.contrasenia.value?event.target.form.contrasenia.value:""
+        console.log("hice click",event.target.form.nombreUsuario.value);
+        let resNombreUsuario= event.target.form.nombreUsuario.value
+          ?event.target.form.nombreUsuario.value
+          :""
+        let resApellido= event.target.form.apellido.value
+         ?event.target.form.apellido.value
+         :""
+        let resNombre= event.target.form.nombre.value
+          ?event.target.form.nombre.value
+          :""
+        let resDNI= event.target.form.dni.value
+          ?event.target.form.dni.value
+          :""
+        let resMail= event.target.form.mail.value
+          ?event.target.form.mail.value
+          :""
+        let resPassword= event.target.form.password.value
+          ?event.target.form.contrasenia.value
+          :""
         
         try {
             let config = {
@@ -22,12 +34,12 @@ export default class Registrarse extends Component {
                 "content-type": "application/json",
               },
               body: JSON.stringify({
-                "usuario":resUsuario,
+                "nombreUsuario":resNombreUsuario,
                 "apellido":resApellido,
                 "nombre":resNombre,
                 "dni":resDNI,
                 "mail":resMail,
-                "contrasenia":resContrasenia,
+                "password":resPassword,
                 
             
                   }),
@@ -55,23 +67,23 @@ export default class Registrarse extends Component {
             <Title className="title-label" text="Registrarse" /> 
             <form className="form">
               <Label text="Usuario" />
-              <input className="regular-style" type="text" />
+              <input className="regular-style" type="text"  name="nombreUsuario"  />
               <br />
               <Label text="Apellido" />
-              <input className="regular-style" type="text" /> <br />
+              <input className="regular-style" type="text" name="apellido"/> <br />
               <Label text="Nombre" />
-              <input className="regular-style" type="text" /> <br />
+              <input className="regular-style" type="text" name="nombre"/> <br />
               <Label text="DNI" />
-              <input className="regular-style" type="text" />
+              <input className="regular-style" type="text"name="dni" />
               <br />
               <Label text="Mail" />
-              <input className="regular-style" type="text" />
+              <input className="regular-style" type="text" name="mail" />
               <br />
               <Label text="Contraseña" />
-              <input className="regular-style" type="text" />
+              <input className="regular-style" type="text" name="password"/>
               <br />
               <Label text="Validar Contraseña" />
-              <input className="regular-style" type="text" />
+              <input className="regular-style" type="text" name="password"/>
               <br /> <br />
               <button
                 onClick={this.crearUsuario}
