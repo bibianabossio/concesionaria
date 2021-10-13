@@ -9,36 +9,16 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
- let datos = [];
-/*fetch("https://api-concesionario-taller6.herokuapp.com/autos")
-  .then((resnponde) => resnponde.json())
-  .then((data) => {
-    data.autos.map((item, index) => {
-      datos.push(item)
-    console.log("ES DE SDE ANTES",item)
-     
-    });
-  })
-  .catch((err) => console.log(err)); */
+
+
 export default class Auto extends Component {
   constructor(props) {
     super(props);
     this.state = { objeto: [] };
-    fetch("https://api-concesionario-taller6.herokuapp.com/autos")
-  .then((resnponde) => resnponde.json())
-  .then((data) => {
-    data.autos.map((item, index) => {
-      datos.push(item)
-    console.log("ES DE SDE ANTES",item)
-     
-    });
-  })
-  .catch((err) => console.log(err));
+   
     
   }
-  traerDatos=async()=>{
-
-  }
+  
   async componentDidMount() {
     const res = await fetch(
       "https://api-concesionario-taller6.herokuapp.com/autos"
