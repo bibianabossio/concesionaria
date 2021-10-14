@@ -15,6 +15,7 @@ export default class Post extends Component {
 
   state = {
     post: [],
+    search:""
   };
   async componentDidMount() {
     const res = await fetch(
@@ -52,10 +53,37 @@ export default class Post extends Component {
     console.log(event.target);
   };
 /*hola */
-  render() {
-    return (
+handleSubmit=async(e)=>{
+  e.preventDefault()
+  
+  let req=`https://api-taller-mecanico.herokuapp.com/repuestos/?search=${this.search}`
+  console.log(req)
+    const res = await fetch(req);
+    const data = await res.json();
+    this.setState({ post: data });
+  
+
+}
+render() {
+  return (
       <>
       <h2 style={{ height: 25, width: '100%' }}>Listado de Repuestos</h2>
+
+      <form onSubmit={this.handleSubmit}>
+      
+        <input 
+          type="text" 
+          placeholder="buscar" 
+          value={this.search}
+          onChange={(e) => {
+            this.search=e.target.value
+            
+          }
+          }
+        />
+      
+      <input type="submit" />
+    </form>
       
       <table style={{ height: 25, width: '100%' }} className="tabla-style2">
         <thead>
