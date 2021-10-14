@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import EditarRepuesto from "../EditarRepuesto/EditarRepuesto";
+import Loading from "../Loading/Loading";
 /* import CrearRepuesto from "../CrearRepuesto/CrearRepuesto"; */
 
 export default class Post extends Component {
@@ -12,10 +13,14 @@ export default class Post extends Component {
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}` },
       });
     } */
-
-  state = {
-    post: [],
-  };
+    constructor(props) {
+      super(props);
+      this.state = { post: [],
+        search:""};
+     
+      
+    }
+  
   async componentDidMount() {
     const res = await fetch(
       "https://api-taller-mecanico.herokuapp.com/repuestos"
@@ -52,11 +57,37 @@ export default class Post extends Component {
     console.log(event.target);
   };
 /*hola */
-  render() {
-    return (
+handleSubmit=async(e)=>{
+  e.preventDefault()
+  
+  let req=`https://api-taller-mecanico.herokuapp.com/repuestos/?search=${this.search}`
+  console.log(req)
+    const res = await fetch(req);
+    const data = await res.json();
+    this.setState({ post: data });
+  
+
+}
+render() {
+  return (
       <>
       <h2 style={{ height: 25, width: '100%' }}>Listado de Repuestos</h2>
+
+      <form onSubmit={this.handleSubmit}>
       
+        <input 
+          type="text" 
+          placeholder="buscar" 
+          value={this.search}
+          onChange={(e) => {
+            this.search=e.target.value
+            
+          }
+          }
+        />
+      
+      <input type="submit" />
+    </form>
       <table style={{ height: 25, width: '100%' }} className="tabla-style2">
         <thead>
           <th>Clave</th>
@@ -69,10 +100,9 @@ export default class Post extends Component {
           <th></th>
         </thead>
         <tbody className="tabla-style2">
-          {this.state.post.map((post) => {
-            return (
+          {this.state.post?this.state.post.map((post) => (
               <tr key={post.id}>
-                <>
+              
                   <td>{post.id}</td>
                   <td>{post.tipo}</td>
                   <td>{post.marca}</td>
@@ -117,10 +147,10 @@ export default class Post extends Component {
                       </Link>
                     </Router>
                   </td>
-                </>
+                
               </tr>
-            );
-          })}
+            )
+           ):<Loading/>}
           <tr>
             <td colspan="5">
               <Router>
@@ -132,6 +162,7 @@ export default class Post extends Component {
           </tr>
         </tbody>
       </table>
+      
       </>
     );
   }

@@ -9,6 +9,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Loading from "../Loading/Loading";
 
 
 export default class Auto extends Component {
@@ -123,7 +124,7 @@ export default class Auto extends Component {
                       </form>
               </TableCell>
             </TableRow>
-          )):null}
+          )):<Loading/> }
         </TableBody>
       </Table>
     </TableContainer>
