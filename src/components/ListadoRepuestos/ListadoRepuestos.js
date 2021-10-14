@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import EditarRepuesto from "../EditarRepuesto/EditarRepuesto";
+import Loading from "../Loading/Loading";
 /* import CrearRepuesto from "../CrearRepuesto/CrearRepuesto"; */
 
 export default class Post extends Component {
@@ -12,11 +13,14 @@ export default class Post extends Component {
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}` },
       });
     } */
-
-  state = {
-    post: [],
-    search:""
-  };
+    constructor(props) {
+      super(props);
+      this.state = { post: [],
+        search:""};
+     
+      
+    }
+  
   async componentDidMount() {
     const res = await fetch(
       "https://api-taller-mecanico.herokuapp.com/repuestos"
@@ -84,7 +88,6 @@ render() {
       
       <input type="submit" />
     </form>
-      
       <table style={{ height: 25, width: '100%' }} className="tabla-style2">
         <thead>
           <th>Clave</th>
@@ -97,10 +100,9 @@ render() {
           <th></th>
         </thead>
         <tbody className="tabla-style2">
-          {this.state.post.map((post) => {
-            return (
+          {this.state.post?this.state.post.map((post) => (
               <tr key={post.id}>
-                <>
+              
                   <td>{post.id}</td>
                   <td>{post.tipo}</td>
                   <td>{post.marca}</td>
@@ -145,10 +147,10 @@ render() {
                       </Link>
                     </Router>
                   </td>
-                </>
+                
               </tr>
-            );
-          })}
+            )
+           ):<Loading/>}
           <tr>
             <td colspan="5">
               <Router>
@@ -160,6 +162,7 @@ render() {
           </tr>
         </tbody>
       </table>
+      
       </>
     );
   }
