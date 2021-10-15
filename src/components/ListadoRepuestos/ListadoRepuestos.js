@@ -15,10 +15,14 @@ const Post=()=> {
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}` },
       });
     } */
+    let repuesto={
+      id:null,
+      tipo:null
+    }
 
     const [post, setPost] = useState([])
     const [search, setSearch] = useState("")
-    const {handleSeleccion} = useContext(BarraNavegacionContexto)
+    const {handleSeleccion,setIdModificar,idModificar} = useContext(BarraNavegacionContexto)
 
     useEffect(async() => {
       const res = await fetch(
@@ -68,6 +72,13 @@ const handleSubmit=async(e)=>{
     this.setState({ post: data });
   
 
+}
+
+const handleEdit=(e)=>{
+  e.preventDefault()
+console.log("es del",e.target.value);
+idModificar(e.target.value)
+console.log("es delsdsdfffffff",idModificar);
 }
 
   return (
@@ -124,7 +135,9 @@ const handleSubmit=async(e)=>{
                   </td>
                   <td>
                      <form>                    
-                    <button type="submit" onClick={handleSeleccion} value={"editar repuesto"} className="submit-button">Editar Repuesto</button>                    
+                    <button type="submit" onClick={handleEdit} 
+                    value={post.id} 
+                      className="submit-button">Editar Repuesto</button>                    
                   </form>
                     {/* <Router>
                       <Link
