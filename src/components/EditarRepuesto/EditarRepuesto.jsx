@@ -4,8 +4,8 @@ import "./EditarRepuesto.css";
 
 export default class EditarRepuesto extends Component {
   state = {
-    valor: this.props.location.state.detail,
-    editRep: [],
+   /*  valor: this.props.location.state.detail,
+    editRep: [], */
   };
 
   funcionEditarRep = async (event) => {
@@ -68,42 +68,42 @@ export default class EditarRepuesto extends Component {
                       type="text"
                       name="id"
                       disabled
-                      value={this.state.valor.id}
+                      value={this.state.valor.id || "yo"}
                     />
                     Tipo
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="tipo"
-                      placeholder={this.state.valor.tipo}
+                      placeholder={this.state.valor.tipo || "yo"}
                     />
                     Marca
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="marca"
-                      placeholder={this.state.valor.marca}
+                      placeholder={this.state.valor.marca || "yo"}
                     />
                     Modelo
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="modelo"
-                      placeholder={this.state.valor.modelo}
+                      placeholder={this.state.valor.modelo || "yo"}
                     />
                     Precio
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="precio"
-                      placeholder={this.state.valor.precio}
+                      placeholder={this.state.valor.precio || "yo"}
                     />
                     Stock
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="stock"
-                      placeholder={this.state.valor.stock}
+                      placeholder={this.state.valor.stock || "yo"}
                     />
                     <button type="submit" onClick={this.funcionEditarRep}>
                       Confirmar
