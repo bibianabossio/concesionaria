@@ -22,22 +22,10 @@ const Post=()=> {
 
     const [post, setPost] = useState([])
     const [search, setSearch] = useState("")
-    const {handleSeleccion} = useContext(BarraNavegacionContexto)
-    const [form, setForm] = useState({
-      id:null,
-    tipo:null,
-    marca:null,
-    modelo:null,
-    precio:null,
-    stock:null,
-    })
+    const {handleSeleccion,handleSubmitModificar} = useContext(BarraNavegacionContexto)
+    
 
-    const handleChange=(e)=>{
-      setForm({
-        ...form,
-        [e.target.id]:e.target.value
-      })
-    }
+    
 
     useEffect(async() => {
       const res = await fetch(
@@ -87,27 +75,13 @@ const handleSubmit=async(e)=>{
     this.setState({ post: data });
   }
 
-const handleSubmitModificar=(e)=>{
-  e.preventDefault()
-  setForm({
-    
-    id:e.target.idInputModif,
-    tipo:e.target.tipoInputModif,
-    marca:e.target.marcaInputModif,
-    modelo:e.target.modedloInputModif,
-    precio:e.target.precioInputModif,
-    stock:e.target.stockInputModif,
-  })
-  
-  console.log("se hizo click en modificar", form);
-  console.log("se Evento", e.target);
-}
+
 
 const handleEdit=(e)=>{
-  e.preventDefault()
+/*   e.preventDefault()
 console.log("es del",e.target.value);
 idModificar(e.target.value)
-console.log("es delsdsdfffffff",idModificar);
+console.log("es delsdsdfffffff",idModificar); */
 }
 
   return (
@@ -165,15 +139,19 @@ console.log("es delsdsdfffffff",idModificar);
                   <td>
                      <form onSubmit={handleSubmitModificar}>   
                        
-                     <input type="text" name="idInputModif" value={post.id} onChange={(e)=>{
-                       setForm({id:post.id})
+                     <input type="text" hidden name="idInputModif" value={post.id} onChange={(e)=>{
+                       
+                       console.log("se hizo clicl  en modificar perro",e.target.idInputModif);
                      }}/> 
-                      <input type="text" name="marcaInputModif" value={post.marca} onChange={(e)=>{}}/>                 
-                      <input type="text" name="tipoInputModif" value={post.tipo} onChange={(e)=>{}}/>                 
-                      <input type="text" name="modedloInputModif" value={post.modelo} onChange={(e)=>{}}/>                 
-                      <input type="text" name="precioInputModif" value={post.precio} onChange={(e)=>{}}/>                 
-                      <input type="text" name="stockInputModif" value={post.stock} onChange={(e)=>{}}/>                 
-                    <button type="submit"   value={"editar repuesto"} className="submit-button">Editar Repuesto</button>                    
+                      <input type="text" hidden name="marcaInputModif" value={post.marca} onChange={(e)=>{
+                          
+
+                      }}/>                 
+                      <input type="text" hidden name="tipoInputModif" value={post.tipo} onChange={(e)=>{}}/>                 
+                      <input type="text"hidden  name="modedloInputModif" value={post.modelo} onChange={(e)=>{}}/>                 
+                      <input type="text" hidden name="precioInputModif" value={post.precio} onChange={(e)=>{}}/>                 
+                      <input type="text" hidden name="stockInputModif" value={post.stock} onChange={(e)=>{}}/>                 
+                    <button type="submit" name="tipoComponente"  value={"editar repuesto"} className="submit-button">Editar Repuesto</button>                    
                   </form>
                     {/* <Router>
                       <Link

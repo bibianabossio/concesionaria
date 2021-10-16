@@ -15,7 +15,7 @@ import EditarAutomovil from '../EditarAutomovil/EditarAutomovil';
 import EditarRepuesto from '../EditarRepuesto/EditarRepuesto';
 
 const Main = () => {
-  const {seleccion} = useContext(BarraNavegacionContexto)
+  const {seleccion,form} = useContext(BarraNavegacionContexto)
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
@@ -24,6 +24,7 @@ const Main = () => {
   }));
 /*hola */
   const seleccionado = () => {
+    
     switch(seleccion) {
 
       case "login":   return <Login/>;
@@ -34,7 +35,7 @@ const Main = () => {
       case "editar automovil":  return <EditarAutomovil/>;
       case "editar repuesto": {
         
-        return <EditarRepuesto/>;
+        return <EditarRepuesto data={form}/>;
       }
 
       default:      return <h1>No project match {seleccion}</h1>

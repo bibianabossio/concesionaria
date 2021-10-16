@@ -22,7 +22,7 @@ export default class Auto extends Component {
   
   async componentDidMount() {
     const res = await fetch(
-      "https://api-concesionario-taller6.herokuapp.com/autos"
+      "https://api-concesionario-taller6.herokuapp.com/auto"
     );
     const data = await res.json();
     this.setState({ objeto: data });
@@ -42,7 +42,7 @@ export default class Auto extends Component {
         body: JSON.stringify(event.target.value),
       };
       let res = await fetch(
-        `https://api-concesionario-taller6.herokuapp.com/autos`,
+        `https://api-concesionario-taller6.herokuapp.com/auto`,
         config
       );
       let resEnJson = await res.json();
