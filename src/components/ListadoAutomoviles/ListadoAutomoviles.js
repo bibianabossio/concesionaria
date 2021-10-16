@@ -37,21 +37,20 @@ const  Auto =()=> {
           "content-type": "application/json",
         },
         body: JSON.stringify(event.target.value),
+       
       };
       let res = await fetch(
-        `https://api-concesionario-taller6.herokuapp.com/auto`,
+        `https://api-concesionario-taller6.herokuapp.com/auto/${event.target.value}`,
         config
       );
       let resEnJson = await res.json();
       console.log(" SE BORRO! :", resEnJson);
+     
     } catch (error) {
       console.log(" hubo un error :( :", error);
     }
   };
-  const editarAutomovil = (event) => {
-    event.preventDefault();
-    console.log(event.target);
-  };
+ /*olsd*/
 
   
     return (
@@ -72,8 +71,8 @@ const  Auto =()=> {
               </TableRow>
             </TableHead>
             <TableBody>
-              {objeto.autos ? (
-                objeto.autos.map((auto) => (
+              {objeto ? (
+                objeto.map((auto) => (
                   <TableRow
                     key={auto.id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -100,7 +99,7 @@ const  Auto =()=> {
                             );
                           }}
                         />
-                        
+                         /*olsd*/
                         <input
                           type="text"
                           hidden
@@ -145,21 +144,7 @@ const  Auto =()=> {
                           Modificar
                         </button>
                       </form>
-                      {/* <Router>
-                        <Link
-                          className="submit-button"
-                          to={{
-                            pathname: `EditarAutomovil/${auto.id}`,
-
-                            state: {
-                              
-                            },
-                          }}
-                          value={auto.id}
-                        >
-                          Modificar
-                        </Link> 
-                      </Router>*/}
+                     
                     </TableCell>
                     <TableCell align="right">
                       <form>

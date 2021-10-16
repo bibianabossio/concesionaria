@@ -77,12 +77,7 @@ const handleSubmit=async(e)=>{
 
 
 
-const handleEdit=(e)=>{
-/*   e.preventDefault()
-console.log("es del",e.target.value);
-idModificar(e.target.value)
-console.log("es delsdsdfffffff",idModificar); */
-}
+
 
   return (
       <>
@@ -153,27 +148,7 @@ console.log("es delsdsdfffffff",idModificar); */
                       <input type="text" hidden name="stockInputModif" value={post.stock} onChange={(e)=>{}}/>                 
                     <button type="submit" name="tipoComponente"  value={"editar repuesto"} className="submit-button">Editar Repuesto</button>                    
                   </form>
-                    {/* <Router>
-                      <Link
-                        className="submit-button"
-                        to={{
-                          pathname: `EditarRepuesto/${post.id}`,
-
-                          state: {
-                            detail: post,
-                            id: post.id,
-                            tipo: post.tipo,
-                            marca: post.marca,
-                            modelo: post.modelo,
-                            precio: post.precio,
-                            post: post.stock,
-                          },
-                        }}
-                        value={post.id}
-                      >
-                        Modificar
-                      </Link>
-                    </Router> */}
+                    
                   </td>
                 
               </tr>

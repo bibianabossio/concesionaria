@@ -34,8 +34,8 @@ export default class CrearRep extends Component {
           tipo: resTipo,
           marca: resMarca,
           modelo: resModelo,
-          precio: resPrecio,
-          stock: resStock,
+          precio: parseFloat(resPrecio),
+          stock: parseFloat(resStock)
         }),
       };
       let res = await fetch(
