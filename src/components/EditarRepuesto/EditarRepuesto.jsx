@@ -68,42 +68,42 @@ export default class EditarRepuesto extends Component {
                       type="text"
                       name="id"
                       disabled
-                      value={this.state.valor.id || "yo"}
+                      //value={this.state.valor.id?null:"yo"}
                     />
                     Tipo
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="tipo"
-                      placeholder={this.state.valor.tipo || "yo"}
+                     // placeholder={this.state.valor.tipo?null: "yo"}
                     />
                     Marca
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="marca"
-                      placeholder={this.state.valor.marca || "yo"}
+                     // placeholder={this.state.valor.marca?null: "yo"}
                     />
                     Modelo
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="modelo"
-                      placeholder={this.state.valor.modelo || "yo"}
+                    //  placeholder={this.state.valor.modelo?null:"yo"}
                     />
                     Precio
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="precio"
-                      placeholder={this.state.valor.precio || "yo"}
+                     // placeholder={this.state.valor.precio?null:"yo"}
                     />
                     Stock
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="stock"
-                      placeholder={this.state.valor.stock || "yo"}
+                     // placeholder={this.state.valor.stock?null:"yo"}
                     />
                     <button type="submit" onClick={this.funcionEditarRep}>
                       Confirmar
