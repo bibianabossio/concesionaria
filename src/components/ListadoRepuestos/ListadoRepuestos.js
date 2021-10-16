@@ -15,6 +15,10 @@ const Post=()=> {
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}` },
       });
     } */
+    let repuesto={
+      id:null,
+      tipo:null
+    }
 
     const [post, setPost] = useState([])
     const [search, setSearch] = useState("")
@@ -97,6 +101,13 @@ const handleSubmitModificar=(e)=>{
   
   console.log("se hizo click en modificar", form);
   console.log("se Evento", e.target);
+}
+
+const handleEdit=(e)=>{
+  e.preventDefault()
+console.log("es del",e.target.value);
+idModificar(e.target.value)
+console.log("es delsdsdfffffff",idModificar);
 }
 
   return (

@@ -32,9 +32,12 @@ const Main = () => {
       case "menu":  return <Menu/>;
       case "crear automovil":  return <CrearAutomovil/>;
       case "editar automovil":  return <EditarAutomovil/>;
-      case "editar repuesto":  return <EditarRepuesto/>;
+      case "editar repuesto": {
+        
+        return <EditarRepuesto/>;
+      }
 
-      default:      return <h1>No project match</h1>
+      default:      return <h1>No project match {seleccion}</h1>
     }
   }
 
