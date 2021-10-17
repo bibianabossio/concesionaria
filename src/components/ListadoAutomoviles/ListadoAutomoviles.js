@@ -99,7 +99,7 @@ const  Auto =()=> {
                             );
                           }}
                         />
-                         /*olsd*/
+                         
                         <input
                           type="text"
                           hidden

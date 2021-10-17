@@ -6,7 +6,7 @@ import Label from "../Label/Label";
 export default class CrearRep extends Component {
   crearRepuesto = async (event) => {
     event.preventDefault();
-    console.log("hice click", event.target.form.tipo.value);
+    console.log("hice click", event.target.form);
     let resTipo = event.target.form.tipo.value
       ? event.target.form.tipo.value
       : "";
