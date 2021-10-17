@@ -1,31 +1,34 @@
-import React, { Component } from "react";
+import React, { Component,useContext } from "react";
+import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import "./EditarRepuesto.css";
 /* import { useParams } from "react-router-dom"; */
 
-export default class EditarRepuesto extends Component {
-  state = {
-    valor: this.props.location.state.detail,
-    editRep: [],
-  };
+const  EditarRepuesto =()=> {
+  const {setSeleccion,form} = useContext(BarraNavegacionContexto)
 
-  funcionEditarRep = async (event) => {
+ 
+
+
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    let resId = event.target.form.id.value;
-    let resTipo = event.target.form.tipo.value
-      ? event.target.form.tipo.value
-      : this.state.valor.tipo;
-    let resMarca = event.target.form.marca.value
-      ? event.target.form.marca.value
-      : this.state.valor.marca;
-    let resModelo = event.target.form.modelo.value
-      ? event.target.form.modelo.value
-      : this.state.valor.modelo;
-    let resPrecio = event.target.form.precio.value
-      ? event.target.form.precio.value
-      : this.state.valor.precio;
-    let resStock = event.target.form.stock.value
-      ? event.target.form.stock.value
-      : this.state.valor.stock;
+    console.log(event.target);
+    let resId = event.target.id.value;
+    let resTipo = event.target.tipo.value
+      ? event.target.tipo.value
+      : form.tipo
+    let resMarca = event.target.marca.value
+      ? event.target.marca.value
+      : form.marca
+    let resModelo = event.target.modelo.value
+      ? event.target.modelo.value
+      : form.modelo;
+    let resPrecio = event.target.precio.value
+      ?event.target.precio.value
+      : form.precio;
+    let resStock = event.target.stock.value
+      ?event.target.stock.value
+      : form.stock;
 
     try {
       let config = {
@@ -38,8 +41,8 @@ export default class EditarRepuesto extends Component {
           tipo: resTipo,
           marca: resMarca,
           modelo: resModelo,
-          precio: resPrecio,
-          stock: resStock,
+          precio: parseFloat(resPrecio),
+          stock: parseFloat(resStock)
         }),
       };
       let res = await fetch(
@@ -48,64 +51,66 @@ export default class EditarRepuesto extends Component {
       );
       let resEnJson = await res.json();
       console.log(" SE ACTUALIZO! :", resEnJson);
+      setSeleccion("menu")
     } catch (error) {
       console.log(" hubo un error :( EN LA ACTUALIZAXCION :", error);
-    }
+    } 
   };
 
-  render() {
+  
     return (
       <div className="login-container">
         <div className="login-content">
+        <h2 style={{ height: 25, width: '100%', color:'white' }}>Editar Repuestos</h2>
           <tbody>
             <tr>
               <>
                 <td>
-                  <form id="formEditRep">
+                  <form onSubmit={handleSubmit} id="formEditRep">
                     id
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="id"
                       disabled
-                      value={this.state.valor.id}
+                      value={form.id}
                     />
                     Tipo
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="tipo"
-                      placeholder={this.state.valor.tipo}
+                     placeholder={form.tipo}
                     />
                     Marca
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="marca"
-                      placeholder={this.state.valor.marca}
+                      placeholder={form.marca}
                     />
                     Modelo
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="modelo"
-                      placeholder={this.state.valor.modelo}
+                      placeholder={form.modelo}
                     />
                     Precio
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="precio"
-                      placeholder={this.state.valor.precio}
+                     placeholder={form.precio}
                     />
                     Stock
                     <input
                       className="formEditRepInput"
                       type="text"
                       name="stock"
-                      placeholder={this.state.valor.stock}
+                      placeholder={form.stock}
                     />
-                    <button type="submit" onClick={this.funcionEditarRep}>
+                    <button type="submit" name="botonConfEdit">
                       Confirmar
                     </button>
                   </form>
@@ -117,5 +122,7 @@ export default class EditarRepuesto extends Component {
         </div>
       </div>
     );
-  }
+  
 }
+
+export default EditarRepuesto

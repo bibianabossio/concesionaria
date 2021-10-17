@@ -11,9 +11,11 @@ import Login from '../Login/Login';
 import Registrarse from '../Registrarse/Registrarse';
 import CrearRepuesto from '../CrearRepuesto/CrearRepuesto';
 import CrearAutomovil from '../CrearAutomovil/CrearAutomovil';
+import EditarAutomovil from '../EditarAutomovil/EditarAutomovil';
+import EditarRepuesto from '../EditarRepuesto/EditarRepuesto';
 
 const Main = () => {
-  const {seleccion} = useContext(BarraNavegacionContexto)
+  const {seleccion,form} = useContext(BarraNavegacionContexto)
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
@@ -22,6 +24,7 @@ const Main = () => {
   }));
 /*hola */
   const seleccionado = () => {
+    
     switch(seleccion) {
 
       case "login":   return <Login/>;
@@ -29,8 +32,13 @@ const Main = () => {
       case "crear repuesto": return <CrearRepuesto/>;
       case "menu":  return <Menu/>;
       case "crear automovil":  return <CrearAutomovil/>;
+      case "editar automovil":  return <EditarAutomovil/>;
+      case "editar repuesto": {
+        
+        return <EditarRepuesto data={form}/>;
+      }
 
-      default:      return <h1>No project match</h1>
+      default:      return <h1>No project match {seleccion}</h1>
     }
   }
 

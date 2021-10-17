@@ -109,12 +109,12 @@ const Login = () => {
           <br />
           <div className="submit-button-container">
           
-              <Router >
+            {/*   <Router >
                 <Link to="/menu">
                 Ingresar al Sistema con LINK
                 </Link>
                 <Route path="/menu" component={Menu} />
-              </Router>
+              </Router> */}
               <button onClick={handleSeleccion}  value="menu" className="submit-button">
               Ingresar al Sistema
               </button>

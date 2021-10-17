@@ -6,7 +6,7 @@ import Label from "../Label/Label";
 export default class CrearRep extends Component {
   crearRepuesto = async (event) => {
     event.preventDefault();
-    console.log("hice click", event.target.form.tipo.value);
+    console.log("hice click", event.target.form);
     let resTipo = event.target.form.tipo.value
       ? event.target.form.tipo.value
       : "";
@@ -34,8 +34,8 @@ export default class CrearRep extends Component {
           tipo: resTipo,
           marca: resMarca,
           modelo: resModelo,
-          precio: resPrecio,
-          stock: resStock,
+          precio: parseFloat(resPrecio),
+          stock: parseFloat(resStock)
         }),
       };
       let res = await fetch(
@@ -58,12 +58,12 @@ export default class CrearRep extends Component {
             <Title className="title-label" text="Crear Nuevo Repuesto" /> <br />
             <form className="form">
               <Label text="Tipo" />
-              <input className="regular-style" type="text" />
+              <input className="regular-style" type="text"  name="tipo"/>
               <br />
               <Label text="Marca" />
-              <input className="regular-style" type="text" /> <br />
+              <input className="regular-style" type="text"  name="marca"/> <br />
               <Label text="Modelo" />
-              <input className="regular-style" type="text" />
+              <input className="regular-style" type="text"  name="modelo"/>
               <br />
               <Label text="Precio" />
               <input className="regular-style" type="text" name="precio" />

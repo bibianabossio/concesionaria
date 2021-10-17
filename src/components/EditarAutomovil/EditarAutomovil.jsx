@@ -1,59 +1,60 @@
-import React, { Component } from "react";
+import React, { Component,useContext } from "react";
 import "../EditarRepuesto/EditarRepuesto.css";
+import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
+
 /* import { useParams } from "react-router-dom"; */
 
-export default class EditarAutomovil extends Component {
-  state = {
-    valor: this.props.location.state.detail,
-    editAuto: [],
-  };
-
-  funcionEditarAuto = async (event) => {
+const  EditarAutomovil =()=> {
+  const {setSeleccion,autoModificar} = useContext(BarraNavegacionContexto)
+  
+  const funcionEditarAuto = async (event) => {
     event.preventDefault();
-    let resId = event.target.form.id.value;
-    let resYear = event.target.form.year.value
-    ? event.target.form.year.value
-    : this.state.valor.year;
-    let resName = event.target.form.name.value
-      ? event.target.form.name.value
-      : this.state.valor.name;
-    let resColor = event.target.form.color.value
-      ? event.target.form.color.value
-      : this.state.valor.color;
-    let resPrice = event.target.form.price.value
-      ? event.target.form.price.value
-      : this.state.valor.price;
-    let resUser_id = event.target.form.user_id.value
-      ? event.target.form.user_id.value
-      : this.state.valor.user_id;
+    console.log(event.target);
+    let resId = autoModificar.id;
+    let resYear = event.target.year.value
+    ? event.target.year.value
+    : autoModificar.year;
+    let resName = event.target.name.value
+      ? event.target.name.value
+      : autoModificar.name;
+    let resColor = event.target.color.value
+      ? event.target.color.value
+      : autoModificar.color;
+    let resPrice = event.target.precio.value
+      ? event.target.precio.value
+      : autoModificar.precio;
+    let resUser_id = event.target.user_id.value
+      ? event.target.user_id.value
+      : autoModificar.user_id;
 
     try {
       let config = {
-        method: "PATCH",
+        method: "PUT",
         headers: {
           Accept: "application/json",
           "content-type": "application/json",
         },
         body: JSON.stringify({
-            year:resYear,
+            year:parseFloat(resYear),
             name:resName,
             color:resColor,
-            price:resPrice,
-            user_id:resUser_id,
+            price:parseFloat(resPrice),
+            user_id:parseFloat(resUser_id)
         }),
       };
       let res = await fetch(
-        `https://api-concesionario-taller6.herokuapp.com/auto/id${resId}`,
+        
+        `https://api-concesionario-taller6.herokuapp.com/auto/${resId}`,
         config
       );
       let resEnJson = await res.json();
       console.log(" SE ACTUALIZO! :", resEnJson);
+      setSeleccion("menu")
     } catch (error) {
       console.log(" hubo un error :( EN LA ACTUALIZAXCION :", error);
     }
   };
 
-  render() {
     return (
       <div className="login-container">
         <div className="login-content">
@@ -61,51 +62,57 @@ export default class EditarAutomovil extends Component {
             <tr>
               <>
                 <td>
-                  <form id="formEditAuto">
+                  <form onSubmit={funcionEditarAuto} id="autoModificarEditAuto">
                     id
                     <input
-                      className="formEditAutoInput"
+                      className="autoModificarEditAutoInput"
                       type="text"
                       name="id"
                       disabled
-                      value={this.state.valor.id}
+                      value={autoModificar.id}
                     />
+                    <br/>
                    Año
                     <input
-                      className="formEditAutoInput"
+                      className="autoModificarEditAutoInput"
                       type="text"
                       name="year"
-                      placeholder={this.state.valor.year}
+                      placeholder={autoModificar.year}
                     />
+                    <br/>
                     Modelo
                     <input
-                      className="formEditAutoInput"
+                      className="autoModificarEditAutoInput"
                       type="text"
                       name="name"
-                      placeholder={this.state.valor.name}
+                      placeholder={autoModificar.name}
                     />
+                    <br/>
                     Color
                     <input
-                      className="formEditAutoInput"
+                      className="autoModificarEditAutoInput"
                       type="text"
                       name="color"
-                      placeholder={this.state.valor.color}
+                      placeholder={autoModificar.color}
                     />
+                    <br/>
                     Precio
                     <input
-                      className="formEditAutoInput"
+                      className="autoModificarEditAutoInput"
                       type="text"
-                      name="price"
-                      placeholder={this.state.valor.price}
+                      name="precio"
+                      placeholder={autoModificar.price}
                     />
+                    <br/>
                     Vendedor
                     <input
-                      className="formEditAutoInput"
+                      className="autoModificarEditAutoInput"
                       type="text"
-                      name="usar_id"
-                      placeholder={this.state.valor.user_id}
+                      name="user_id"
+                      placeholder={autoModificar.user_id}
                     />
-                    <button type="submit" onClick={this.funcionEditarAuto}>
+                    <br/>
+                    <button type="submit">
                       Confirmar
                     </button>
                   </form>
@@ -118,4 +125,6 @@ export default class EditarAutomovil extends Component {
       </div>
     );
   }
-}
+
+
+export default  EditarAutomovil 

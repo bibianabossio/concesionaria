@@ -1,10 +1,12 @@
-import React, { Component } from "react";
+import React, { Component,useState,useEffect,useContext } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import EditarRepuesto from "../EditarRepuesto/EditarRepuesto";
 import Loading from "../Loading/Loading";
+import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
+
 /* import CrearRepuesto from "../CrearRepuesto/CrearRepuesto"; */
 
-export default class Post extends Component {
+const Post=()=> {
   /*   userHandler = (value) => {
     
       setUrlUser(`https://api-taller-mecanico.herokuapp.com/repuestos/=${value}`);
@@ -13,23 +15,29 @@ export default class Post extends Component {
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}` },
       });
     } */
-    constructor(props) {
-      super(props);
-      this.state = { post: [],
-        search:""};
-     
-      
+    let repuesto={
+      id:null,
+      tipo:null
     }
-  
-  async componentDidMount() {
-    const res = await fetch(
-      "https://api-taller-mecanico.herokuapp.com/repuestos"
-    );
-    const data = await res.json();
-    this.setState({ post: data });
-  }
 
-  funcionBorrar = async (event) => {
+    const [post, setPost] = useState([])
+    const [search, setSearch] = useState("")
+    const {handleSeleccion,handleSubmitModificar} = useContext(BarraNavegacionContexto)
+    
+
+    
+
+    useEffect(async() => {
+      const res = await fetch(
+        "https://api-taller-mecanico.herokuapp.com/repuestos"
+      );
+      const data = await res.json();
+      setPost(data);
+      
+    }, [post,search])
+
+
+  const funcionBorrar = async (event) => {
     event.preventDefault();
     console.log(" se hizo click para borara el coso :", event.target.value);
 
@@ -52,12 +60,12 @@ export default class Post extends Component {
       console.log(" hubo un error :( :", error);
     }
   };
-  editarRepuesto = (event) => {
+  const editarRepuesto = (event) => {
     event.preventDefault();
     console.log(event.target);
   };
 /*hola */
-handleSubmit=async(e)=>{
+const handleSubmit=async(e)=>{
   e.preventDefault()
   
   let req=`https://api-taller-mecanico.herokuapp.com/repuestos/?search=${this.search}`
@@ -65,22 +73,24 @@ handleSubmit=async(e)=>{
     const res = await fetch(req);
     const data = await res.json();
     this.setState({ post: data });
-  
+  }
 
-}
-render() {
+
+
+
+
   return (
       <>
       <h2 style={{ height: 25, width: '100%' }}>Listado de Repuestos</h2>
 
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={handleSubmit}>
       
         <input 
           type="text" 
           placeholder="buscar" 
-          value={this.search}
+          value={search}
           onChange={(e) => {
-            this.search=e.target.value
+           search=e.target.value
             
           }
           }
@@ -100,7 +110,7 @@ render() {
           <th></th>
         </thead>
         <tbody className="tabla-style2">
-          {this.state.post?this.state.post.map((post) => (
+          {post?post.map((post) => (
               <tr key={post.id}>
               
                   <td>{post.id}</td>
@@ -113,7 +123,7 @@ render() {
                     <form>
                       <button
                         type="submit"
-                        onClick={this.funcionBorrar}
+                        onClick={funcionBorrar}
                         value={post.id}
                         className="submit-button"
                       >
@@ -122,30 +132,23 @@ render() {
                     </form>
                   </td>
                   <td>
-                    {/*  <form>                    
-                    <button type="submit" onClick={this.editarRepuesto} value={post.id} className="submit-button">Editar Repuesto</button>                    
-                  </form> */}
-                    <Router>
-                      <Link
-                        className="submit-button"
-                        to={{
-                          pathname: `EditarRepuesto/${post.id}`,
+                     <form onSubmit={handleSubmitModificar}>   
+                       
+                     <input type="text" hidden name="idInputModif" value={post.id} onChange={(e)=>{
+                       
+                       console.log("se hizo clicl  en modificar perro",e.target.idInputModif);
+                     }}/> 
+                      <input type="text" hidden name="marcaInputModif" value={post.marca} onChange={(e)=>{
+                          
 
-                          state: {
-                            detail: post,
-                            id: post.id,
-                            tipo: post.tipo,
-                            marca: post.marca,
-                            modelo: post.modelo,
-                            precio: post.precio,
-                            post: post.stock,
-                          },
-                        }}
-                        value={post.id}
-                      >
-                        Modificar
-                      </Link>
-                    </Router>
+                      }}/>                 
+                      <input type="text" hidden name="tipoInputModif" value={post.tipo} onChange={(e)=>{}}/>                 
+                      <input type="text"hidden  name="modedloInputModif" value={post.modelo} onChange={(e)=>{}}/>                 
+                      <input type="text" hidden name="precioInputModif" value={post.precio} onChange={(e)=>{}}/>                 
+                      <input type="text" hidden name="stockInputModif" value={post.stock} onChange={(e)=>{}}/>                 
+                    <button type="submit" name="tipoComponente"  value={"editar repuesto"} className="submit-button">Editar Repuesto</button>                    
+                  </form>
+                    
                   </td>
                 
               </tr>
@@ -166,4 +169,5 @@ render() {
       </>
     );
   }
-}
+
+export default Post

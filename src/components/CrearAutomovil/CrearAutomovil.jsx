@@ -30,13 +30,13 @@ export default class CrearAuto extends Component {
           "content-type": "application/json",
         },
         body: JSON.stringify({
-            year:resYear,
+            year:parseFloat(resYear),
             name:resName,
             color:resColor,
-            price:resPrice,
-            user_id:resUser_id,
+            price:parseFloat(resPrice),
+            user_id:parseFloat(resUser_id),
         
-        }),
+        })
       };
       let res = await fetch(
         `https://api-concesionario-taller6.herokuapp.com/auto`,
@@ -88,5 +88,3 @@ export default class CrearAuto extends Component {
     );
   }
 }
-
-
