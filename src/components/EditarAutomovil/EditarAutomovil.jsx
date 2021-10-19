@@ -1,5 +1,6 @@
 import React, { Component,useContext } from "react";
 import "../EditarRepuesto/EditarRepuesto.css";
+import Title from "../Title/Title";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
 /* import { useParams } from "react-router-dom"; */
@@ -58,6 +59,7 @@ const  EditarAutomovil =()=> {
     return (
       <div className="login-container">
         <div className="login-content">
+        <Title className="title-label" text="Editar Automovil" /> <br />
           <tbody>
             <tr>
               <>
@@ -65,7 +67,7 @@ const  EditarAutomovil =()=> {
                   <form onSubmit={funcionEditarAuto} id="autoModificarEditAuto">
                     id
                     <input
-                      className="autoModificarEditAutoInput"
+                      className="regular-style"
                       type="text"
                       name="id"
                       disabled
@@ -74,7 +76,7 @@ const  EditarAutomovil =()=> {
                     <br/>
                    Año
                     <input
-                      className="autoModificarEditAutoInput"
+                      className="regular-style"
                       type="text"
                       name="year"
                       placeholder={autoModificar.year}
@@ -82,7 +84,7 @@ const  EditarAutomovil =()=> {
                     <br/>
                     Modelo
                     <input
-                      className="autoModificarEditAutoInput"
+                      className="regular-style"
                       type="text"
                       name="name"
                       placeholder={autoModificar.name}
@@ -90,7 +92,7 @@ const  EditarAutomovil =()=> {
                     <br/>
                     Color
                     <input
-                      className="autoModificarEditAutoInput"
+                      className="regular-style"
                       type="text"
                       name="color"
                       placeholder={autoModificar.color}
@@ -98,7 +100,7 @@ const  EditarAutomovil =()=> {
                     <br/>
                     Precio
                     <input
-                      className="autoModificarEditAutoInput"
+                      className="regular-style"
                       type="text"
                       name="precio"
                       placeholder={autoModificar.price}
@@ -106,13 +108,13 @@ const  EditarAutomovil =()=> {
                     <br/>
                     Vendedor
                     <input
-                      className="autoModificarEditAutoInput"
+                      className="regular-style"
                       type="text"
                       name="user_id"
                       placeholder={autoModificar.user_id}
                     />
                     <br/>
-                    <button type="submit">
+                    <button type="submit" className="submit-button">
                       Confirmar
                     </button>
                   </form>

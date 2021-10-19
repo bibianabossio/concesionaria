@@ -1,6 +1,9 @@
 import React, { Component,useContext } from "react";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import "./EditarRepuesto.css";
+import Title from "../Title/Title";
+
+
 /* import { useParams } from "react-router-dom"; */
 
 const  EditarRepuesto =()=> {
@@ -61,7 +64,8 @@ const  EditarRepuesto =()=> {
     return (
       <div className="login-container">
         <div className="login-content">
-        <h2 style={{ height: 25, width: '100%', color:'white' }}>Editar Repuestos</h2>
+        <Title className="title-label" text="Editar Repuesto" /> <br />
+        
           <tbody>
             <tr>
               <>
@@ -69,7 +73,7 @@ const  EditarRepuesto =()=> {
                   <form onSubmit={handleSubmit} id="formEditRep">
                     id
                     <input
-                      className="formEditRepInput"
+                      className="regular-style"
                       type="text"
                       name="id"
                       disabled
@@ -77,40 +81,40 @@ const  EditarRepuesto =()=> {
                     />
                     Tipo
                     <input
-                      className="formEditRepInput"
+                      className="regular-style"
                       type="text"
                       name="tipo"
                      placeholder={form.tipo}
                     />
                     Marca
                     <input
-                      className="formEditRepInput"
+                      className="regular-style"
                       type="text"
                       name="marca"
                       placeholder={form.marca}
                     />
                     Modelo
                     <input
-                      className="formEditRepInput"
+                      className="regular-style"
                       type="text"
                       name="modelo"
                       placeholder={form.modelo}
                     />
                     Precio
                     <input
-                      className="formEditRepInput"
+                      className="regular-style"
                       type="text"
                       name="precio"
                      placeholder={form.precio}
                     />
                     Stock
                     <input
-                      className="formEditRepInput"
+                      className="regular-style"
                       type="text"
                       name="stock"
                       placeholder={form.stock}
                     />
-                    <button type="submit" name="botonConfEdit">
+                    <button type="submit" className="submit-button">
                       Confirmar
                     </button>
                   </form>
