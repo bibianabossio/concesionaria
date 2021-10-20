@@ -46,7 +46,7 @@ export default class Registrarse extends Component {
     };
 
    let res = await fetch(
-        `https://concesionario2.herokuapp.com/`,
+        `https://concesionario-crud.herokuapp.com/`,
         config
       ); 
       let resEnJson = await res.json();
