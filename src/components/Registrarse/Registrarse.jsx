@@ -23,7 +23,7 @@ export default class Registrarse extends Component {
           ?event.target.form.mail.value
           :""
         let resPassword= event.target.form.password.value
-          ?event.target.form.contrasenia.value
+          ?event.target.form.password.value
           :""
         
         try {
