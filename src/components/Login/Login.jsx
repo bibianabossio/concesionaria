@@ -1,14 +1,13 @@
-import  { useState } from "react";
+import { useState } from "react";
 import * as React from "react";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
 import Input from "../Input/Input";
 import "./Login.css";
-import Menu from "../Menu/Menu"; 
-import {useContext} from "react";
+import Menu from "../Menu/Menu";
+import { useContext } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
-
 
 const Login = () => {
   /*   const classes = useState(); */
@@ -18,9 +17,9 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const {handleSeleccion} = useContext(BarraNavegacionContexto)
+  const { handleSeleccion } = useContext(BarraNavegacionContexto);
 
-  
+  //
 
   function handleChange(name, value) {
     if (name === "usuario") {
@@ -34,8 +33,34 @@ const Login = () => {
       }
     }
   }
+  const formHandler = async(e) => {
+    e.preventDefault();
+    if (user && password !== "") {
+      try {
+        let config = {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "content-type": "application/json",
+          },
+          body: JSON.stringify({
+            nombreUsuario: user,
+            password: password,
+          }),
+        };
 
-  function ifMatch(param) {
+        let res = await fetch(
+          `http://concesionario-crud.herokuapp.com/auth/login`,
+          config
+        );
+        let resEnJson = await res.json();
+        console.log(" Inicio sesion! :", resEnJson);
+      } catch (error) {
+        console.log(" hubo un error :(  :", error);
+      }
+    }
+  };
+  /* function ifMatch(param) {
     if (param.user.length > 0 && param.password.length > 0) {
       if (param.user === "bibi" && param.password === "123456") {
         const { user, password } = param;
@@ -53,14 +78,14 @@ const Login = () => {
       setIsLogin(false);
       setHasError(true);
     }
-  }
-  function handleSubmit() {
+  } */
+ /*  function handleSubmit() {
     let account = { user, password };
     if (account) {
       ifMatch(account);
     }
-  }
-/*hola */
+  } */
+  /*hola */
   return (
     <div className="login-container">
       <div className="login-content">
@@ -108,22 +133,27 @@ const Login = () => {
           )}
           <br />
           <div className="submit-button-container">
-          
             {/*   <Router >
                 <Link to="/menu">
                 Ingresar al Sistema con LINK
                 </Link>
                 <Route path="/menu" component={Menu} />
               </Router> */}
-              <button onClick={handleSeleccion}  value="menu" className="submit-button">
+            <button
+              onClick={formHandler}
+              value="menu"
+              className="submit-button"
+            >
               Ingresar al Sistema
-              </button>
-            
-              <button onClick={handleSeleccion}  value="registrarse" className="submit-button">
-                Registrarse
-              </button>
-            
+            </button>
 
+            <button
+              onClick={handleSeleccion}
+              value="registrarse"
+              className="submit-button"
+            >
+              Registrarse
+            </button>
           </div>
         </form>
         <br />
