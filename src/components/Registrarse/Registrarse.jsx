@@ -19,8 +19,8 @@ export default class Registrarse extends Component {
         let resDNI= event.target.form.dni.value
           ?event.target.form.dni.value
           :""
-        let resMail= event.target.form.mail.value
-          ?event.target.form.mail.value
+        let resEmail= event.target.form.email.value
+          ?event.target.form.email.value
           :""
         let resPassword= event.target.form.password.value
           ?event.target.form.password.value
@@ -38,7 +38,7 @@ export default class Registrarse extends Component {
                 "apellido":resApellido,
                 "nombre":resNombre,
                 "dni":resDNI,
-                "mail":resMail,
+                "email":resEmail,
                 "password":resPassword,
                 
             
@@ -76,15 +76,13 @@ export default class Registrarse extends Component {
               <Label text="DNI" />
               <input className="regular-style" type="text"name="dni" />
               <br />
-              <Label text="Mail" />
-              <input className="regular-style" type="text" name="mail" />
+              <Label text="Email" />
+              <input className="regular-style" type="text" name="email" />
               <br />
               <Label text="Contraseña" />
               <input className="regular-style" type="text" name="password"/>
               <br />
-              <Label text="Validar Contraseña" />
-              <input className="regular-style" type="text" name="password"/>
-              <br /> <br />
+              <br />
               <button
                 onClick={this.crearUsuario}
                 /* type="submit" */ className="submit-button"
