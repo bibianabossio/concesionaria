@@ -50,7 +50,7 @@ const Login = () => {
         };
 
         let res = await fetch(
-          `http://concesionario-crud.herokuapp.com/auth/login`,
+          `https://concesionario-crud.herokuapp.com/auth/login`,
           config
         );
         let resEnJson = await res.json();
@@ -59,7 +59,7 @@ const Login = () => {
         console.log(" hubo un error :(  :", error);
       }
     }
-  };
+  }
   /* function ifMatch(param) {
     if (param.user.length > 0 && param.password.length > 0) {
       if (param.user === "bibi" && param.password === "123456") {
