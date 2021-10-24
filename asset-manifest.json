@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/concesionaria/static/css/main.6253b894.chunk.css",
+    "main.js": "/concesionaria/static/js/main.17301298.chunk.js",
+    "main.js.map": "/concesionaria/static/js/main.17301298.chunk.js.map",
+    "runtime-main.js": "/concesionaria/static/js/runtime-main.f598242e.js",
+    "runtime-main.js.map": "/concesionaria/static/js/runtime-main.f598242e.js.map",
+    "static/js/2.22fda88b.chunk.js": "/concesionaria/static/js/2.22fda88b.chunk.js",
+    "static/js/2.22fda88b.chunk.js.map": "/concesionaria/static/js/2.22fda88b.chunk.js.map",
+    "static/js/3.6c03d69c.chunk.js": "/concesionaria/static/js/3.6c03d69c.chunk.js",
+    "static/js/3.6c03d69c.chunk.js.map": "/concesionaria/static/js/3.6c03d69c.chunk.js.map",
+    "index.html": "/concesionaria/index.html",
+    "precache-manifest.86db9dfa2e95259b3aa2066f1111c00c.js": "/concesionaria/precache-manifest.86db9dfa2e95259b3aa2066f1111c00c.js",
+    "service-worker.js": "/concesionaria/service-worker.js",
+    "static/css/main.6253b894.chunk.css.map": "/concesionaria/static/css/main.6253b894.chunk.css.map",
+    "static/js/2.22fda88b.chunk.js.LICENSE.txt": "/concesionaria/static/js/2.22fda88b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f598242e.js",
+    "static/js/2.22fda88b.chunk.js",
+    "static/css/main.6253b894.chunk.css",
+    "static/js/main.17301298.chunk.js"
+  ]
+}
