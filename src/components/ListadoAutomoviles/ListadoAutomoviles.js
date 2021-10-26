@@ -30,9 +30,11 @@ const  Auto =()=> {
     console.log(" se hizo click para borara el coso :", event.target.value);
 
     try {
+      let sesion = JSON.parse(localStorage.getItem("sesion"));
       let config = {
         method: "DELETE",
         headers: {
+          Authorization: sesion.bearer +" " +sesion.token,
           Accept: "application/json",
           "content-type": "application/json",
         },

@@ -29,9 +29,11 @@ const  EditarAutomovil =()=> {
       : autoModificar.user_id;
 
     try {
+      let sesion = JSON.parse(localStorage.getItem("sesion"));
       let config = {
         method: "PUT",
         headers: {
+          Authorization: sesion.bearer +" " +sesion.token,
           Accept: "application/json",
           "content-type": "application/json",
         },

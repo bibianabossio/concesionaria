@@ -54,6 +54,7 @@ const Login = () => {
           config
         );
         let resEnJson = await res.json();
+        localStorage.setItem("sesion",JSON.stringify(resEnJson) );
         console.log(" Inicio sesion! :", resEnJson);
       } catch (error) {
         console.log(" hubo un error :(  :", error);

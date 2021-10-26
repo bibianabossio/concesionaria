@@ -34,7 +34,7 @@ const Post=()=> {
       const data = await res.json();
       setPost(data);
       
-    }, [post,search])
+    }, [])
 
 
   const funcionBorrar = async (event) => {
@@ -42,9 +42,11 @@ const Post=()=> {
     console.log(" se hizo click para borara el coso :", event.target.value);
 
     try {
+      let sesion = JSON.parse(localStorage.getItem("sesion"));
       let config = {
         method: "DELETE",
         headers: {
+          Authorization: sesion.bearer +" " +sesion.token,
           Accept: "application/json",
           "content-type": "application/json",
         },
@@ -56,6 +58,7 @@ const Post=()=> {
       );
       let resEnJson = await res.json();
       console.log(" SE BORRO! :", resEnJson);
+    
     } catch (error) {
       console.log(" hubo un error :( :", error);
     }
