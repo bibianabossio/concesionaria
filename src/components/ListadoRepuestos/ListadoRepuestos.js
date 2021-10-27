@@ -26,7 +26,7 @@ const Post=()=> {
     
 
     
-//hola
+//holalalalala
     useEffect(async() => {
       const res = await fetch(
         "https://api-taller-mecanico.herokuapp.com/repuestos"
