@@ -49,7 +49,7 @@ const  Auto =()=> {
       console.log(" SE BORRO! :", resEnJson);
      
     } catch (error) {
-      console.log(" hubo un error :( :", error);
+      console.log(" hubo un error :( ", error);
     }
   };
  /*olsd*/
@@ -96,7 +96,7 @@ const  Auto =()=> {
                           value={auto.id}
                           onChange={(e) => {
                             console.log(
-                              "se hizo clicl  en modificar perro",
+                              "se hizo click  en modificar perro",
                               e.target.idInputModif
                             );
                           }}
