@@ -1,6 +1,5 @@
-import React, { Component,useState,useEffect,useContext } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import EditarRepuesto from "../EditarRepuesto/EditarRepuesto";
+import React, { useState,useEffect,useContext } from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
@@ -14,19 +13,19 @@ const Post=()=> {
         method: 'GET',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('token')}` },
       });
-    } */
+    } 
     let repuesto={
       id:null,
       tipo:null
     }
-
+  */
     const [post, setPost] = useState([])
     const [search, setSearch] = useState("")
     const {handleSeleccion,handleSubmitModificar} = useContext(BarraNavegacionContexto)
     
 
     
-//holalalalala
+
     useEffect(async() => {
       const res = await fetch(
         "https://api-taller-mecanico.herokuapp.com/repuestos"

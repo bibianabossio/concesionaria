@@ -4,20 +4,17 @@ import Title from "../Title/Title";
 import Label from "../Label/Label";
 import Input from "../Input/Input";
 import "./Login.css";
-import Menu from "../Menu/Menu";
 import { useContext } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
 const Login = () => {
-  /*   const classes = useState(); */
-
+  
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const { handleSeleccion } = useContext(BarraNavegacionContexto);
+  const { handleSeleccion,setSeleccion } = useContext(BarraNavegacionContexto);
 
   //
 
@@ -56,37 +53,16 @@ const Login = () => {
         let resEnJson = await res.json();
         localStorage.setItem("sesion",JSON.stringify(resEnJson) );
         console.log(" Inicio sesion! :", resEnJson);
-      } catch (error) {
+        if (resEnJson.bearer=== "Bearer"){
+          setSeleccion("menu")
+        }
+        
+          } catch (error) {
         console.log(" hubo un error :(  :", error);
       }
     }
   }
-  /* function ifMatch(param) {
-    if (param.user.length > 0 && param.password.length > 0) {
-      if (param.user === "bibi" && param.password === "123456") {
-        const { user, password } = param;
-        let ac = { user, password };
-        let account = JSON.stringify(ac);
-        localStorage.setItem("account", account);
-        setIsLogin(() => {
-          this.isLogin = true;
-        });
-      } else {
-        setIsLogin(false);
-        setHasError(true);
-      }
-    } else {
-      setIsLogin(false);
-      setHasError(true);
-    }
-  } */
- /*  function handleSubmit() {
-    let account = { user, password };
-    if (account) {
-      ifMatch(account);
-    }
-  } */
-  /*hola */
+
   return (
     <div className="login-container">
       <div className="login-content">
@@ -134,12 +110,7 @@ const Login = () => {
           )}
           <br />
           <div className="submit-button-container">
-            {/*   <Router >
-                <Link to="/menu">
-                Ingresar al Sistema con LINK
-                </Link>
-                <Route path="/menu" component={Menu} />
-              </Router> */}
+          
             <button
               onClick={formHandler}
               value="menu"

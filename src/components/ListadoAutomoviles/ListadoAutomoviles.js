@@ -1,6 +1,4 @@
-import { AvTimer } from "@mui/icons-material";
-import { Component,useContext,useState,useEffect } from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { useContext,useState,useEffect } from "react";
 import * as React from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -14,7 +12,7 @@ import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
 const  Auto =()=> {
   const [objeto, setObjeto] = useState([])
-  const { handleSeleccion, handleSubmitModificar } = useContext(BarraNavegacionContexto);
+  const {  handleSubmitModificar } = useContext(BarraNavegacionContexto);
  
 
   useEffect(async() => {

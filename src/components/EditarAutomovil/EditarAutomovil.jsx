@@ -1,4 +1,4 @@
-import React, { Component,useContext } from "react";
+import React, { useContext } from "react";
 import "../EditarRepuesto/EditarRepuesto.css";
 import Title from "../Title/Title";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
