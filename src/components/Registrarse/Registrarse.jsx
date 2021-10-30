@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
-export default class Registrarse extends Component {
 
+  const Registrarse = () => {
   const { handleSeleccion, setSeleccion } = useContext(BarraNavegacionContexto);
-  crearUsuario = async (event) => {
+   const crearUsuario = async (event) => {
     event.preventDefault();
     console.log("hice click", event.target.form.nombreUsuario.value);
     let resNombreUsuario = event.target.form.nombreUsuario.value
@@ -72,7 +72,7 @@ export default class Registrarse extends Component {
     }
   };
 
-  render() {
+  
     return (
       <>
         <div className="login-container">
@@ -109,7 +109,7 @@ export default class Registrarse extends Component {
               <br />
               <br />
               <button
-                onClick={this.crearUsuario}
+                onClick={crearUsuario}
                 /* type="submit" */ className="submit-button"
               >
                 Confirmar
@@ -121,5 +121,6 @@ export default class Registrarse extends Component {
         </div>
       </>
     );
-  }
+  
 }
+export default Registrarse;
