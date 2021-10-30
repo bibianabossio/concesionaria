@@ -116,7 +116,10 @@ const  EditarRepuesto =()=> {
                       name="stock"
                       placeholder={form.stock}
                     />
-                    <button type="submit" className="submit-button">
+                    <button 
+                    value= {setSeleccion}
+                    type="submit" 
+                    className="submit-button">
                       Confirmar
                     </button>
                   </form>

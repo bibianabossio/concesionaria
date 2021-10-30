@@ -116,7 +116,10 @@ const  EditarAutomovil =()=> {
                       placeholder={autoModificar.user_id}
                     />
                     <br/>
-                    <button type="submit" className="submit-button">
+                    <button 
+                    value= {setSeleccion}
+                    type="submit" 
+                    className="submit-button">
                       Confirmar
                     </button>
                   </form>

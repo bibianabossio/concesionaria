@@ -6,15 +6,16 @@ import Input from "../Input/Input";
 import "./Login.css";
 import { useContext } from "react";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
-  
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const { handleSeleccion,setSeleccion } = useContext(BarraNavegacionContexto);
+  const { handleSeleccion, setSeleccion } = useContext(BarraNavegacionContexto);
 
   //
 
@@ -30,7 +31,7 @@ const Login = () => {
       }
     }
   }
-  const formHandler = async(e) => {
+  const formHandler = async (e) => {
     e.preventDefault();
     if (user && password !== "") {
       try {
@@ -41,8 +42,8 @@ const Login = () => {
             "content-type": "application/json",
           },
           body: JSON.stringify({
-            "nombreUsuario": user,
-            "password": password,
+            nombreUsuario: user,
+            password: password,
           }),
         };
 
@@ -51,17 +52,28 @@ const Login = () => {
           config
         );
         let resEnJson = await res.json();
-        localStorage.setItem("sesion",JSON.stringify(resEnJson) );
+        localStorage.setItem("sesion", JSON.stringify(resEnJson));
         console.log(" Inicio sesion! :", resEnJson);
-        if (resEnJson.bearer=== "Bearer"){
-          setSeleccion("menu")
+        if (resEnJson.bearer === "Bearer") {
+          toast("iniciaste sesion!", {
+            position: "top-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progreso: undefined,
+          });
+          setTimeout(() => {
+            setSeleccion("menu");
+          }, 5000);
+         
         }
-        
-          } catch (error) {
+      } catch (error) {
         console.log(" hubo un error :(  :", error);
       }
     }
-  }
+  };
 
   return (
     <div className="login-container">
@@ -110,7 +122,6 @@ const Login = () => {
           )}
           <br />
           <div className="submit-button-container">
-          
             <button
               onClick={formHandler}
               value="menu"
@@ -126,6 +137,7 @@ const Login = () => {
             >
               Registrarse
             </button>
+            <ToastContainer> </ToastContainer>
           </div>
         </form>
         <br />

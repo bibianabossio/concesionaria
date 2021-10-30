@@ -1,8 +1,13 @@
 import React, { Component } from "react";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
 export default class Registrarse extends Component {
+
+  const { handleSeleccion, setSeleccion } = useContext(BarraNavegacionContexto);
   crearUsuario = async (event) => {
     event.preventDefault();
     console.log("hice click", event.target.form.nombreUsuario.value);
@@ -46,6 +51,22 @@ export default class Registrarse extends Component {
       );
       let resEnJson = await res.json();
       console.log(" SE CREO UN NUEVO USUARIO :", resEnJson);
+      console.dir(resEnJson);
+      if (resEnJson.idUsuario !== null){
+        toast("Usuario Registrado", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progreso: undefined,
+        });
+        setTimeout(() => {
+          setSeleccion("menu");
+        }, 5000);
+
+      }
     } catch (error) {
       console.log(" hubo un error :( EN LA ACTUALIZAXCION :", error);
     }
@@ -93,6 +114,7 @@ export default class Registrarse extends Component {
               >
                 Confirmar
               </button>
+              <ToastContainer> </ToastContainer>
             </form>
             <br />
           </div>
