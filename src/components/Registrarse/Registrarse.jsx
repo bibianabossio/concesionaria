@@ -5,10 +5,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
-
-  const Registrarse = () => {
+const Registrarse = () => {
   const { handleSeleccion, setSeleccion } = useContext(BarraNavegacionContexto);
-   const crearUsuario = async (event) => {
+  const crearUsuario = async (event) => {
     event.preventDefault();
     console.log("hice click", event.target.form.nombreUsuario.value);
     let resNombreUsuario = event.target.form.nombreUsuario.value
@@ -50,9 +49,12 @@ import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
         config
       );
       let resEnJson = await res.json();
-      console.log(" SE CREO UN NUEVO USUARIO :", resEnJson);
       console.dir(resEnJson);
-      if (resEnJson.idUsuario !== null){
+      if (
+        resEnJson.idUsuario != null ||
+        resEnJson.mensaje != "Nombre de usuario existente"
+      ) {
+        console.log(" SE CREO UN NUEVO USUARIO :", resEnJson);
         toast("Usuario Registrado", {
           position: "top-left",
           autoClose: 5000,
@@ -65,62 +67,60 @@ import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
         setTimeout(() => {
           setSeleccion("menu");
         }, 5000);
-
+      } else {
+        toast(resEnJson.mensaje, {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progreso: undefined,
+        });
       }
     } catch (error) {
       console.log(" hubo un error :( EN LA ACTUALIZAXCION :", error);
     }
   };
 
-  
-    return (
-      <>
-        <div className="login-container">
-          <div className="login-content">
-            {" "}
+  return (
+    <>
+      <div className="login-container">
+        <div className="login-content">
+          {" "}
+          <br />
+          <Title className="title-label" text="Registrarse" />
+          <form className="form">
+            <Label text="Usuario" />
+            <input className="regular-style" type="text" name="nombreUsuario" />
             <br />
-            <Title className="title-label" text="Registrarse" />
-            <form className="form">
-              <Label text="Usuario" />
-              <input
-                className="regular-style"
-                type="text"
-                name="nombreUsuario"
-              />
-              <br />
-              <Label text="Apellido" />
-              <input
-                className="regular-style"
-                type="text"
-                name="apellido"
-              />{" "}
-              <br />
-              <Label text="Nombre" />
-              <input className="regular-style" type="text" name="nombre" />{" "}
-              <br />
-              <Label text="DNI" />
-              <input className="regular-style" type="text" name="dni" />
-              <br />
-              <Label text="Email" />
-              <input className="regular-style" type="text" name="email" />
-              <br />
-              <Label text="Contraseña" />
-              <input className="regular-style" type="text" name="password" />
-              <br />
-              <br />
-              <button
-                onClick={crearUsuario}
-                /* type="submit" */ className="submit-button"
-              >
-                Confirmar
-              </button>
-              <ToastContainer> </ToastContainer>
-            </form>
+            <Label text="Apellido" />
+            <input className="regular-style" type="text" name="apellido" />{" "}
             <br />
-          </div>
+            <Label text="Nombre" />
+            <input className="regular-style" type="text" name="nombre" /> <br />
+            <Label text="DNI" />
+            <input className="regular-style" type="text" name="dni" />
+            <br />
+            <Label text="Email" />
+            <input className="regular-style" type="text" name="email" />
+            <br />
+            <Label text="Contraseña" />
+            <input className="regular-style" type="text" name="password" />
+            <br />
+            <br />
+            <button
+              onClick={crearUsuario}
+              /* type="submit" */ className="submit-button"
+            >
+              Confirmar
+            </button>
+            <ToastContainer> </ToastContainer>
+          </form>
+          <br />
         </div>
-      </>
-    );
-  
-}
+      </div>
+    </>
+  );
+};
 export default Registrarse;
