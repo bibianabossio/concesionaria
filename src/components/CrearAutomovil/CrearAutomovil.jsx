@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
-/* import Login from "../Login/Login"; */
-/*hola */
-export default class CrearAuto extends Component {
-  crearAutomovil = async (event) => {
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
+
+
+const crearAuto = () => {
+  const { setSeleccion } = useContext(BarraNavegacionContexto);
+
+  const crearAutomovil = async (event) => {
     event.preventDefault();
     console.log("hice click", event.target.form.year.value);
     let resYear = event.target.form.year.value
@@ -38,28 +43,67 @@ export default class CrearAuto extends Component {
             price:parseFloat(resPrice),
             user_id:parseFloat(resUser_id),
         
-        })
+        }),
       };
       let res = await fetch(
         `https://api-concesionario-taller6.herokuapp.com/auto`,
         config, {mode:'no-cors'}
       );
       let resEnJson = await res.json();
-      console.log(" SE CREO UN NUEVO AUTO :", resEnJson);
+if (res.status==201){
+    console.log(" SE CREO UN NUEVO AUTO :", resEnJson);
+    toast("Automóvil Registrado", {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progreso: undefined,
+    });
+    setTimeout(() => {
+      setSeleccion("menu");
+    }, 5000);
+  }if (res.status==409){
+    toast(resEnJson.message.modelo, {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progreso: undefined,
+    });
+  }
+   else {
+    toast(resEnJson.message.color, {
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progreso: undefined,
+    });
+  }
     } catch (error) {
-      console.log(" hubo un error :( EN LA ACTUALIZAXCION :", error);
+      console.log(" hubo un error :( EN LA ACTUALIZACION :", error);
     }
 
   };
 
-  render() {
+
     return (
-      <>
+      
         <div className="login-container">
           <div className="login-content">
             <br />
             <Title className="title-label" text="Crear Nuevo Automovil" /> <br />
-            <form className="form">
+          <tbody>
+            <tr>
+            <>
+            <td>
+            <form onSubmit={crearAutomovil} className="form">
               <Label text="Año" />
               <input className="regular-style" type="text" name="year"  />
               <br />
@@ -77,16 +121,23 @@ export default class CrearAuto extends Component {
               <br />
               <br />
               <button
-                onClick={this.crearAutomovil}
-                /* type="submit" */ className="submit-button"
+                value={setSeleccion}
+               type="submit" 
+               className="submit-button"
               >
                 Confirmar
               </button>
+              <ToastContainer> </ToastContainer>
             </form>
-            <br />
+            </td>
+            <td></td>
+            </>
+            </tr>
+            </tbody>
           </div>
         </div>
-      </>
+      
     );
-  }
+  
 }
+export default crearAuto;

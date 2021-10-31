@@ -65,7 +65,7 @@ const Registrarse = () => {
           progreso: undefined,
         });
         setTimeout(() => {
-          setSeleccion("menu");
+          setSeleccion("login");
         }, 5000);
       } else {
         toast(resEnJson.mensaje, {
