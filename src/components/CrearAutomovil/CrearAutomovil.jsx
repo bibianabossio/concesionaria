@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
 import { ToastContainer, toast } from "react-toastify";
@@ -6,26 +6,26 @@ import "react-toastify/dist/ReactToastify.css";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
 
-const crearAuto = () => {
+const CrearAuto = () => {
   const { setSeleccion } = useContext(BarraNavegacionContexto);
 
   const crearAutomovil = async (event) => {
     event.preventDefault();
-    console.log("hice click", event.target.form.year.value);
-    let resYear = event.target.form.year.value
-      ? event.target.form.year.value
+    console.log("hice click", event.target);
+    let resYear = event.target.year.value
+      ? event.target.year.value
       : "";
-    let resName = event.target.form.name.value
-      ? event.target.form.name.value
+    let resName = event.target.name.value
+      ? event.target.name.value
       : "";
-    let resColor = event.target.form.color.value
-      ? event.target.form.color.value
+    let resColor = event.target.color.value
+      ? event.target.color.value
       : "";
-    let resPrice = event.target.form.price.value
-      ? event.target.form.price.value
+    let resPrice = event.target.price.value
+      ? event.target.price.value
       : "";
-    let resUser_id = event.target.form.user_id.value
-      ? event.target.form.user_id.value
+    let resUser_id = event.target.user_id.value
+      ? event.target.user_id.value
       : ""; 
     try {
       let sesion = JSON.parse(localStorage.getItem("sesion"));
@@ -140,4 +140,4 @@ if (res.status==201){
     );
   
 }
-export default crearAuto;
+export default CrearAuto;
