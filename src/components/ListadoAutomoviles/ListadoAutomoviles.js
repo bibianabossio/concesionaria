@@ -25,6 +25,14 @@ const  Auto =()=> {
    console.log(objeto);
    
   }, [])
+
+  const actualizarListado=async() => {
+    
+    const res = await fetch("https://api-concesionario-taller6.herokuapp.com/auto");
+   const data = await res.json();
+   setObjeto(data);
+   console.log(objeto);
+  }
   const funcionBorrar = async (event) => {
     event.preventDefault();
     console.log(" se hizo click para borara el coso :", event.target.value);
@@ -45,10 +53,10 @@ const  Auto =()=> {
         `https://api-concesionario-taller6.herokuapp.com/auto/${event.target.value}`,
         config
       );
-      let resEnJson = res.json();
+      let resEnJson = res;
       if (res.status==204){
-        
-      console.log(" SE BORRO! :", resEnJson);
+        actualizarListado()
+      /* console.log(" SE BORRO! :", resEnJson); */
         toast("Automóvil Eliminado", {
           position: "top-left",
           autoClose: 5000,

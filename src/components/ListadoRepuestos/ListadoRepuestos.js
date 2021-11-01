@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Link } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import Buscador from "../Buscador/Buscador"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 /* import CrearRepuesto from "../CrearRepuesto/CrearRepuesto"; */
 
@@ -52,20 +54,22 @@ const Post=()=> {
       
     }, [])
 
+    const actualizarListado=async() => {
+      const res = await fetch(
+        "https://api-taller-mecanico.herokuapp.com/repuestos"
+      );
+      const data = await res.json();
+      setPost(data);
+      
+    }
+
     const funcionBorrarFiltroBusq=()=>{
       setSearch({        
         textoAbuscar:null,
         opcionSeleccionada:null
       })
-      const xx =async() => {
-        const res = await fetch(
-          "https://api-taller-mecanico.herokuapp.com/repuestos"
-        );
-        const data = await res.json();
-        setPost(data);
-        
-      }
-      xx()
+      
+      actualizarListado()
     }
 
   const funcionBorrar = async (event) => {
@@ -73,11 +77,11 @@ const Post=()=> {
     console.log(" se hizo click para borara el coso :", event.target.value);
 
     try {
-      let sesion = JSON.parse(localStorage.getItem("sesion"));
+      /* let sesion = JSON.parse(localStorage.getItem("sesion")); */
       let config = {
         method: "DELETE",
         headers: {
-          Authorization: sesion.bearer +" " +sesion.token,
+          /* Authorization: sesion.bearer +" " +sesion.token, */
           Accept: "application/json",
           "content-type": "application/json",
         },
@@ -87,8 +91,32 @@ const Post=()=> {
         `https://api-taller-mecanico.herokuapp.com/repuestos/${event.target.value}`,
         config
       );
-      let resEnJson = await res.json();
-      console.log(" SE BORRO! :", resEnJson);
+      let resEnJson = res;
+      if (res.status==204){
+        actualizarListado()
+      /* console.log(" SE BORRO! :", resEnJson); */
+        toast(`Repuesto ${event.target.value} Eliminado`, {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progreso: undefined,
+        });
+        
+      } else {
+        toast(resEnJson.message, {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progreso: undefined,
+        });
+      }
+      
     
     } catch (error) {
       console.log(" hubo un error :( :", error);
@@ -193,7 +221,7 @@ const handleSubmit=async(e)=>{
           </tr>
         </tbody>
       </table>
-      
+      <ToastContainer> </ToastContainer>
       </>
     );
   }
