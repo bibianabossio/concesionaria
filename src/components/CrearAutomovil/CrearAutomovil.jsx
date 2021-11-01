@@ -76,7 +76,7 @@ if (res.status==201){
     });
   }
    else {
-    toast(resEnJson.message.color, {
+    toast(resEnJson.message, {
       position: "top-left",
       autoClose: 5000,
       hideProgressBar: false,

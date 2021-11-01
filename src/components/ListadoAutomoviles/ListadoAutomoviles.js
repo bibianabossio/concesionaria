@@ -9,10 +9,12 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Loading from "../Loading/Loading";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const  Auto =()=> {
   const [objeto, setObjeto] = useState([])
-  const {  handleSubmitModificar } = useContext(BarraNavegacionContexto);
+  const {  handleSubmitModificar, setSeleccion } = useContext(BarraNavegacionContexto);
  
 
   useEffect(async() => {
@@ -28,23 +30,49 @@ const  Auto =()=> {
     console.log(" se hizo click para borara el coso :", event.target.value);
 
     try {
-      let sesion = JSON.parse(localStorage.getItem("sesion"));
+      /* let sesion = JSON.parse(localStorage.getItem("sesion")); */
       let config = {
         method: "DELETE",
         headers: {
-          Authorization: sesion.bearer +" " +sesion.token,
+          /* Authorization: sesion.bearer +" " +sesion.token, */
           Accept: "application/json",
           "content-type": "application/json",
-        },
-        body: JSON.stringify(event.target.value),
+        }
+        /* body: JSON.stringify(event.target.value), */
        
       };
       let res = await fetch(
         `https://api-concesionario-taller6.herokuapp.com/auto/${event.target.value}`,
         config
       );
-      let resEnJson = await res.json();
+      let resEnJson = res.json();
+      if (res.status==204){
+        
       console.log(" SE BORRO! :", resEnJson);
+        toast("Automóvil Eliminado", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progreso: undefined,
+        });
+        setTimeout(() => {
+          setSeleccion("menu");
+        }, 5000);
+      } else {
+        toast(resEnJson.message, {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progreso: undefined,
+        });
+      }
+
      
     } catch (error) {
       console.log(" hubo un error :( ", error);
@@ -156,6 +184,7 @@ const  Auto =()=> {
                         >
                           Eliminar
                         </button>
+                        <ToastContainer> </ToastContainer>
                       </form>
                     </TableCell>
                   </TableRow>
