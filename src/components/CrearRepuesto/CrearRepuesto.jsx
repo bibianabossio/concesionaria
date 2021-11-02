@@ -28,7 +28,7 @@ export default class CrearRep extends Component {
       let config = {
         method: "POST",
         headers: {
-          Authorization: sesion.bearer +" " +sesion.token,
+          Authorization: sesion.bearer + " " + sesion.token,
           Accept: "application/json",
           "content-type": "application/json",
         },
@@ -37,12 +37,13 @@ export default class CrearRep extends Component {
           marca: resMarca,
           modelo: resModelo,
           precio: parseFloat(resPrecio),
-          stock: parseFloat(resStock)
+          stock: parseFloat(resStock),
         }),
       };
       let res = await fetch(
         `https://api-taller-mecanico.herokuapp.com/repuestos`,
-        config
+        config,
+        { mode: "no-cors" }
       );
       let resEnJson = await res.json();
       console.log(" SE CREO UN NUEVO REPUESTOOO :", resEnJson);
@@ -60,12 +61,13 @@ export default class CrearRep extends Component {
             <Title className="title-label" text="Crear Nuevo Repuesto" /> <br />
             <form className="form">
               <Label text="Tipo" />
-              <input className="regular-style" type="text"  name="tipo"/>
+              <input className="regular-style" type="text" name="tipo" />
               <br />
               <Label text="Marca" />
-              <input className="regular-style" type="text"  name="marca"/> <br />
+              <input className="regular-style" type="text" name="marca" />{" "}
+              <br />
               <Label text="Modelo" />
-              <input className="regular-style" type="text"  name="modelo"/>
+              <input className="regular-style" type="text" name="modelo" />
               <br />
               <Label text="Precio" />
               <input className="regular-style" type="text" name="precio" />
