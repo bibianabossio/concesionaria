@@ -215,5 +215,5 @@ try{
       </>
     );
   
-}
+
 export default  Perfil 
