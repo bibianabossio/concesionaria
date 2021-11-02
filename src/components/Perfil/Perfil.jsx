@@ -49,7 +49,7 @@ try{
     }),
   };
     let res = await fetch(
-      `https://concesionario-crud.herokuapp.com/auth/consultarUsuario/${resNombreUsuario}`,
+      `https://concesionario-crud.herokuapp.com/auth/actualizarUsuario/${resNombreUsuario}`,
       config
     );
     let resEnJson = await res.json();
@@ -57,7 +57,7 @@ try{
     if (
       resEnJson.resNombreUsuario !== null  ||
       res.status === 200) {
-      console.log(" SE ACYUALIZO USUARIO :", resEnJson);
+      console.log(" SE ACTUALIZO USUARIO :", resEnJson);
       toast("Usuario Actualizado", {
         position: "top-left",
         autoClose: 5000,
@@ -142,57 +142,65 @@ try{
   };
   
     return (
-      <>
+      
         <div className="login-container">
           <div className="login-content">
-            {" "}
-            <br />
-            <Title className="title-label" text="Mi Perfil" /> <br />
-            <form className="form">
-              <Label text="Usuario" />
-              <input
-                className="regular-style"
-                type="text" /*value={this.user.usuario}*/
+          <Title className="title-label" text="Mi Perfil" /> <br />
+           <tbody> 
+             <tr>
+             <>
+            <td>
+            <form onSubmit={editarUsuario} id="usuarioModificar">
+            Usuario
+            <input
+           className="regular-style"
+           type="text"
+            name= "Usuario"
+             disabled
+             
+               
+                 value={usuarioModificar.resNombreUsuario}
               />
               <br />
-              <Label text="Apellido" />
+              Apellido
+              
               <input
                 className="regular-style"
-                type="text" /*placeholder={this.user.apellido} */
-              />{" "}
-              <br />
-              <Label text="Nombre" />
-              <input
-                className="regular-style"
-                type="text" /*placeholder={this.user.nombre} */
-              />{" "}
-              <br />
-              <Label text="Número de DNI" />
-              <input
-                className="regular-style"
-                type="text" /* placeholder={this.user.dni}*/
+                type="text" 
+                name="Apellido" 
+                placeholder={usuarioModificar.resApellido}
               />
               <br />
-              <Label text="Dirección de mail" />
-              <input
+
+              Nombre
+               <input
                 className="regular-style"
-                type="text" /*placeholder={this.user.mail}*/
+                type="text" 
+                name = "Nombre" 
+                placeholder={usuarioModificar.resNombre} 
               />
               <br />
-              <Label text="Contraseña Nueva" />
+              DNI
               <input
                 className="regular-style"
-                type="text" /*placeholder={this.user.contrasenia}*/
+                type="text" 
+                name="Número de DNI" 
+                placeholder={usuarioModificar.resDNI}
               />
               <br />
-              <Label text="Validar Contraseña Nueva" />
+              Dirección de mail
+             
               <input
                 className="regular-style"
-                type="text" /*placeholder={this.user.contrasenia}*/
+                type="text" 
+                name="Dirección de mail" 
+                placeholder={usuarioModificar.resPassword}
               />
               <br />
+             
               <br />
-              <div className="submit-button-container">
+              <br />
+            
                 <button
                   /*type="submit"*/
                   onClick={editarUsuario}
@@ -207,13 +215,18 @@ try{
             >
               Eliminar Usuario
             </button>
-              </div>
+            <ToastContainer> </ToastContainer>
+              
             </form>
-            <br />
-          </div>
-        </div>
-      </>
+            </td>
+              <td></td>
+            </>
+          </tr>
+        </tbody>
+      </div>
+    </div>
     );
+    ;
   
 
-export default  Perfil 
+export default  Perfil; 
