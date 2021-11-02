@@ -34,11 +34,11 @@ const  EditarRepuesto =()=> {
       : form.stock;
 
     try {
-      let sesion = JSON.parse(localStorage.getItem("sesion"));
+      /* let sesion = JSON.parse(localStorage.getItem("sesion")); */
       let config = {
         method: "PATCH",
         headers: {
-          Authorization: sesion.bearer +" " +sesion.token,
+         /*  Authorization: sesion.bearer +" " +sesion.token, */
           Accept: "application/json",
           "content-type": "application/json",
         },
