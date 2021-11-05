@@ -2,7 +2,7 @@ import * as React from 'react';
 import {useContext} from "react";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
+/* import Grid from "@mui/material/Grid"; */
 import Menu from "../Menu/Menu";
 import './Main.css'
 import BarraNavegacion from '../BarraNavegacion/BarraNavegacion';
@@ -13,6 +13,7 @@ import CrearRepuesto from '../CrearRepuesto/CrearRepuesto';
 import CrearAutomovil from '../CrearAutomovil/CrearAutomovil';
 import EditarAutomovil from '../EditarAutomovil/EditarAutomovil';
 import EditarRepuesto from '../EditarRepuesto/EditarRepuesto';
+import Perfil from '../Perfil/Perfil';
 
 const Main = () => {
   const {seleccion,form} = useContext(BarraNavegacionContexto)
@@ -31,6 +32,7 @@ const Main = () => {
       case "registrarse":   return <Registrarse/>;
       case "crear repuesto": return <CrearRepuesto/>;
       case "menu":  return <Menu/>;
+      case "perfil":  return <Perfil/>;
       case "crear automovil":  return <CrearAutomovil/>;
       case "editar automovil":  return <EditarAutomovil/>;
       case "editar repuesto": {

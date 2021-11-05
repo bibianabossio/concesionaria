@@ -1,4 +1,4 @@
-import React, { Component, useContext } from "react";
+import React, {  useContext } from "react";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
 import { ToastContainer, toast } from "react-toastify";
@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
 const Registrarse = () => {
-  const { handleSeleccion, setSeleccion } = useContext(BarraNavegacionContexto);
+  const { setSeleccion } = useContext(BarraNavegacionContexto);
   const crearUsuario = async (event) => {
     event.preventDefault();
     console.log("hice click", event.target.form.nombreUsuario.value);
@@ -51,8 +51,8 @@ const Registrarse = () => {
       let resEnJson = await res.json();
       console.dir(resEnJson);
       if (
-        resEnJson.idUsuario != null ||
-        resEnJson.mensaje != "Nombre de usuario existente"
+        resEnJson.idUsuario !== null ||
+        resEnJson.mensaje !== "Nombre de usuario existente"
       ) {
         console.log(" SE CREO UN NUEVO USUARIO :", resEnJson);
         toast("Usuario Registrado", {

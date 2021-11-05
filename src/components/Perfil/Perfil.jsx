@@ -1,34 +1,35 @@
-import React, { Component } from "react";
+import React, { useContext } from "react";
+import "../EditarRepuesto/EditarRepuesto.css";
 /* import { render, BrowserRouter as Router, Route, Link } from "react-router-dom"; */
-import Label from "../Label/Label";
+
 import Title from "../Title/Title";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
 const Perfil  = () => {
-  const { usuarioModificar, setSeleccion } = useContext(BarraNavegacionContexto);
+  const { setSeleccion, usuarioModificar  } = useContext(BarraNavegacionContexto);
   /* state = {
-    user: [], */
-  }; 
-  const  editarUsuario = async (e) =>{
-    e.preventDefault();
-    console.log(e.target);
+    user: [], 
+  }; */
+  const  editarUsuario = async (event) =>{
+    event.preventDefault();
+    console.log(event.target);
     let resNombreUsuario = usuarioModificar.resNombreUsuario;
-    let resApellido = e.target.resApellido.value
-    ? e.target.resApellido.value 
+    let resApellido = event.target.resApellido.value
+    ? event.target.resApellido.value 
     :usuarioModificar.resApellido;
-    let resNombre = e.target.resNombre.value
-    ? e.target.resNombre.value 
+    let resNombre = event.target.resNombre.value
+    ? event.target.resNombre.value 
     :usuarioModificar.resNombre;
-    let resDNI = e.target.resDNI.value
-    ? e.target.resDNI.value 
+    let resDNI = event.target.resDNI.value
+    ? event.target.resDNI.value 
     :usuarioModificar.resDNI;
-    let resEmail = e.target.resEmail.value
-    ? e.target.resEmail.value 
+    let resEmail = event.target.resEmail.value
+    ? event.target.resEmail.value 
     :usuarioModificar.resEmail;
-    let resPassword = e.target.resPassword.value
-    ? e.target.resPassword.value 
+    let resPassword = event.target.resPassword.value
+    ? event.target.resPassword.value 
     :usuarioModificar.resPassword;
 try{
   let sesion = JSON.parse(localStorage.getItem("sesion"));
@@ -108,7 +109,7 @@ try{
         config
       );
       let resEnJson = res;
-      if (res.status==204){
+      if (res.status===204){
        
       /* console.log(" SE BORRO! :", resEnJson); */
         toast("Usuario Eliminado", {
@@ -226,7 +227,7 @@ try{
       </div>
     </div>
     );
-    ;
+      }  ;
   
 
 export default  Perfil; 

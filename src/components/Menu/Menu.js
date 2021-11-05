@@ -1,4 +1,4 @@
-import{ Component,useState } from "react";
+import{ useState } from "react";
 import * as React from 'react';
 
 import "../Label/Label.css";
@@ -9,6 +9,7 @@ import Dolar from "../Dolar/Dolar";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import Perfil from "../Perfil/Perfil";
 /*hola */
 /* aca es prueba de recuperoa */
 const Menu =()=> {
@@ -39,6 +40,15 @@ const Menu =()=> {
          setseleccion2('dolar')
        }} value='dolar'>Dolar</button>
      </Item>
+
+     <Item>
+       <button  onClick={(e)=>{
+         e.preventDefault()
+         setseleccion2('perfil')
+       }}  value='Perfil'>Perfil</button>
+          
+        </Item>
+     
         <Item>
        <button  onClick={(e)=>{
          e.preventDefault()
@@ -59,6 +69,7 @@ const Menu =()=> {
         
 
         {Seleccion2==='dolar'?<Dolar/>:null}
+        {Seleccion2==='perfil'?<Perfil/>:null}
         {Seleccion2==='repuestos'?<ListadoRepuestos/>:null}
         {Seleccion2==='autos'?<ListadoAutomoviles/>:null}
         </Item>

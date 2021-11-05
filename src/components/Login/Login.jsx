@@ -13,7 +13,7 @@ const Login = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
+  /* const [isLogin, setIsLogin] = useState(false); */
   const [hasError, setHasError] = useState(false);
   const { handleSeleccion, setSeleccion } = useContext(BarraNavegacionContexto);
 

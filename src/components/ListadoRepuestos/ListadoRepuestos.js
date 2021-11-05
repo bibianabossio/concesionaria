@@ -24,7 +24,7 @@ const Post=()=> {
   */
     const [post, setPost] = useState([])
     const [search, setSearch] = useState({opcionSeleccionada:null,textoAbuscar:""})
-    const {handleSeleccion,handleSubmitModificar} = useContext(BarraNavegacionContexto)
+    const {handleSubmitModificar} = useContext(BarraNavegacionContexto)
     
     const onValueChange=(e)=>{
      console.log(e.target.value);
@@ -92,7 +92,7 @@ const Post=()=> {
         config
       );
       let resEnJson = res;
-      if (res.status==204){
+      if (res.status===204){
         actualizarListado()
       /* console.log(" SE BORRO! :", resEnJson); */
         toast(`Repuesto ${event.target.value} Eliminado`, {

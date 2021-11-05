@@ -1,4 +1,4 @@
-import React, { Component, useContext } from "react";
+import React, { useContext } from "react";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
 import { ToastContainer, toast } from "react-toastify";
@@ -50,7 +50,7 @@ const CrearAuto = () => {
         config, {mode:'no-cors'}
       );
       let resEnJson = await res.json();
-if (res.status==201){
+if (res.status===201){
     console.log(" SE CREO UN NUEVO AUTO :", resEnJson);
     toast("Automóvil Registrado", {
       position: "top-left",
@@ -64,7 +64,7 @@ if (res.status==201){
     setTimeout(() => {
       setSeleccion("menu");
     }, 5000);
-  }if (res.status==409){
+  }if (res.status===409){
     toast(resEnJson.message.modelo, {
       position: "top-left",
       autoClose: 5000,

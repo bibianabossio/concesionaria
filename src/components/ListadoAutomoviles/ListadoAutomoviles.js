@@ -54,7 +54,7 @@ const  Auto =()=> {
         config
       );
       let resEnJson = res;
-      if (res.status==204){
+      if (res.status===204){
         actualizarListado()
       /* console.log(" SE BORRO! :", resEnJson); */
         toast("Automóvil Eliminado", {
