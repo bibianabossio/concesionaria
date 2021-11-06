@@ -17,12 +17,12 @@ import Perfil from '../Perfil/Perfil';
 
 const Main = () => {
   const {seleccion,form} = useContext(BarraNavegacionContexto)
-  const Item = styled(Paper)(({ theme }) => ({
+/*   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary,
-  }));
+  })); */
 /*hola */
   const seleccionado = () => {
     
