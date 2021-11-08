@@ -39,17 +39,68 @@ const  Auto =()=> {
    
 
   useEffect(async() => {
-    
+   /*  
     const res = await fetch("https://api-concesionario-taller6.herokuapp.com/auto");
    const data = await res.json();
    setObjeto(data);
    console.log(objeto);
+ */
+   try {
+    let sesion = JSON.parse(localStorage.getItem("sesion")); 
+    let config = {
+      method: "GET",
+      headers: {
+        Authorization: sesion.bearer +" " +sesion.token, 
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+     
+    };
+    let res = await fetch(
+      ("https://api-concesionario-taller6.herokuapp.com/auto"),
+      config
+    );
+    let resEnJson = res;
+    setObjeto(res);
+    console.log (res);
+   /*  if (res.status===200){
+      actualizarListado()
+    console.log(" SE BORRO! :", resEnJson); 
+      toast("Automóvil Eliminado", {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progreso: undefined,
+      });
+      setTimeout(() => {
+        setSeleccion("menu");
+      }, 5000);
+    } else {
+      toast(resEnJson.message, {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progreso: undefined,
+      });
+    } */
+
+   
+  } catch (error) {
+    console.log(" hubo un error :( ", error);
+  }
+
    
   }, [])
 
   const actualizarListado=async() => {
     
-    const res = await fetch("https://api-concesionario-taller6.herokuapp.com/auto");
+   const res = await fetch("https://api-concesionario-taller6.herokuapp.com/auto");
    const data = await res.json();
    setObjeto(data);
    console.log(objeto);
@@ -70,15 +121,15 @@ const  Auto =()=> {
     console.log(" se hizo click para borara el coso :", event.target.value);
 
     try {
-      /* let sesion = JSON.parse(localStorage.getItem("sesion")); */
+      let sesion = JSON.parse(localStorage.getItem("sesion")); 
       let config = {
         method: "DELETE",
         headers: {
-          /* Authorization: sesion.bearer +" " +sesion.token, */
+          Authorization: sesion.bearer +" " +sesion.token, 
           Accept: "application/json",
           "content-type": "application/json",
-        }
-        /* body: JSON.stringify(event.target.value), */
+        },
+        body: JSON.stringify(event.target.value), 
        
       };
       let res = await fetch(
@@ -88,7 +139,7 @@ const  Auto =()=> {
       let resEnJson = res;
       if (res.status===204){
         actualizarListado()
-      /* console.log(" SE BORRO! :", resEnJson); */
+      console.log(" SE BORRO! :", resEnJson); 
         toast("Automóvil Eliminado", {
           position: "top-left",
           autoClose: 5000,

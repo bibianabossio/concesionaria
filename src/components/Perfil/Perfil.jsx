@@ -251,7 +251,7 @@ const Perfil = () => {
           <br />
           Dirección de mail
           <br />
-          <input
+       {/*    <input
             className="perfil-style"
             type="text"
             name="Dirección de mail"
@@ -265,7 +265,7 @@ const Perfil = () => {
             type="text"
             name="Password"
             placeholder={objeto.password}
-          />
+          /> */}
           <br />
           <br />
           <br />
