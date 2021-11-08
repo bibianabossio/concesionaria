@@ -144,16 +144,19 @@ const handleSubmit=async(e)=>{
   return (
       <>
       <h2 style={{ height: 25, width: '100%' }}>Listado de Repuestos</h2>
+      <br /> 
       <form onSubmit={formSubmitSearch}>
         <input type="radio" value="tipo" name="tipo" onChange={onValueChange} checked={search.opcionSeleccionada ==="tipo"?true:false}/>Tipo
         <input type="radio" value="marca" name="marca"  onChange={onValueChange} checked={search.opcionSeleccionada ==="marca"?true:false}/>Marca
         <input type="radio" value="modelo" name="modelo"  onChange={onValueChange} checked={search.opcionSeleccionada ==="modelo"?true:false}/>Modelo
         <input type="text" name="textoAbuscar"  onChange={onValueChange}/>
+        <br /><br /> 
         <button type="submit">Buscar</button>
-        
+        <button  onClick={funcionBorrarFiltroBusq}>Eliminar Filtro de Búsqueda</button>
+        <br />
       </form>
 
-      <button  onClick={funcionBorrarFiltroBusq}>Elimnar Filtro de busqueda</button>
+      
       <table style={{ height: 25, width: '100%' }} className="tabla-style2">
         <thead>
           <th>Clave</th>

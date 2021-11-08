@@ -11,11 +11,32 @@ import Loading from "../Loading/Loading";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Buscador from "../Buscador/Buscador"
 
 const  Auto =()=> {
   const [objeto, setObjeto] = useState([])
+  const [search, setSearch] = useState({opcionSeleccionada:null,textoAbuscar:""})
   const {  handleSubmitModificar, setSeleccion } = useContext(BarraNavegacionContexto);
- 
+
+
+  const onValueChange=(e)=>{
+    console.log(e.target.value);
+    e.target.name==="textoAbuscar"? setSearch({
+      ...search,
+      textoAbuscar:e.target.value }):setSearch({
+       ...search,
+       opcionSeleccionada:e.target.value });     
+    
+   }
+
+   const formSubmitSearch=async(e)=>{
+     e.preventDefault()
+     let resBusqueda=await Buscador(search.opcionSeleccionada,search.textoAbuscar)
+     console.log(resBusqueda);
+    setObjeto(resBusqueda)
+    }
+
+   
 
   useEffect(async() => {
     
@@ -33,6 +54,17 @@ const  Auto =()=> {
    setObjeto(data);
    console.log(objeto);
   }
+
+  
+  const funcionBorrarFiltroBusq=()=>{
+    setSearch({        
+      textoAbuscar:null,
+      opcionSeleccionada:null
+    })
+    
+    actualizarListado()
+  }
+
   const funcionBorrar = async (event) => {
     event.preventDefault();
     console.log(" se hizo click para borara el coso :", event.target.value);
@@ -92,6 +124,17 @@ const  Auto =()=> {
     return (
       <>
         <h2 style={{ height: 25, width: "100%" }}>Listado de Automoviles</h2>
+        <br />
+        <form onSubmit={formSubmitSearch}>
+        <input type="radio" value="year" name="year" onChange={onValueChange} checked={search.opcionSeleccionada ==="year"?true:false}/>Año
+        <input type="radio" value="color" name="color"  onChange={onValueChange} checked={search.opcionSeleccionada ==="color"?true:false}/>Color
+        <input type="text" name="textoAbuscar"  onChange={onValueChange}/>
+        <br /> <br />
+        <button type="submit">Buscar</button>
+        <button  onClick={funcionBorrarFiltroBusq}>Eliminar Filtro de Búsqueda</button>
+      </form>
+     
+      <br />
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
             <TableHead>
