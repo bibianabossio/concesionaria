@@ -1,6 +1,4 @@
-import React, { useContext } from "react";
-
-/* import { render, BrowserRouter as Router, Route, Link } from "react-router-dom"; */
+import React, { useContext, useState,useEffect } from "react";
 import "./Perfil.css";
 import Title from "../Title/Title";
 import { ToastContainer, toast } from "react-toastify";
@@ -8,12 +6,55 @@ import "react-toastify/dist/ReactToastify.css";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
 const Perfil = () => {
+  const [objeto, setObjeto] = useState([])
   const { setSeleccion, usuarioModificar } = useContext(
     BarraNavegacionContexto
   );
   /* state = {
     user: [], 
   }; */
+
+  useEffect(async() => {
+    
+   const res = await fetch(
+      "https://concesionario-crud.herokuapp.com/auth/consultarUsuario/nombreUsuario");
+   const data = await res.json();
+   setObjeto(data);
+   console.log(objeto);
+   
+  }, [])
+  const cargarUsuario = async () => {
+    const res = await fetch (
+      "https://concesionario-crud.herokuapp.com/auth/consultarUsuario/nombreUsuario");
+   const data = await res.json();
+   setObjeto(data);
+   console.log(objeto);
+    }
+   
+    let config = {
+      method: "GET",
+      headers: {
+        Authorization: sesion.bearer +" " +sesion.token,
+        Accept: "application/json",
+        "content-type": "application/json",
+      }
+    };
+      
+      let res = await fetch(
+          `https://concesionario-crud.herokuapp.com/auth/consultarUsuario/${resNombreUsuario}`,
+          config
+        );
+      
+        let resEnJson = res;
+       
+          cargarUsuario(resEnJson)
+        }
+      
+   
+  
+
+
+
   const editarUsuario = async (event) => {
     event.preventDefault();
     console.log(event.target);
@@ -92,11 +133,11 @@ const Perfil = () => {
     console.log(" se hizo click para borrar al usuario :", event.target.value);
 
     try {
-      /* let sesion = JSON.parse(localStorage.getItem("sesion")); */
+       let sesion = JSON.parse(localStorage.getItem("sesion")); 
       let config = {
         method: "DELETE",
         headers: {
-          /* Authorization: sesion.bearer +" " +sesion.token, */
+          Authorization: sesion.bearer +" " +sesion.token, 
           Accept: "application/json",
           "content-type": "application/json",
         },
