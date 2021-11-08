@@ -14,16 +14,40 @@ const Perfil = () => {
     user: [], 
   }; */
 
+
+  let datos=localStorage.getItem("sesion")
+  let localStorageEnArray=JSON.parse(datos)
   useEffect(async() => {
+
+     console.log(localStorageEnArray);
+    console.log(localStorageEnArray.bearer); 
+    //console.log(enArray[0]);
     
-   const res = await fetch(
-      "https://concesionario-crud.herokuapp.com/auth/consultarUsuario/nombreUsuario");
-   const data = await res.json();
-   setObjeto(data);
-   console.log(objeto);
+
+
+    try {
+    let config = {
+      method: "GET",
+      headers: {
+        Authorization: localStorageEnArray.bearer +" " +localStorageEnArray.token,
+        Accept: "application/json",
+        "content-type": "application/json",
+      }
+    };
+    const res = await fetch(
+       "https://concesionario-crud.herokuapp.com/me",
+       config
+       );
+    const data = await res.json();
+    setObjeto(data);
+    console.log(data);
+      
+    } catch (error) {
+      
+    }
    
   }, [])
-  const cargarUsuario = async () => {
+  /* const cargarUsuario = async () => {
     const res = await fetch (
       "https://concesionario-crud.herokuapp.com/auth/consultarUsuario/nombreUsuario");
    const data = await res.json();
@@ -38,9 +62,9 @@ const Perfil = () => {
         Accept: "application/json",
         "content-type": "application/json",
       }
-    };
+    }; */
       
-      let res = await fetch(
+      /* let res = await fetch(
           `https://concesionario-crud.herokuapp.com/auth/consultarUsuario/${resNombreUsuario}`,
           config
         );
@@ -48,7 +72,7 @@ const Perfil = () => {
         let resEnJson = res;
        
           cargarUsuario(resEnJson)
-        }
+        } */
       
    
   
@@ -57,29 +81,33 @@ const Perfil = () => {
 
   const editarUsuario = async (event) => {
     event.preventDefault();
-    console.log(event.target);
-    let resNombreUsuario = usuarioModificar.resNombreUsuario;
-    let resApellido = event.target.resApellido.value
-      ? event.target.resApellido.value
-      : usuarioModificar.resApellido;
-    let resNombre = event.target.resNombre.value
-      ? event.target.resNombre.value
-      : usuarioModificar.resNombre;
-    let resDNI = event.target.resDNI.value
-      ? event.target.resDNI.value
-      : usuarioModificar.resDNI;
-    let resEmail = event.target.resEmail.value
-      ? event.target.resEmail.value
-      : usuarioModificar.resEmail;
-    let resPassword = event.target.resPassword.value
-      ? event.target.resPassword.value
-      : usuarioModificar.resPassword;
-    try {
-      let sesion = JSON.parse(localStorage.getItem("sesion"));
+    console.log(event.target.parentElement[1]);
+  /*  console.log(usuarioModificar); */
+    let resNombreUsuario = event.target.parentElement[0].value;
+    let resApellido = event.target.parentElement[1].value
+      ? event.target.parentElement[1].value
+      : event.target.parentElement[1].placeholder;
+    let resNombre = event.target.parentElement[2].value
+      ? event.target.parentElement[2].value
+      : event.target.parentElement[2].placeholder;
+    let resDNI = event.target.parentElement[3].value
+      ? event.target.parentElement[3].value
+      : event.target.parentElement[3].placeholder;
+    let resEmail = event.target.parentElement[4].value
+      ? event.target.parentElement[4].value
+      : event.target.parentElement[4].placeholder;
+    /* let resPassword = event.target.parentElement[5].value
+      ? event.target.parentElement[5].value
+      : event.target.parentElement[5].placeholder;  */
+      console.log(resNombreUsuario,resApellido,resNombre, resDNI,resEmail);
+
+     try {
+      console.log(localStorageEnArray.token);
+      console.log(localStorageEnArray.bearer); 
       let config = {
         method: "PUT",
         headers: {
-          Authorization: sesion.bearer + " " + sesion.token,
+          Authorization: localStorageEnArray.bearer + " " + localStorageEnArray.token,
           Accept: "application/json",
           "content-type": "application/json",
         },
@@ -89,11 +117,11 @@ const Perfil = () => {
           nombre: resNombre,
           dni: resDNI,
           email: resEmail,
-          password: resPassword,
+        /*   password: resPassword, */
         }),
       };
       let res = await fetch(
-        `https://concesionario-crud.herokuapp.com/auth/actualizarUsuario/${resNombreUsuario}`,
+        `https://concesionario-crud.herokuapp.com/auth/actualizarUsuario/`,
         config
       );
       let resEnJson = await res.json();
@@ -125,7 +153,7 @@ const Perfil = () => {
       }
     } catch (error) {
       console.log(" hubo un error :( ", error);
-    }
+    } 
   };
 
   const eliminarUsuario = async (event) => {
@@ -191,7 +219,7 @@ const Perfil = () => {
             type="text"
             name="Usuario"
             disabled
-            value={usuarioModificar.resNombreUsuario}
+            value={objeto.usuario}
           />
           <br />
           Apellido
@@ -200,7 +228,7 @@ const Perfil = () => {
             className="perfil-style"
             type="text"
             name="Apellido"
-            placeholder={usuarioModificar.resApellido}
+            placeholder={objeto.apellido}
           />
           <br />
           Nombre
@@ -209,7 +237,7 @@ const Perfil = () => {
             className="perfil-style"
             type="text"
             name="Nombre"
-            placeholder={usuarioModificar.resNombre}
+            placeholder={objeto.nombre}
           />
           <br />
           DNI
@@ -218,7 +246,7 @@ const Perfil = () => {
             className="perfil-style"
             type="text"
             name="Número de DNI"
-            placeholder={usuarioModificar.resDNI}
+            placeholder={objeto.dni}
           />
           <br />
           Dirección de mail
@@ -227,7 +255,7 @@ const Perfil = () => {
             className="perfil-style"
             type="text"
             name="Dirección de mail"
-            placeholder={usuarioModificar.resEmail}
+            placeholder={objeto.email}
           />
           <br />
           Password
@@ -236,7 +264,7 @@ const Perfil = () => {
             className="perfil-style"
             type="text"
             name="Password"
-            placeholder={usuarioModificar.resPassword}
+            placeholder={objeto.password}
           />
           <br />
           <br />
