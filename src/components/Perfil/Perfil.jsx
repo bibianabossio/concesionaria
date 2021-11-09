@@ -33,7 +33,7 @@ const Perfil = () => {
       }
     };
     const res = await fetch(
-       "https://concesionario-crud.herokuapp.com/me",
+      `https://concesionario-crud.herokuapp.com/me`,
        config
        );
     const data = await res.json();
@@ -119,12 +119,12 @@ const Perfil = () => {
         }),
       };
       let res = await fetch(
-        `https://concesionario-crud.herokuapp.com/auth/actualizarUsuario/`,
+        `https://concesionario-crud.herokuapp.com/usuarios`,
         config
       );
       let resEnJson = await res.json();
       console.dir(resEnJson);
-      if (resEnJson.resNombreUsuario !== null || res.status === 200) {
+      if (/* resEnJson.resNombreUsuario !== null ||  */res.status === 200) {
         console.log(" SE ACTUALIZO USUARIO :", resEnJson);
         toast("Usuario Actualizado", {
           position: "top-left",
@@ -170,7 +170,7 @@ const Perfil = () => {
         /* body: JSON.stringify(event.target.value), */
       };
       let res = await fetch(
-        `https://concesionario-crud.herokuapp.com/auth/borrarUsuario/${event.target.value}`,
+        `https://concesionario-crud.herokuapp.com/usuarios${event.target.value}`,
         config
       );
       let resEnJson = res;
