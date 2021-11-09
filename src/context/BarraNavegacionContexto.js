@@ -28,7 +28,7 @@ const SeleccionProvider = ({ children }) => {
     name: null,
     color: null,
     price: null,
-    user_id: null,
+   /*  user_id: null, */
   });
   const handleSeleccion = (e) => {
     setSeleccion(e.target.value);
@@ -46,7 +46,7 @@ const SeleccionProvider = ({ children }) => {
         name: e.target.nameInputModif.value,
         color: e.target.colorInputModif.value,
         price: e.target.precioInputModif.value,
-        user_id: e.target.userIdInputModif.value,
+        /* user_id: e.target.userIdInputModif.value, */
       });
       setSeleccion(e.target.tipoComponente.value);
     } else if (e.target.tipoComponente.value === "perfil") {

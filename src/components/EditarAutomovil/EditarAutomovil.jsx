@@ -26,9 +26,9 @@ const EditarAutomovil = () => {
     let resPrice = event.target.precio.value
       ? event.target.precio.value
       : autoModificar.precio;
-    let resUser_id = event.target.user_id.value
+ /*    let resUser_id = event.target.user_id.value
       ? event.target.user_id.value
-      : autoModificar.user_id;
+      : autoModificar.user_id; */
 
     try {
       let sesion = JSON.parse(localStorage.getItem("sesion"));
@@ -44,7 +44,7 @@ const EditarAutomovil = () => {
           name: resName,
           color: resColor,
           price: parseFloat(resPrice),
-          user_id: parseFloat(resUser_id),
+          /* user_id: parseFloat(resUser_id), */
         }),
       };
       let res = await fetch(
@@ -136,12 +136,12 @@ const EditarAutomovil = () => {
                   />
                   <br />
                   Vendedor
-                  <input
+                 {/*  <input
                     className="regular-style"
                     type="text"
                     name="user_id"
                     placeholder={autoModificar.user_id}
-                  />
+                  /> */}
                   <br />
                   <button
                     value={setSeleccion}

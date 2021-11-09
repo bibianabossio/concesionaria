@@ -178,7 +178,7 @@ const  Auto =()=> {
                 <TableCell align="right">Modelo</TableCell>
                 <TableCell align="right">Color</TableCell>
                 <TableCell align="right">Precio</TableCell>
-                <TableCell align="right">Vendedor</TableCell>
+                {/* <TableCell align="right">Vendedor</TableCell> */}
                 <TableCell align="right"></TableCell>
                 <TableCell align="right"></TableCell>
               </TableRow>
@@ -197,7 +197,7 @@ const  Auto =()=> {
                     <TableCell align="right">{auto.name}</TableCell>
                     <TableCell align="right">{auto.color}</TableCell>
                     <TableCell align="right">{auto.price}</TableCell>
-                    <TableCell align="right">{auto.user_id}</TableCell>
+                  {/*   <TableCell align="right">{auto.user_id}</TableCell> */}
                     <TableCell align="right">
                       <form onSubmit={handleSubmitModificar}>
                         <input
@@ -241,13 +241,13 @@ const  Auto =()=> {
                           value={auto.price}
                           onChange={(e) => {}}
                         />
-                        <input
+                   {/*      <input
                           type="text"
                           hidden
                           name="userIdInputModif"
                           value={auto.user_id}
                           onChange={(e) => {}}
-                        />
+                        /> */}
                         <button
                           type="submit"
                           name="tipoComponente"

@@ -24,9 +24,9 @@ const CrearAuto = () => {
     let resPrice = event.target.price.value
       ? event.target.price.value
       : "";
-    let resUser_id = event.target.user_id.value
+   /*  let resUser_id = event.target.user_id.value
       ? event.target.user_id.value
-      : ""; 
+      : "";  */
     try {
       let sesion = JSON.parse(localStorage.getItem("sesion"));
       let config = {
@@ -41,7 +41,7 @@ const CrearAuto = () => {
             name:resName,
             color:resColor,
             price:parseFloat(resPrice),
-            user_id:parseFloat(resUser_id),
+           /*  user_id:parseFloat(resUser_id), */
         
         }),
       };
@@ -116,9 +116,9 @@ if (res.status===201){
               <Label text="Precio" />
               <input className="regular-style" type="text" name="price" />
               <br />
-              <Label text="Vendedor" />
+              {/* <Label text="Vendedor" />
               <input className="regular-style" type="text" name="user_id" />
-              <br />
+              <br /> */}
               <br />
               <button
                 value={setSeleccion}
