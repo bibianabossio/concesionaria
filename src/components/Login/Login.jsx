@@ -48,7 +48,7 @@ const Login = () => {
         };
 
         let res = await fetch(
-          `https://concesionario-crud.herokuapp.com/auth/login`,
+          `https://concesionario-crud.herokuapp.com/auth/usuarios`,
           config
         );
         let resEnJson = await res.json();
