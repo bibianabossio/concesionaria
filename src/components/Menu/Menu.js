@@ -23,10 +23,10 @@ const Menu =()=> {
       color: theme.palette.text.secondary,
     }));
     
-    const funcionSeleccionarMenu=(e)=>{
+   /*  const funcionSeleccionarMenu=(e)=>{
       e.preventDefault()
       console.log("hice click en ",e.target.value);
-     }
+     } */
     
     return (
       <>     

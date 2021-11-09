@@ -7,7 +7,7 @@ import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
 const Perfil = () => {
   const [objeto, setObjeto] = useState([])
-  const { setSeleccion, usuarioModificar } = useContext(
+  const { setSeleccion } = useContext(
     BarraNavegacionContexto
   );
   /* state = {
@@ -17,14 +17,12 @@ const Perfil = () => {
 
   let datos=localStorage.getItem("sesion")
   let localStorageEnArray=JSON.parse(datos)
-  useEffect(async() => {
+  useEffect ( async () => {
+   
 
      console.log(localStorageEnArray);
     console.log(localStorageEnArray.bearer); 
     //console.log(enArray[0]);
-    
-
-
     try {
     let config = {
       method: "GET",
@@ -46,7 +44,7 @@ const Perfil = () => {
       
     }
    
-  }, [])
+  },[])
   /* const cargarUsuario = async () => {
     const res = await fetch (
       "https://concesionario-crud.herokuapp.com/auth/consultarUsuario/nombreUsuario");

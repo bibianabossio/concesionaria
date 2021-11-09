@@ -1,8 +1,8 @@
 import * as React from 'react';
 import {useContext} from "react";
-import { styled } from "@mui/material/styles";
+/* import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-/* import Grid from "@mui/material/Grid"; */
+ import Grid from "@mui/material/Grid"; */
 import Menu from "../Menu/Menu";
 import './Main.css'
 import BarraNavegacion from '../BarraNavegacion/BarraNavegacion';

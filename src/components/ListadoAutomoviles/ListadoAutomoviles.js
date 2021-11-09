@@ -7,12 +7,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Loading from "../Loading/Loading";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Buscador from "../Buscador/Buscador"
-import { SignalCellularNull } from "@mui/icons-material";
+
 
 const  Auto =()=> {
   const [objeto, setObjeto] = useState([])
@@ -53,7 +52,6 @@ const  Auto =()=> {
         Accept: "application/json",
         "content-type": "application/json",
       },
-     
     };
     let res = await fetch(
       ("https://api-concesionario-taller6.herokuapp.com/auto"),
@@ -62,39 +60,9 @@ const  Auto =()=> {
     let resEnJson = await res.json()
     setObjeto(resEnJson);
     console.log (resEnJson); 
-   /*  if (res.status===200){
-      actualizarListado()
-    console.log(" SE BORRO! :", resEnJson); 
-      toast("Automóvil Eliminado", {
-        position: "top-left",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progreso: undefined,
-      });
-      setTimeout(() => {
-        setSeleccion("menu");
-      }, 5000);
-    } else {
-      toast(resEnJson.message, {
-        position: "top-left",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progreso: undefined,
-      });
-    } */
-
-   
-  } catch (error) {
+   } catch (error) {
     console.log(" hubo un error :( ", error);
   }
-
-   
   }, [])
 
    const actualizarListado=async() => {

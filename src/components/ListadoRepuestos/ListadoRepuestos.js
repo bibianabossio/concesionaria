@@ -121,12 +121,12 @@ const Post=()=> {
     } catch (error) {
       console.log(" hubo un error :( :", error);
     }
-  };
+  };/*
   const editarRepuesto = (event) => {
     event.preventDefault();
     console.log(event.target);
   };
-/*hola */
+hola 
 const handleSubmit=async(e)=>{
   e.preventDefault()
   
@@ -135,7 +135,7 @@ const handleSubmit=async(e)=>{
     const res = await fetch(req);
     const data = await res.json();
     this.setState({ post: data });
-  }
+  }*/
 
 
 
