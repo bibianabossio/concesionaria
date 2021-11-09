@@ -12,6 +12,7 @@ import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Buscador from "../Buscador/Buscador"
+import { SignalCellularNull } from "@mui/icons-material";
 
 const  Auto =()=> {
   const [objeto, setObjeto] = useState([])
@@ -31,7 +32,7 @@ const  Auto =()=> {
 
    const formSubmitSearch=async(e)=>{
      e.preventDefault()
-     let resBusqueda=await Buscador(search.opcionSeleccionada,search.textoAbuscar)
+     let resBusqueda=await Buscador(search.opcionSeleccionada,search.textoAbuscar,"automoviles")
      console.log(resBusqueda);
     setObjeto(resBusqueda)
     }
@@ -39,15 +40,13 @@ const  Auto =()=> {
    
 
   useEffect(async() => {
-   /*  
-    const res = await fetch("https://api-concesionario-taller6.herokuapp.com/auto");
-   const data = await res.json();
-   setObjeto(data);
-   console.log(objeto);
- */
+ 
    try {
     let sesion = JSON.parse(localStorage.getItem("sesion")); 
-    let config = {
+    console.log(sesion);
+    console.log(sesion.token);
+    console.log(sesion.bearer);
+     let config = {
       method: "GET",
       headers: {
         Authorization: sesion.bearer +" " +sesion.token, 
@@ -60,9 +59,9 @@ const  Auto =()=> {
       ("https://api-concesionario-taller6.herokuapp.com/auto"),
       config
     );
-    let resEnJson = res;
-    setObjeto(res);
-    console.log (res);
+    let resEnJson = await res.json()
+    setObjeto(resEnJson);
+    console.log (resEnJson); 
    /*  if (res.status===200){
       actualizarListado()
     console.log(" SE BORRO! :", resEnJson); 
@@ -98,14 +97,34 @@ const  Auto =()=> {
    
   }, [])
 
-  const actualizarListado=async() => {
+   const actualizarListado=async() => {
     
-   const res = await fetch("https://api-concesionario-taller6.herokuapp.com/auto");
-   const data = await res.json();
-   setObjeto(data);
-   console.log(objeto);
+   try {
+    let sesion = JSON.parse(localStorage.getItem("sesion")); 
+     let config = {
+      method: "GET",
+      headers: {
+        Authorization: sesion.bearer +" " +sesion.token, 
+        Accept: "application/json",
+        "content-type": "application/json",
+      },
+     
+    };
+    let res = await fetch(
+      ("https://api-concesionario-taller6.herokuapp.com/auto"),
+      config
+    );
+    let resEnJson = await res.json()
+    setObjeto(resEnJson);
+    console.log (resEnJson); 
+  
+   
+  } catch (error) {
+    console.log(" hubo un error :( ", error);
   }
 
+  }
+ 
   
   const funcionBorrarFiltroBusq=()=>{
     setSearch({        
@@ -129,8 +148,6 @@ const  Auto =()=> {
           Accept: "application/json",
           "content-type": "application/json",
         },
-        body: JSON.stringify(event.target.value), 
-       
       };
       let res = await fetch(
         `https://api-concesionario-taller6.herokuapp.com/auto/${event.target.value}`,
@@ -163,13 +180,11 @@ const  Auto =()=> {
           progreso: undefined,
         });
       }
-
-     
     } catch (error) {
       console.log(" hubo un error :( ", error);
     }
   };
- /*olsd*/
+ 
 
   
     return (
@@ -201,7 +216,7 @@ const  Auto =()=> {
               </TableRow>
             </TableHead>
             <TableBody>
-              {objeto ? (
+               {objeto ? (
                 objeto.map((auto) => (
                   <TableRow
                     key={auto.id}
@@ -291,9 +306,7 @@ const  Auto =()=> {
                     </TableCell>
                   </TableRow>
                 ))
-              ) : (
-                <Loading />
-              )}
+              ) : null} 
             </TableBody>
           </Table>
         </TableContainer>
