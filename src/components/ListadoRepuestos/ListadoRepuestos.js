@@ -68,7 +68,7 @@ const Post=()=> {
         textoAbuscar:null,
         opcionSeleccionada:null
       })
-      
+      document.getElementById("textBox").value=""
       actualizarListado()
     }
 
@@ -149,7 +149,7 @@ const handleSubmit=async(e)=>{
         <input type="radio" value="tipo" name="tipo" onChange={onValueChange} checked={search.opcionSeleccionada ==="tipo"?true:false}/>Tipo
         <input type="radio" value="marca" name="marca"  onChange={onValueChange} checked={search.opcionSeleccionada ==="marca"?true:false}/>Marca
         <input type="radio" value="modelo" name="modelo"  onChange={onValueChange} checked={search.opcionSeleccionada ==="modelo"?true:false}/>Modelo
-        <input type="text" name="textoAbuscar"  onChange={onValueChange}/>
+        <input type="text" name="textoAbuscar" id="textBox" onChange={onValueChange}/>
         <br /><br /> 
         <button type="submit">Buscar</button>
         <button  onClick={funcionBorrarFiltroBusq}>Eliminar Filtro de Búsqueda</button>

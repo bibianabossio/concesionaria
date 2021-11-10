@@ -99,7 +99,8 @@ const  Auto =()=> {
       textoAbuscar:null,
       opcionSeleccionada:null
     })
-    
+    document.getElementById("textBox").value=""
+  
     actualizarListado()
   }
 
@@ -162,7 +163,7 @@ const  Auto =()=> {
         <form onSubmit={formSubmitSearch}>
         <input type="radio" value="year" name="year" onChange={onValueChange} checked={search.opcionSeleccionada ==="year"?true:false}/>Año
         <input type="radio" value="color" name="color"  onChange={onValueChange} checked={search.opcionSeleccionada ==="color"?true:false}/>Color
-        <input type="text" name="textoAbuscar"  onChange={onValueChange}/>
+        <input type="text" name="textoAbuscar" id="textBox"  onChange={onValueChange}/>
         <br /> <br />
         <button type="submit">Buscar</button>
         <button  onClick={funcionBorrarFiltroBusq}>Eliminar Filtro de Búsqueda</button>

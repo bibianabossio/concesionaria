@@ -1,34 +1,39 @@
-import React, { Component } from "react";
+import React, { useContext  } from "react";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
-/* import Login from "../Login/Login"; */
-/*hola */
-export default class CrearRep extends Component {
-  crearRepuesto = async (event) => {
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
+
+
+const CrearRep = () => {
+  const { setSeleccion } = useContext(BarraNavegacionContexto);
+  
+  const crearRepuesto = async (event) => {
     event.preventDefault();
-    console.log("hice click", event.target.form);
-    let resTipo = event.target.form.tipo.value
-      ? event.target.form.tipo.value
+    console.log("hice click", event.target.tipo.value);
+    let resTipo = event.target.tipo.value
+      ? event.target.tipo.value
       : "";
-    let resMarca = event.target.form.marca.value
-      ? event.target.form.marca.value
+    let resMarca = event.target.marca.value
+      ? event.target.marca.value
       : "";
-    let resModelo = event.target.form.modelo.value
-      ? event.target.form.modelo.value
+    let resModelo = event.target.modelo.value
+      ? event.target.modelo.value
       : "";
-    let resPrecio = event.target.form.precio.value
-      ? event.target.form.precio.value
+    let resPrecio = event.target.precio.value
+      ? event.target.precio.value
       : "";
-    let resStock = event.target.form.stock.value
-      ? event.target.form.stock.value
+    let resStock = event.target.stock.value
+      ? event.target.stock.value
       : "";
 
     try {
-     /*  let sesion = JSON.parse(localStorage.getItem("sesion")); */
+ 
       let config = {
         method: "POST",
         headers: {
-         /*  Authorization: sesion.bearer + " " + sesion.token, */
+        
           Accept: "application/json",
           "content-type": "application/json",
         },
@@ -46,20 +51,57 @@ export default class CrearRep extends Component {
         { mode: "no-cors" }
       );
       let resEnJson = await res.json();
-      console.log(" SE CREO UN NUEVO REPUESTOOO :", resEnJson);
+      if (res.status===201){
+           console.log(" SE CREO UN NUEVO REPUESTO :", resEnJson);
+      toast("Repuesto Registrado", {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progreso: undefined,
+      });
+      setTimeout(() => {
+        setSeleccion("menu");
+      }, 5000);
+    }if (res.status===400){
+      toast("Repuesto No Registrado", {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progreso: undefined,
+      });
+    }
+     else {
+      toast(resEnJson.message, {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progreso: undefined,
+      });
+
+
+      }
     } catch (error) {
-      console.log(" hubo un error :( EN LA ACTUALIZAXCION :", error);
+      console.log(" hubo un error :( EN LA ACTUALIZACION :", error);
     }
   };
 
-  render() {
+  
     return (
       <>
         <div className="login-container">
           <div className="login-content">
             <br />
             <Title className="title-label" text="Crear Nuevo Repuesto" /> <br />
-            <form className="form">
+            <form onSubmit={crearRepuesto} className="form">
               <Label text="Tipo" />
               <input className="regular-style" type="text" name="tipo" />
               <br />
@@ -77,11 +119,13 @@ export default class CrearRep extends Component {
               <br />
               <br />
               <button
-                onClick={this.crearRepuesto}
-                /* type="submit" */ className="submit-button"
+               value={setSeleccion}
+                 type="submit"
+                  className="submit-button"
               >
                 Confirmar
               </button>
+              <ToastContainer> </ToastContainer>
             </form>
             <br />
           </div>
@@ -89,4 +133,5 @@ export default class CrearRep extends Component {
       </>
     );
   }
-}
+
+export default CrearRep;

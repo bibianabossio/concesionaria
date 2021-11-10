@@ -25,10 +25,8 @@ const EditarAutomovil = () => {
       : autoModificar.color;
     let resPrice = event.target.precio.value
       ? event.target.precio.value
-      : autoModificar.precio;
- /*    let resUser_id = event.target.user_id.value
-      ? event.target.user_id.value
-      : autoModificar.user_id; */
+      : autoModificar.price;
+ 
 
     try {
       let sesion = JSON.parse(localStorage.getItem("sesion"));
@@ -135,13 +133,7 @@ const EditarAutomovil = () => {
                     placeholder={autoModificar.price}
                   />
                   <br />
-                  {/*  Vendedor
-                  <input
-                    className="regular-style"
-                    type="text"
-                    name="user_id"
-                    placeholder={autoModificar.user_id}
-                  /> */}
+                
                   <br />
                   <button
                     value={setSeleccion}
