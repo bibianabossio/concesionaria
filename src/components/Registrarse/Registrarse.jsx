@@ -10,7 +10,7 @@ const Registrarse = () => {
   const crearUsuario = async (event) => {
     event.preventDefault();
     console.log("hice click", event.target.form.nombreUsuario.value);
-    let resNombreUsuario = event.target.form.resNombreUsuario.value
+    let resNombreUsuario = event.target.form.nombreUsuario.value
       ? event.target.form.nombreUsuario.value
       : "";
     let resApellido = event.target.form.apellido.value

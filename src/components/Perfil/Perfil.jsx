@@ -94,9 +94,9 @@ const Perfil = () => {
     let resEmail = event.target.parentElement[4].value
       ? event.target.parentElement[4].value
       : event.target.parentElement[4].placeholder;
-    /* let resPassword = event.target.parentElement[5].value
+    let resPassword = event.target.parentElement[5].value
       ? event.target.parentElement[5].value
-      : event.target.parentElement[5].placeholder;  */
+      : event.target.parentElement[5].placeholder;  
       console.log(resNombreUsuario,resApellido,resNombre, resDNI,resEmail);
 
      try {
@@ -115,7 +115,7 @@ const Perfil = () => {
           nombre: resNombre,
           dni: resDNI,
           email: resEmail,
-        /*   password: resPassword, */
+         password: resPassword,
         }),
       };
       let res = await fetch(
@@ -170,7 +170,7 @@ const Perfil = () => {
         /* body: JSON.stringify(event.target.value), */
       };
       let res = await fetch(
-        `https://concesionario-crud.herokuapp.com/usuarios${event.target.value}`,
+        `https://concesionario-crud.herokuapp.com/me`,
         config
       );
       let resEnJson = res;
@@ -249,7 +249,7 @@ const Perfil = () => {
           <br />
           Dirección de mail
           <br />
-       {/*    <input
+          <input
             className="perfil-style"
             type="text"
             name="Dirección de mail"
@@ -263,7 +263,7 @@ const Perfil = () => {
             type="text"
             name="Password"
             placeholder={objeto.password}
-          /> */}
+          /> 
           <br />
           <br />
           <br />

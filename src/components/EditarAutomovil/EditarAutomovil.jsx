@@ -135,8 +135,8 @@ const EditarAutomovil = () => {
                     placeholder={autoModificar.price}
                   />
                   <br />
-                  Vendedor
-                 {/*  <input
+                  {/*  Vendedor
+                  <input
                     className="regular-style"
                     type="text"
                     name="user_id"
