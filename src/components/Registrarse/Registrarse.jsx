@@ -5,6 +5,10 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 
+import Login from "../Login/Login";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Main from '../Main/Main'
+
 const Registrarse = () => {
   const { setSeleccion } = useContext(BarraNavegacionContexto);
   const crearUsuario = async (event) => {
@@ -86,6 +90,15 @@ const Registrarse = () => {
 
   return (
     <>
+   {/*  <li>
+          <Link to="/Login">Login</Link>
+        </li>
+        <li>
+          <Link to="/">Inicio</Link>
+        </li>
+        
+        <Route exact path="/Login" component={Login}></Route>
+        <Route exact path="/" component={Main}></Route> */}
       <div className="login-container">
         <div className="login-content">
           {" "}
@@ -116,6 +129,9 @@ const Registrarse = () => {
             >
               Confirmar
             </button>
+          <br/>
+            <Link type="button" className="submit-button" to="/login">Iniciar Sesion</Link>
+            
 
            
             <ToastContainer> </ToastContainer>

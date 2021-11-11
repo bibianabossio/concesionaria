@@ -9,6 +9,11 @@ import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import Registrarse from "../Registrarse/Registrarse";
+import { BrowserRouter as Router,Redirect, useHistory, Link } from "react-router-dom";
+import Main from '../Main/Main'
+
+
 const Login = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
@@ -16,6 +21,7 @@ const Login = () => {
   /* const [isLogin, setIsLogin] = useState(false); */
   const [hasError] = useState(false);
   const { handleSeleccion, setSeleccion } = useContext(BarraNavegacionContexto);
+  let history = useHistory()
 
   //
 
@@ -33,6 +39,7 @@ const Login = () => {
   }
   const formHandler = async (e) => {
     e.preventDefault();
+    
     if (user && password !== "") {
       try {
         let config = {
@@ -66,8 +73,8 @@ const Login = () => {
           });
           setTimeout(() => {
             setSeleccion("menu");
+            history.push("/")
           }, 5000);
-         
         }
       } catch (error) {
         console.log(" hubo un error :(  :", error);
@@ -79,6 +86,15 @@ const Login = () => {
     <div className="login-container">
       <div className="login-content">
         {" "}
+       {/*  <li>
+          <Link to="/singin">Registrarse</Link>
+        </li>
+        <li>
+          <Link to="/">Inicio</Link>
+        </li>
+        
+        <Route exact path="/singin" component={Registrarse}></Route>
+        <Route exact path="/" component={Main}></Route> */}
         <br />
         <Title className="title-label" text="Concesionaria Citroën" />
         <form className="form">
@@ -130,13 +146,15 @@ const Login = () => {
               Ingresar al Sistema
             </button>
 
-            <button
+            <Link type="button" className="submit-button" to="/singin">Registrarse</Link>
+            {/* <button
+             className="submit-button"
               onClick={handleSeleccion}
               value="registrarse"
-              className="submit-button"
+              
             >
               Registrarse
-            </button>
+            </button> */}
             <ToastContainer> </ToastContainer>
           </div>
         </form>
