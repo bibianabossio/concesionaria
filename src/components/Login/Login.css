@@ -63,14 +63,33 @@
   align-self: flex-end;
   flex-direction: column;
   background: rgb(158, 6, 5);
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   justify-content: "center";
-  margin: 10px;
-  padding: 5px;
-  width: 11vw;
-  height: 4vh;
+  margin: 5px;
+  padding: 4px;
+  width: 5vw;
+  height: 3.5vh;
   border-radius: 10px;
+}
+
+.link-button {
+  border: none !important;
+  outline: none !important;
+  color: white!important;
+  cursor: "pointer" !important;
+  align-items: center!important;
+  align-self: flex-end !important;
+  flex-direction: column!important;
+  background: rgb(158, 6, 5)!important;
+  font-size: 13px !important;
+  font-weight: bold!important ;
+  justify-content: "right" !important;
+  margin: 10px !important;
+  padding: 7px !important;
+  width: 5vw !important;
+  height: 8vh !important;
+  border-radius: 10px !important; 
 }
 .petit-submit-button {
   border: none;

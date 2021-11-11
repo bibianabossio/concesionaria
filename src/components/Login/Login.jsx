@@ -143,10 +143,14 @@ const Login = () => {
               value="menu"
               className="submit-button"
             >
-              Ingresar al Sistema
+              Ingresar
             </button>
-
-            <Link type="button" className="submit-button" to="/singin">Registrarse</Link>
+           
+            <Link type="button" 
+             className ="link-button"
+            to="/singin">Registrarse</Link>
+           
+            
             {/* <button
              className="submit-button"
               onClick={handleSeleccion}
