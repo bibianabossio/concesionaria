@@ -17,7 +17,7 @@ const BarraNavegacion = () => {
           {/* <Button onClick={handleSeleccion} style={{color:'white'}} value="login" >Login</Button>
           <Button onClick={handleSeleccion} style={{color:'white'}}   value="registrarse" >Registrarse</Button> */}
           <Button onClick={handleSeleccion} style={{color:'white'}}  value="menu" >Inicio</Button>
-          <Button onClick={handleSeleccion} style={{color:'white'}}  value="menu" >Perfil</Button>
+          <Button onClick={handleSeleccion} style={{color:'white'}}  value="perfil" >Perfil</Button>
           <Button onClick={handleSeleccion} style={{color:'white'}}  value="crear repuesto" >Crear Repuesto</Button>
           <Button onClick={handleSeleccion} style={{color:'white'}}  value="crear automovil" >Crear Automovil</Button>
        
