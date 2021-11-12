@@ -10,7 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Registrarse from "../Registrarse/Registrarse";
-import { BrowserRouter as Router,Redirect, useHistory, Link } from "react-router-dom";
+import { BrowserRouter as Router,Redirect,Route, useHistory, Link } from "react-router-dom";
 import Main from '../Main/Main'
 
 
@@ -29,7 +29,7 @@ const Login = () => {
     if (name === "usuario") {
       setUser(value);
     } else {
-      if (value.length < 6) {
+      if (value.length < 6||value.length > 6 ) {
         setPasswordError(true);
       } else {
         setPasswordError(false);
@@ -133,22 +133,25 @@ const Login = () => {
           </div>
           {passwordError && (
             <label className="label-error">
-              Contraseña inválida o incompleta
+              La contraseña debe ser de 6 números
             </label>
           )}
           <br />
           <div className="submit-button-container">
+        
             <button
               onClick={formHandler}
               value="menu"
               className="submit-button"
             >
               Ingresar
-            </button>
-           
-            <Link type="button" 
-             className ="link-button"
+            </button> 
+           <Route>
+           <Link type="button" 
+              className ="link-button"
             to="/singin">Registrarse</Link>
+           </Route>
+        
            
             
             {/* <button

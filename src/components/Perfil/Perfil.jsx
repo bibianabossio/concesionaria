@@ -265,22 +265,22 @@ const Perfil = () => {
             placeholder={objeto.password}
           /> 
           <br />
-          <br />
-          <br />
+          <div className="submit-button-container">
           <button
             /*type="submit"*/
             onClick={editarUsuario}
             className="submit-button"
           >
-            Editar Usuario
+            Editar
           </button>
           <button
             onClick={eliminarUsuario}
             /* type="submit" */ className="submit-button"
           >
-            Eliminar Usuario
+            Eliminar
           </button>
           <ToastContainer> </ToastContainer>
+          </div> 
         </form>
       </div>
     </div>

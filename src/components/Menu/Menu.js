@@ -61,7 +61,6 @@ const Menu =()=> {
        <button  onClick={(e)=>{
          e.preventDefault()
          setseleccion2('cerrar')
-         
          }}  value='cerrar'>Cerrar Sesión</button>
           
         </Item>
