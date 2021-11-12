@@ -13,19 +13,19 @@ import "./index.css";
 import { SeleccionProvider } from "./context/BarraNavegacionContexto";
 import { AuthProvider } from "./context/AuthContext";
 import { useJwt } from "react-jwt";
-
+let tokenExpirado="eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MzYwNDU0ODJ9.m4VPBh7C8bjwuJgg3DAg0OZt_cOzzKmFvp258R9B1Fw"
 function App() {
   const [sesionActiva, setSesionActiva] = useState(false);
   
  //localStorage.setItem('sesion',{token:""})
-  const { decodedToken, isExpired } = useJwt(JSON.parse(localStorage.getItem("sesion")).token);
-  if(JSON.parse(localStorage.getItem("sesion")).token!==""){
-    console.log("token", JSON.parse(localStorage.getItem("sesion")).token);
+  const { decodedToken, isExpired } = useJwt(JSON.parse(localStorage.getItem("sesion"))?.token?JSON.parse(localStorage.getItem("sesion")).token:tokenExpirado);
+  if(JSON.parse(localStorage.getItem("sesion"))!==""){
+    console.log("token", JSON.parse(localStorage.getItem("sesion")));
     console.log("decodificado", decodedToken);
     console.log("esta expirado???", isExpired);
 
   } 
-  useEffect(() => {
+  /* useEffect(() => {
     if (localStorage.getItem("activo")=== "true"   ) {
       if(!isExpired){
         setSesionActiva(true)
@@ -37,8 +37,8 @@ function App() {
     }else{
       setSesionActiva(false)
     }
-  }, []);
-  useEffect(() => {
+  }, []); */
+ useEffect(() => {
     if (localStorage.getItem("activo")=== "true" ) {
       if(!isExpired){
         setSesionActiva(true)
@@ -51,7 +51,7 @@ function App() {
       setSesionActiva(false)
     }
   }, [sesionActiva]);
-
+ 
 
   return (
         <Router>
