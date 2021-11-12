@@ -26,7 +26,7 @@ function App() {
   return (
         <Router>
     <AuthProvider>
-      <SeleccionProvider>
+      <SeleccionProvider setSesionActiva={setSesionActiva}>
           <Switch>
             <Route  exact path="/login">
               <Login setSesionActiva={setSesionActiva} sesionActiva={sesionActiva} />
@@ -35,7 +35,8 @@ function App() {
               <Registrarse />
             </Route>
             <Route exact path="/">
-            <Main/>
+            {!sesionActiva ?<Redirect exact to="/login" /> : <Main setSesionActiva={setSesionActiva}/> }
+            
               
             </Route>
           </Switch>

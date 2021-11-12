@@ -17,11 +17,11 @@ import Perfil from '../Perfil/Perfil';
 import { useHistory } from "react-router-dom";
 const Main = ({sesionActiva}) => {
   const {seleccion,form} = useContext(BarraNavegacionContexto)
-  let sesionHistori=useHistory()
+  /* let sesionHistori=useHistory()
   if(!sesionActiva){
-    console.log("la sesion esta: ",sesionActiva);
+    console.log("la sesion estaasad: ",sesionActiva);
     sesionHistori.push("/login")
-  }
+  } */
 /*   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
@@ -33,8 +33,8 @@ const Main = ({sesionActiva}) => {
     
     switch(seleccion) {
 
-      case "login":   return <Login/>;
-      case "registrarse":   return <Registrarse/>;
+      /* case "login":   return <Login/>;
+      case "registrarse":   return <Registrarse/>; */
       case "crear repuesto": return <CrearRepuesto/>;
       case "menu":  return <Menu/>;
       case "perfil":  return <Perfil/>;

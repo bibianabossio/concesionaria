@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
+import { SeleccionProvider } from "./context/BarraNavegacionContexto";
 /* import Login from './components/Login/Login'; */
 
 

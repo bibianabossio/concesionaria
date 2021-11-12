@@ -7,7 +7,7 @@ import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import { Button } from "@mui/material";
 
 /*hola */
-const BarraNavegacion = () => {
+const BarraNavegacion = ({setSesionActiva}) => {
 
   const {handleSeleccion} = useContext(BarraNavegacionContexto)
   return (
@@ -20,6 +20,7 @@ const BarraNavegacion = () => {
           <Button onClick={handleSeleccion} style={{color:'white'}}  value="perfil" >Perfil</Button>
           <Button onClick={handleSeleccion} style={{color:'white'}}  value="crear repuesto" >Crear Repuesto</Button>
           <Button onClick={handleSeleccion} style={{color:'white'}}  value="crear automovil" >Crear Automovil</Button>
+          <Button onClick={handleSeleccion} style={{color:'white'}}  value="cerrar sesion" >Cerrar Sesion</Button>
        
         </Box>
      
