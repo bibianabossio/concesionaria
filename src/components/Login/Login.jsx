@@ -31,7 +31,7 @@ const Login = ({setSesionActiva,sesionActiva}) => {
     if (name === "usuario") {
       setUser(value);
     } else {
-      if (value.length < 6) {
+      if (value.length < 6||value.length > 6 ) {
         setPasswordError(true);
       } else {
         setPasswordError(false);
@@ -158,7 +158,7 @@ const Login = ({setSesionActiva,sesionActiva}) => {
           </div>
           {passwordError && (
             <label className="label-error">
-              Contraseña inválida o incompleta
+              Contraseña debe ser de 6 números
             </label>
           )}
           <br />
