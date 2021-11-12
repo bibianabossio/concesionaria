@@ -1,6 +1,5 @@
-import React from "react";
-import { BrowserRouter as Router,
-  Switch, Route, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { BrowserRouter as Router, Switch, Route, Link,Redirect } from "react-router-dom";
 //import "./App.css";
 /*
 import Contrasenia from "./components/Contrasenia/Contrasenia";
@@ -12,27 +11,38 @@ import Registrarse from "./components/Registrarse/Registrarse";
 import Main from "./components/Main/Main";
 import "./index.css";
 import { SeleccionProvider } from "./context/BarraNavegacionContexto";
+import { AuthProvider } from "./context/AuthContext";
 
 function App() {
-  return (
-    <SeleccionProvider>
-      <Router>
-        <Switch>
-          <Route exact path="/login">
-            <Login />
-          </Route>
-          <Route exact path="/singin">
-            <Registrarse />
-          </Route>
-          <Route exact path="/">
-            <Main />
-          </Route>
-        </Switch>
+  const [sesionActiva, setSesionActiva] = useState(false);
+  useEffect(() => {
+    if (sesionActiva) {
+      setSesionActiva(true)
+      console.log("entro aca");
+    }
+  }, [sesionActiva]);
 
-       
-      </Router>
-    </SeleccionProvider>
+
+  return (
+        <Router>
+    <AuthProvider>
+      <SeleccionProvider>
+          <Switch>
+            <Route  exact path="/login">
+              <Login setSesionActiva={setSesionActiva} sesionActiva={sesionActiva} />
+            </Route>
+            <Route exact path="/singin">
+              <Registrarse />
+            </Route>
+            <Route exact path="/">
+            <Main/>
+              
+            </Route>
+          </Switch>
+      </SeleccionProvider>
+    </AuthProvider>
+        </Router>
   );
 }
 
-export default App;
+export default (App);
