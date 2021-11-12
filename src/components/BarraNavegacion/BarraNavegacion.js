@@ -41,4 +41,3 @@ const BarraNavegacion = ({setSesionActiva}) => {
                       </Router>
 */
 export default BarraNavegacion;
-

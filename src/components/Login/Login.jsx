@@ -10,7 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Registrarse from "../Registrarse/Registrarse";
-import { BrowserRouter as Router,Redirect,Route, useHistory, Link } from "react-router-dom";
+import { BrowserRouter as Router,Redirect, useHistory, Link } from "react-router-dom";
 import Main from '../Main/Main'
 import AuthContext from "../../context/AuthContext";
 
@@ -31,7 +31,7 @@ const Login = ({setSesionActiva,sesionActiva}) => {
     if (name === "usuario") {
       setUser(value);
     } else {
-      if (value.length < 6||value.length > 6 ) {
+      if (value.length < 6) {
         setPasswordError(true);
       } else {
         setPasswordError(false);
@@ -158,27 +158,20 @@ const Login = ({setSesionActiva,sesionActiva}) => {
           </div>
           {passwordError && (
             <label className="label-error">
-              La contraseña debe ser de 6 números
+              Contraseña inválida o incompleta
             </label>
           )}
           <br />
           <div className="submit-button-container">
-        
             <button
               onClick={formHandler}
               value="menu"
               className="submit-button"
             >
-              Ingresar
-            </button> 
-           <Route>
-           <Link type="button" 
-              className ="link-button"
-            to="/singin">Registrarse</Link>
-           </Route>
-        
-           
-            
+              Ingresar al Sistema
+            </button>
+
+            <Link type="button" className="submit-button" to="/singin">Registrarse</Link>
             {/* <button
              className="submit-button"
               onClick={handleSeleccion}
@@ -197,3 +190,5 @@ const Login = ({setSesionActiva,sesionActiva}) => {
 };
 
 export default Login;
+
+

@@ -1,3 +1,4 @@
+
 import React, {  useContext } from "react";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
@@ -55,7 +56,8 @@ const Registrarse = () => {
       let resEnJson = await res.json();
       console.dir(resEnJson);
       if (
-        res.status === 201 
+        resEnJson.idUsuario !== null ||
+        resEnJson.mensaje !== "Nombre de usuario existente"
       ) {
         console.log(" SE CREO UN NUEVO USUARIO :", resEnJson);
         toast("Usuario Registrado", {

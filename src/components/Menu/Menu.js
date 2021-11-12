@@ -1,3 +1,4 @@
+
 import{ useState } from "react";
 import * as React from 'react';
 
@@ -5,7 +6,7 @@ import "../Label/Label.css";
 import ListadoRepuestos from "../ListadoRepuestos/ListadoRepuestos";
 import ListadoAutomoviles from "../ListadoAutomoviles/ListadoAutomoviles";
 import Dolar from "../Dolar/Dolar";
-import Login from "../Login/Login";
+
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
@@ -41,7 +42,14 @@ const Menu =()=> {
        }} value='dolar'>Dolar</button>
      </Item>
 
-         
+     <Item>
+       <button  onClick={(e)=>{
+         e.preventDefault()
+         setseleccion2('perfil')
+       }}  value='Perfil'>Perfil</button>
+          
+        </Item>
+     
         <Item>
        <button  onClick={(e)=>{
          e.preventDefault()
@@ -56,23 +64,15 @@ const Menu =()=> {
          setseleccion2('autos')
        }}   value='autos'>Listado de Autos</button>
         </Item>
-
-        <Item>
-       <button  onClick={(e)=>{
-         e.preventDefault()
-         setseleccion2('cerrar')
-         }}  value='cerrar'>Cerrar Sesión</button>
-          
-        </Item>
       </Grid>
       <Grid  item xs={6} md={8}>
         <Item>
         
 
         {Seleccion2==='dolar'?<Dolar/>:null}
+        {Seleccion2==='perfil'?<Perfil/>:null}
         {Seleccion2==='repuestos'?<ListadoRepuestos/>:null}
         {Seleccion2==='autos'?<ListadoAutomoviles/>:null}
-        {Seleccion2==='cerrar'?<Login/>:null}
         </Item>
       </Grid>
       

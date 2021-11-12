@@ -1,3 +1,5 @@
+
+
 import React, { createContext, useState } from "react";
 
 const BarraNavegacionContexto = createContext();
@@ -52,7 +54,7 @@ const SeleccionProvider = ({ children,setSesionActiva }) => {
         name: e.target.nameInputModif.value,
         color: e.target.colorInputModif.value,
         price: e.target.precioInputModif.value,
-      
+        /* user_id: e.target.userIdInputModif.value, */
       });
       setSeleccion(e.target.tipoComponente.value);
     } else if (e.target.tipoComponente.value === "perfil") {
