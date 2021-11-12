@@ -26,6 +26,7 @@ function App() {
     console.log("esta expirado???", isExpired);
 
   } 
+  /* sdsds*/
   /* useEffect(() => {
     if (localStorage.getItem("activo")=== "true"   ) {
       if(!isExpired){
