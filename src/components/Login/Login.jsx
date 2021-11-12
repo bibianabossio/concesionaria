@@ -62,7 +62,6 @@ const Login = ({setSesionActiva,sesionActiva}) => {
         );
         let resEnJson = await res.json();
         localStorage.setItem("sesion", JSON.stringify(resEnJson));
-        localStorage.setItem('activo', true)
         console.log(" Inicio sesion! :", resEnJson);
         if(resEnJson.status===401){
           toast("Datos Incorrectos", {
@@ -92,6 +91,7 @@ const Login = ({setSesionActiva,sesionActiva}) => {
             });
             setTimeout(() => {
               
+        localStorage.setItem('activo', true)
           console.log("entro aca, estanaca",sesionActiva);
 
               setSeleccion("menu");
