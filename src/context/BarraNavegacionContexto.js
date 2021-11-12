@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 const BarraNavegacionContexto = createContext();
 
 const SeleccionProvider = ({ children,setSesionActiva }) => {
-  const [seleccion, setSeleccion] = useState("login");
+  const [seleccion, setSeleccion] = useState("menu");
 
   const [usuarioModificar, setUsuarioModificar] = useState({
     nombreUsuario: null,
@@ -36,6 +36,7 @@ const SeleccionProvider = ({ children,setSesionActiva }) => {
 
     }else{
       setSesionActiva(false)
+      localStorage.setItem("activo",false) 
     }
 
     //setSeleccion(e.target.value)

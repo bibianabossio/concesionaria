@@ -12,13 +12,43 @@ import Main from "./components/Main/Main";
 import "./index.css";
 import { SeleccionProvider } from "./context/BarraNavegacionContexto";
 import { AuthProvider } from "./context/AuthContext";
+import { useJwt } from "react-jwt";
 
 function App() {
   const [sesionActiva, setSesionActiva] = useState(false);
+  
+ //localStorage.setItem('sesion',{token:""})
+  const { decodedToken, isExpired } = useJwt(JSON.parse(localStorage.getItem("sesion")).token);
+  if(JSON.parse(localStorage.getItem("sesion")).token!==""){
+    console.log("token", JSON.parse(localStorage.getItem("sesion")).token);
+    console.log("decodificado", decodedToken);
+    console.log("esta expirado???", isExpired);
+
+  } 
   useEffect(() => {
-    if (sesionActiva) {
-      setSesionActiva(true)
-      console.log("entro aca");
+    if (localStorage.getItem("activo")=== "true"   ) {
+      if(!isExpired){
+        setSesionActiva(true)
+        console.log("entro aca inicial");
+
+      }else{
+        setSesionActiva(false)
+      }
+    }else{
+      setSesionActiva(false)
+    }
+  }, []);
+  useEffect(() => {
+    if (localStorage.getItem("activo")=== "true" ) {
+      if(!isExpired){
+        setSesionActiva(true)
+        console.log("entro aca inicial");
+
+      }else{
+        setSesionActiva(false)
+      }
+    }else{
+      setSesionActiva(false)
     }
   }, [sesionActiva]);
 
@@ -29,7 +59,9 @@ function App() {
       <SeleccionProvider setSesionActiva={setSesionActiva}>
           <Switch>
             <Route  exact path="/login">
-              <Login setSesionActiva={setSesionActiva} sesionActiva={sesionActiva} />
+            {!sesionActiva ? <Login setSesionActiva={setSesionActiva} sesionActiva={sesionActiva} />:
+            <Redirect exact to="/" /> }
+              
             </Route>
             <Route exact path="/singin">
               <Registrarse />
