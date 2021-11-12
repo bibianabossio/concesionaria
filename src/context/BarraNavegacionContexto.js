@@ -2,7 +2,7 @@ import React, { createContext, useState } from "react";
 
 const BarraNavegacionContexto = createContext();
 
-const SeleccionProvider = ({ children }) => {
+const SeleccionProvider = ({ children,setSesionActiva }) => {
   const [seleccion, setSeleccion] = useState("login");
 
   const [usuarioModificar, setUsuarioModificar] = useState({
@@ -31,7 +31,12 @@ const SeleccionProvider = ({ children }) => {
    /*  user_id: null, */
   });
   const handleSeleccion = (e) => {
-    setSeleccion(e.target.value);
+    if(e.target.value!=="cerrar sesion"){
+      setSeleccion(e.target.value);
+
+    }else{
+      setSesionActiva(false)
+    }
 
     //setSeleccion(e.target.value)
     console.dir(seleccion);

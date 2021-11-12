@@ -14,9 +14,14 @@ import CrearAutomovil from '../CrearAutomovil/CrearAutomovil';
 import EditarAutomovil from '../EditarAutomovil/EditarAutomovil';
 import EditarRepuesto from '../EditarRepuesto/EditarRepuesto';
 import Perfil from '../Perfil/Perfil';
-
-const Main = () => {
+import { useHistory } from "react-router-dom";
+const Main = ({sesionActiva}) => {
   const {seleccion,form} = useContext(BarraNavegacionContexto)
+  /* let sesionHistori=useHistory()
+  if(!sesionActiva){
+    console.log("la sesion estaasad: ",sesionActiva);
+    sesionHistori.push("/login")
+  } */
 /*   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
@@ -28,8 +33,8 @@ const Main = () => {
     
     switch(seleccion) {
 
-      case "login":   return <Login/>;
-      case "registrarse":   return <Registrarse/>;
+      /* case "login":   return <Login/>;
+      case "registrarse":   return <Registrarse/>; */
       case "crear repuesto": return <CrearRepuesto/>;
       case "menu":  return <Menu/>;
       case "perfil":  return <Perfil/>;
