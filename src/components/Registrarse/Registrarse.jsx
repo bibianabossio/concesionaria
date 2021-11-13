@@ -1,10 +1,11 @@
+
 import React, {  useContext } from "react";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
-
+import "./Registrarse.css"
 import Login from "../Login/Login";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Main from '../Main/Main'
@@ -130,7 +131,13 @@ const Registrarse = () => {
               Confirmar
             </button>
           <br/>
-            <Link type="button" className="submit-button" to="/login">Iniciar Sesion</Link>
+          <div className="contenedor">
+            <p>Ya te encuentras registrado?</p>
+          <div>
+           
+            <Link type="button" className="registrarse-boton-iniciar-sesion" to="/login">Iniciar Sesion</Link>
+          </div>
+          </div>
             
 
            

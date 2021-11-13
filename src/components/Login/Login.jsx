@@ -1,5 +1,6 @@
-import { useState } from "react";
-import * as React from "react";
+
+import React,{ useState } from "react";
+
 import Title from "../Title/Title";
 import Label from "../Label/Label";
 import Input from "../Input/Input";
@@ -14,14 +15,16 @@ import { BrowserRouter as Router,Redirect, useHistory, Link } from "react-router
 import Main from '../Main/Main'
 
 
-const Login = () => {
+
+const Login = ({setSesionActiva,sesionActiva}) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
-  /* const [isLogin, setIsLogin] = useState(false); */
+  // const [isLogin, setIsLogin] = useState(false); 
   const [hasError] = useState(false);
-  const { handleSeleccion, setSeleccion } = useContext(BarraNavegacionContexto);
+  const { handleSeleccion, setSeleccion } = useContext(BarraNavegacionContexto); 
   let history = useHistory()
+
 
   //
 
@@ -61,8 +64,8 @@ const Login = () => {
         let resEnJson = await res.json();
         localStorage.setItem("sesion", JSON.stringify(resEnJson));
         console.log(" Inicio sesion! :", resEnJson);
-        if (resEnJson.bearer === "Bearer") {
-          toast("iniciaste sesion!", {
+        if(resEnJson.status===401){
+          toast("Datos Incorrectos", {
             position: "top-left",
             autoClose: 5000,
             hideProgressBar: false,
@@ -71,12 +74,35 @@ const Login = () => {
             draggable: true,
             progreso: undefined,
           });
-          setTimeout(() => {
-            setSeleccion("menu");
-            history.push("/")
-          }, 5000);
+          
+        
+        }else{
+          setSesionActiva(true)
+          console.log("entro aca, estanaca",sesionActiva);
+          
+          if (resEnJson.bearer === "Bearer") {
+            toast("iniciaste sesion!", {
+              position: "top-left",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progreso: undefined,
+            });
+            setTimeout(() => {
+              
+        localStorage.setItem('activo', true)
+          console.log("entro aca, estanaca",sesionActiva);
+
+              setSeleccion("menu");
+              history.push("/")
+              
+            }, 5000);
+          }
         }
       } catch (error) {
+        
         console.log(" hubo un error :(  :", error);
       }
     }
@@ -145,8 +171,10 @@ const Login = () => {
             >
               Ingresar al Sistema
             </button>
-
+{/* 
             <Link type="button" className="submit-button" to="/singin">Registrarse</Link>
+ */}
+
             {/* <button
              className="submit-button"
               onClick={handleSeleccion}
@@ -156,6 +184,14 @@ const Login = () => {
               Registrarse
             </button> */}
             <ToastContainer> </ToastContainer>
+          </div>
+          <div className="crear-cuenta-login">
+            
+            <p >Aun no estas registrado?</p>
+            <br/>
+            <Link type="button" className="submit-button-crear-cuenta" to="/singin">Crear Cuenta</Link>
+
+           
           </div>
         </form>
         <br />
