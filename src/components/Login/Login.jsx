@@ -172,6 +172,8 @@ const Login = ({setSesionActiva,sesionActiva}) => {
             </button>
 
             <Link type="button" className="submit-button" to="/singin">Registrarse</Link>
+
+
             {/* <button
              className="submit-button"
               onClick={handleSeleccion}
@@ -181,6 +183,14 @@ const Login = ({setSesionActiva,sesionActiva}) => {
               Registrarse
             </button> */}
             <ToastContainer> </ToastContainer>
+          </div>
+          <div className="crear-cuenta-login">
+            
+            <p >Aun no estas registrado?</p>
+            <br/>
+            <Link type="button" className="submit-button-crear-cuenta" to="/singin">Crear Cuenta</Link>
+
+           
           </div>
         </form>
         <br />
