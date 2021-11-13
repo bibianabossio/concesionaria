@@ -170,9 +170,9 @@ const Login = ({setSesionActiva,sesionActiva}) => {
             >
               Ingresar al Sistema
             </button>
-
+{/* 
             <Link type="button" className="submit-button" to="/singin">Registrarse</Link>
-
+ */}
 
             {/* <button
              className="submit-button"
