@@ -1,17 +1,14 @@
 import{ useState } from "react";
 import * as React from 'react';
-
 import "../Label/Label.css";
 import ListadoRepuestos from "../ListadoRepuestos/ListadoRepuestos";
 import ListadoAutomoviles from "../ListadoAutomoviles/ListadoAutomoviles";
 import Dolar from "../Dolar/Dolar";
-
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Perfil from "../Perfil/Perfil";
-/*hola */
-/* aca es prueba de recuperoa */
+
 const Menu =()=> {
   
   const [Seleccion2, setseleccion2] = useState('dolar')
@@ -22,12 +19,7 @@ const Menu =()=> {
       textAlign: 'center',
       color: theme.palette.text.secondary,
     }));
-    
-   /*  const funcionSeleccionarMenu=(e)=>{
-      e.preventDefault()
-      console.log("hice click en ",e.target.value);
-     } */
-    
+ 
     return (
       <>     
       <Grid container spacing={2}>

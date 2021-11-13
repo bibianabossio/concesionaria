@@ -9,26 +9,25 @@ import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-/* import Registrarse from "../Registrarse/Registrarse"; */
+
 import {
   BrowserRouter as Router,
   Redirect,
   useHistory,
   Link,
 } from "react-router-dom";
-/* import Main from "../Main/Main";
-import AuthContext from "../../context/AuthContext"; */
+
 
 const Login = ({ setSesionActiva, sesionActiva }) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
-  // const [isLogin, setIsLogin] = useState(false);
+  
   const [hasError] = useState(false);
   const { handleSeleccion, setSeleccion } = useContext(BarraNavegacionContexto);
   let history = useHistory();
 
-  //
+  
 
   function handleChange(name, value) {
     if (name === "usuario") {
@@ -119,15 +118,7 @@ const Login = ({ setSesionActiva, sesionActiva }) => {
     <div className="login-container">
       <div className="login-content">
         {" "}
-        {/*  <li>
-          <Link to="/singin">Registrarse</Link>
-        </li>
-        <li>
-          <Link to="/">Inicio</Link>
-        </li>
         
-        <Route exact path="/singin" component={Registrarse}></Route>
-        <Route exact path="/" component={Main}></Route> */}
         <br />
         <Title className="title-label" text="Concesionaria Citroën" />
         <form className="form">
@@ -178,18 +169,7 @@ const Login = ({ setSesionActiva, sesionActiva }) => {
             >
               Ingresar al Sistema
             </button>
-            {/* 
-            <Link type="button" className="submit-button" to="/singin">Registrarse</Link>
- */}
-
-            {/* <button
-             className="submit-button"
-              onClick={handleSeleccion}
-              value="registrarse"
-              
-            >
-              Registrarse
-            </button> */}
+          
             <ToastContainer> </ToastContainer>
           </div>
           <div className="crear-cuenta-login">

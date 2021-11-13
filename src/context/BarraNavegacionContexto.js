@@ -1,8 +1,7 @@
 import React, { createContext, useState } from "react";
 
 const BarraNavegacionContexto = createContext();
-
-const SeleccionProvider = ({ children,setSesionActiva }) => {
+const SeleccionProvider = ({ children, setSesionActiva }) => {
   const [seleccion, setSeleccion] = useState("menu");
 
   const [usuarioModificar, setUsuarioModificar] = useState({
@@ -28,18 +27,14 @@ const SeleccionProvider = ({ children,setSesionActiva }) => {
     name: null,
     color: null,
     price: null,
-
   });
   const handleSeleccion = (e) => {
-    if(e.target.value!=="cerrar sesion"){
+    if (e.target.value !== "cerrar sesion") {
       setSeleccion(e.target.value);
-
-    }else{
-      setSesionActiva(false)
-      localStorage.setItem("activo",false) 
+    } else {
+      setSesionActiva(false);
+      localStorage.setItem("activo", false);
     }
-
-    //setSeleccion(e.target.value)
     console.dir(seleccion);
   };
 
@@ -52,7 +47,6 @@ const SeleccionProvider = ({ children,setSesionActiva }) => {
         name: e.target.nameInputModif.value,
         color: e.target.colorInputModif.value,
         price: e.target.precioInputModif.value,
-     
       });
       setSeleccion(e.target.tipoComponente.value);
     } else if (e.target.tipoComponente.value === "perfil") {
@@ -75,12 +69,7 @@ const SeleccionProvider = ({ children,setSesionActiva }) => {
         stock: e.target.stockInputModif.value,
       });
       setSeleccion(e.target.tipoComponente.value);
-      console.log("se hizo click en modificar", form);
     }
-
-    console.log("se hizo click  en modificar perro", e.target);
-
-    console.log("se Evento", e.target);
   };
 
   const data = {

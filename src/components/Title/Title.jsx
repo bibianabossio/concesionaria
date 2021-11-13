@@ -1,8 +1,6 @@
 import React from "react";
 import "./Title.css";
 
-//delaro el objeto y lo que espero que muestre
-
 const Title = ({ text }) => {
   return (
     <div >

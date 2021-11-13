@@ -10,19 +10,11 @@ const Perfil = () => {
   const { setSeleccion } = useContext(
     BarraNavegacionContexto
   );
-  /* state = {
-    user: [], 
-  }; */
-
 
   let datos=localStorage.getItem("sesion")
   let localStorageEnArray=JSON.parse(datos)
   useEffect ( async () => {
-   
-
-     console.log(localStorageEnArray);
-    console.log(localStorageEnArray.bearer); 
-    //console.log(enArray[0]);
+      
     try {
     let config = {
       method: "GET",
@@ -38,49 +30,20 @@ const Perfil = () => {
        );
     const data = await res.json();
     setObjeto(data);
-    console.log(data);
+   
       
     } catch (error) {
       
     }
    
   },[])
-  /* const cargarUsuario = async () => {
-    const res = await fetch (
-      "https://concesionario-crud.herokuapp.com/auth/consultarUsuario/nombreUsuario");
-   const data = await res.json();
-   setObjeto(data);
-   console.log(objeto);
-    }
-   
-    let config = {
-      method: "GET",
-      headers: {
-        Authorization: sesion.bearer +" " +sesion.token,
-        Accept: "application/json",
-        "content-type": "application/json",
-      }
-    }; */
-      
-      /* let res = await fetch(
-          `https://concesionario-crud.herokuapp.com/auth/consultarUsuario/${resNombreUsuario}`,
-          config
-        );
-      
-        let resEnJson = res;
-       
-          cargarUsuario(resEnJson)
-        } */
-      
-   
   
-
 
 
   const editarUsuario = async (event) => {
     event.preventDefault();
-    console.log(event.target.parentElement[1]);
-  /*  console.log(usuarioModificar); */
+    
+  
     let resNombreUsuario = event.target.parentElement[0].value;
     let resApellido = event.target.parentElement[1].value
       ? event.target.parentElement[1].value
@@ -100,9 +63,7 @@ const Perfil = () => {
       console.log(resNombreUsuario,resApellido,resNombre, resDNI,resEmail);
 
      try {
-      console.log(localStorageEnArray.token);
-      console.log(localStorageEnArray.bearer); 
-      let config = {
+          let config = {
         method: "PUT",
         headers: {
           Authorization: localStorageEnArray.bearer + " " + localStorageEnArray.token,
@@ -123,9 +84,8 @@ const Perfil = () => {
         config
       );
       let resEnJson = await res.json();
-      console.dir(resEnJson);
-      if (res.status === 200) {
-        console.log(" SE ACTUALIZO USUARIO :", resEnJson);
+            if (res.status === 200) {
+      
         toast("Usuario Actualizado", {
           position: "top-left",
           autoClose: 5000,
@@ -136,7 +96,7 @@ const Perfil = () => {
           progreso: undefined,
         });
         setTimeout(() => {
-          setSeleccion("login");
+          setSeleccion("menu");
         }, 5000);
       } else {
         toast(resEnJson.mensaje, {
@@ -156,7 +116,7 @@ const Perfil = () => {
 
   const eliminarUsuario = async (event) => {
     event.preventDefault();
-    console.log(" se hizo click para borrar al usuario :", event.target.value);
+    
 
     try {
        let sesion = JSON.parse(localStorage.getItem("sesion")); 
@@ -167,7 +127,7 @@ const Perfil = () => {
           Accept: "application/json",
           "content-type": "application/json",
         },
-        /* body: JSON.stringify(event.target.value), */
+       
       };
       let res = await fetch(
         `https://concesionario-crud.herokuapp.com/me`,
@@ -175,7 +135,7 @@ const Perfil = () => {
       );
       let resEnJson = res;
       if (res.status === 204) {
-        /* console.log(" SE BORRO! :", resEnJson); */
+        
         toast("Usuario Eliminado", {
           position: "top-left",
           autoClose: 5000,
@@ -268,7 +228,7 @@ const Perfil = () => {
           <br />
           <br />
           <button
-            /*type="submit"*/
+            
             onClick={editarUsuario}
             className="submit-button"
           >
@@ -276,7 +236,7 @@ const Perfil = () => {
           </button>
           <button
             onClick={eliminarUsuario}
-            /* type="submit" */ className="submit-button"
+           className="submit-button"
           >
             Eliminar Usuario
           </button>

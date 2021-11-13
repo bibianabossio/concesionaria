@@ -63,15 +63,18 @@ const EditarRepuesto = () => {
         }, 5000);
       } else {
         if (res.status === 412) {
-          toast("ERROR! Tipo: Parabrisas, Espejo o Radiador. Marca: Citroen o Lael", {
-            position: "top-left",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progreso: undefined,
-          });
+          toast(
+            "ERROR! Tipo: Parabrisas, Espejo o Radiador. Marca: Citroen o Lael",
+            {
+              position: "top-left",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progreso: undefined,
+            }
+          );
         } else {
           toast("Datos Incorrectos", {
             position: "top-left",

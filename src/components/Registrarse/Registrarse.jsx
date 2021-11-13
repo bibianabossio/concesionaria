@@ -1,20 +1,22 @@
-
-import React, {  useContext } from "react";
+import React, { useContext } from "react";
+import {
+  BrowserRouter as Router,
+  useHistory,
+  Link,
+} from "react-router-dom";
 import Title from "../Title/Title";
 import Label from "../Label/Label";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
-import "./Registrarse.css"
-import Login from "../Login/Login";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Main from '../Main/Main'
+import "./Registrarse.css";
 
 const Registrarse = () => {
   const { setSeleccion } = useContext(BarraNavegacionContexto);
+  let historia = useHistory();
   const crearUsuario = async (event) => {
     event.preventDefault();
-    console.log("hice click", event.target.form.nombreUsuario.value);
+
     let resNombreUsuario = event.target.form.nombreUsuario.value
       ? event.target.form.nombreUsuario.value
       : "";
@@ -54,10 +56,8 @@ const Registrarse = () => {
         config
       );
       let resEnJson = await res.json();
-      console.dir(resEnJson);
-      if (
-        res.status===201) {
-        console.log(" SE CREO UN NUEVO USUARIO :", resEnJson);
+
+      if (res.status === 201) {
         toast("Usuario Registrado", {
           position: "top-left",
           autoClose: 5000,
@@ -68,7 +68,7 @@ const Registrarse = () => {
           progreso: undefined,
         });
         setTimeout(() => {
-          setSeleccion("login");
+          historia.push("/login");
         }, 5000);
       } else {
         toast(resEnJson.mensaje, {
@@ -85,19 +85,9 @@ const Registrarse = () => {
       console.log(" hubo un error :( EN LA ACTUALIZACION :", error);
     }
   };
-  
 
   return (
     <>
-   {/*  <li>
-          <Link to="/Login">Login</Link>
-        </li>
-        <li>
-          <Link to="/">Inicio</Link>
-        </li>
-        
-        <Route exact path="/Login" component={Login}></Route>
-        <Route exact path="/" component={Main}></Route> */}
       <div className="login-container">
         <div className="login-content">
           {" "}
@@ -122,23 +112,22 @@ const Registrarse = () => {
             <input className="regular-style" type="text" name="password" />
             <br />
             <br />
-            <button
-              onClick={crearUsuario}
-              /* type="submit" */ className="submit-button"
-            >
+            <button onClick={crearUsuario} className="submit-button">
               Confirmar
             </button>
-          <br/>
-          <div className="contenedor">
-            <p>Ya te encuentras registrado?</p>
-          <div>
-           
-            <Link type="button" className="registrarse-boton-iniciar-sesion" to="/login">Iniciar Sesion</Link>
-          </div>
-          </div>
-            
-
-           
+            <br />
+            <div className="contenedor">
+              <p>Ya te encuentras registrado?</p>
+              <div>
+                <Link
+                  type="button"
+                  className="registrarse-boton-iniciar-sesion"
+                  to="/login"
+                >
+                  Iniciar Sesión
+                </Link>
+              </div>
+            </div>
             <ToastContainer> </ToastContainer>
           </form>
           <br />

@@ -25,14 +25,14 @@ export default class Dolar extends Component {
   render() {
     return (
       <>
-      <h2 style={{ height: 25, width: '100%' }}>Dolar Cotizacion</h2>
+      <h2 style={{ height: 25, width: '100%' }}>Dolar Cotización</h2>
       <TableContainer id="tabla" component={Paper}>
         <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
           <TableHead>
             <TableRow>
               <TableCell>Cotizacion</TableCell>
               <TableCell align="right">Compra</TableCell>
-              <TableCell align="right">venta</TableCell>
+              <TableCell align="right">Venta</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
