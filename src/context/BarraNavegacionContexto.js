@@ -2,8 +2,8 @@ import React, { createContext, useState } from "react";
 
 const BarraNavegacionContexto = createContext();
 
-const SeleccionProvider = ({ children }) => {
-  const [seleccion, setSeleccion] = useState("login");
+const SeleccionProvider = ({ children,setSesionActiva }) => {
+  const [seleccion, setSeleccion] = useState("menu");
 
   const [usuarioModificar, setUsuarioModificar] = useState({
     nombreUsuario: null,
@@ -31,7 +31,13 @@ const SeleccionProvider = ({ children }) => {
    /*  user_id: null, */
   });
   const handleSeleccion = (e) => {
-    setSeleccion(e.target.value);
+    if(e.target.value!=="cerrar sesion"){
+      setSeleccion(e.target.value);
+
+    }else{
+      setSesionActiva(false)
+      localStorage.setItem("activo",false) 
+    }
 
     //setSeleccion(e.target.value)
     console.dir(seleccion);

@@ -1,4 +1,3 @@
-
 import React,{ useState } from "react";
 
 import Title from "../Title/Title";
@@ -13,7 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Registrarse from "../Registrarse/Registrarse";
 import { BrowserRouter as Router,Redirect, useHistory, Link } from "react-router-dom";
 import Main from '../Main/Main'
-
+import AuthContext from "../../context/AuthContext";
 
 
 const Login = ({setSesionActiva,sesionActiva}) => {
