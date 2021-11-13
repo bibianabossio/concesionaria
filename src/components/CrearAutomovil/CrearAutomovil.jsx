@@ -74,15 +74,28 @@ if (res.status===201){
     });
   }
    else {
-    toast(resEnJson.message, {
-      position: "top-left",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progreso: undefined,
-    });
+     if(resEnJson.message.color){
+      toast(resEnJson.message.color, {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progreso: undefined,
+      });
+     } else{
+      toast("Verificar los campos ingresados", {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progreso: undefined,
+      });
+     }
+   
   }
     } catch (error) {
       console.log(" hubo un error :( EN LA ACTUALIZACION :", error);

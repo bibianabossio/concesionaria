@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 
 import Title from "../Title/Title";
 import Label from "../Label/Label";
@@ -9,39 +9,42 @@ import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Registrarse from "../Registrarse/Registrarse";
-import { BrowserRouter as Router,Redirect, useHistory, Link } from "react-router-dom";
-import Main from '../Main/Main'
-import AuthContext from "../../context/AuthContext";
+/* import Registrarse from "../Registrarse/Registrarse"; */
+import {
+  BrowserRouter as Router,
+  Redirect,
+  useHistory,
+  Link,
+} from "react-router-dom";
+/* import Main from "../Main/Main";
+import AuthContext from "../../context/AuthContext"; */
 
-
-const Login = ({setSesionActiva,sesionActiva}) => {
+const Login = ({ setSesionActiva, sesionActiva }) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
-  // const [isLogin, setIsLogin] = useState(false); 
+  // const [isLogin, setIsLogin] = useState(false);
   const [hasError] = useState(false);
-  const { handleSeleccion, setSeleccion } = useContext(BarraNavegacionContexto); 
-  let history = useHistory()
-
+  const { handleSeleccion, setSeleccion } = useContext(BarraNavegacionContexto);
+  let history = useHistory();
 
   //
 
   function handleChange(name, value) {
     if (name === "usuario") {
       setUser(value);
-    } else {
-      if (value.length < 6) {
+    } 
+      if (value.length < 6||value.length > 6 ) {
         setPasswordError(true);
       } else {
         setPasswordError(false);
         setPassword(value);
       }
-    }
+    
   }
   const formHandler = async (e) => {
     e.preventDefault();
-    
+
     if (user && password !== "") {
       try {
         let config = {
@@ -63,7 +66,7 @@ const Login = ({setSesionActiva,sesionActiva}) => {
         let resEnJson = await res.json();
         localStorage.setItem("sesion", JSON.stringify(resEnJson));
         console.log(" Inicio sesion! :", resEnJson);
-        if(resEnJson.status===401){
+        if (res.status === 401) {
           toast("Datos Incorrectos", {
             position: "top-left",
             autoClose: 5000,
@@ -73,12 +76,7 @@ const Login = ({setSesionActiva,sesionActiva}) => {
             draggable: true,
             progreso: undefined,
           });
-          
-        
-        }else{
-          setSesionActiva(true)
-          console.log("entro aca, estanaca",sesionActiva);
-          
+        } else {
           if (resEnJson.bearer === "Bearer") {
             toast("iniciaste sesion!", {
               position: "top-left",
@@ -90,20 +88,30 @@ const Login = ({setSesionActiva,sesionActiva}) => {
               progreso: undefined,
             });
             setTimeout(() => {
-              
-        localStorage.setItem('activo', true)
-          console.log("entro aca, estanaca",sesionActiva);
+              localStorage.setItem("activo", true);
 
+              setSesionActiva(true);
+              console.log("entro aca, estanaca", sesionActiva);
               setSeleccion("menu");
-              history.push("/")
-              
+              history.push("/");
             }, 5000);
           }
         }
       } catch (error) {
-        
         console.log(" hubo un error :(  :", error);
       }
+    }else {
+      
+        toast("Los campos no pueden estar vacíos", {
+          position: "top-left",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progreso: undefined,
+        });
+       
     }
   };
 
@@ -111,7 +119,7 @@ const Login = ({setSesionActiva,sesionActiva}) => {
     <div className="login-container">
       <div className="login-content">
         {" "}
-       {/*  <li>
+        {/*  <li>
           <Link to="/singin">Registrarse</Link>
         </li>
         <li>
@@ -158,7 +166,7 @@ const Login = ({setSesionActiva,sesionActiva}) => {
           </div>
           {passwordError && (
             <label className="label-error">
-              Contraseña inválida o incompleta
+             Campo de 6 caractéres
             </label>
           )}
           <br />
@@ -170,7 +178,7 @@ const Login = ({setSesionActiva,sesionActiva}) => {
             >
               Ingresar al Sistema
             </button>
-{/* 
+            {/* 
             <Link type="button" className="submit-button" to="/singin">Registrarse</Link>
  */}
 
@@ -185,12 +193,15 @@ const Login = ({setSesionActiva,sesionActiva}) => {
             <ToastContainer> </ToastContainer>
           </div>
           <div className="crear-cuenta-login">
-            
-            <p >Aun no estas registrado?</p>
-            <br/>
-            <Link type="button" className="submit-button-crear-cuenta" to="/singin">Crear Cuenta</Link>
-
-           
+            <p>Aun no estas registrado?</p>
+            <br />
+            <Link
+              type="button"
+              className="submit-button-crear-cuenta"
+              to="/singin"
+            >
+              Crear Cuenta
+            </Link>
           </div>
         </form>
         <br />

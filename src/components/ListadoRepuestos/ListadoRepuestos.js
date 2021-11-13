@@ -202,7 +202,7 @@ const handleSubmit=async(e)=>{
 
                       }}/>                 
                       <input type="text" hidden name="tipoInputModif" value={post.tipo} onChange={(e)=>{}}/>                 
-                      <input type="text"hidden  name="modedloInputModif" value={post.modelo} onChange={(e)=>{}}/>                 
+                      <input type="text"hidden  name="modeloInputModif" value={post.modelo} onChange={(e)=>{}}/>                 
                       <input type="text" hidden name="precioInputModif" value={post.precio} onChange={(e)=>{}}/>                 
                       <input type="text" hidden name="stockInputModif" value={post.stock} onChange={(e)=>{}}/>                 
                     <button type="submit" name="tipoComponente"  value={"editar repuesto"} className="submit-button">Editar Repuesto</button>                    

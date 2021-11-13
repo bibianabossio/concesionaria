@@ -124,7 +124,7 @@ const Perfil = () => {
       );
       let resEnJson = await res.json();
       console.dir(resEnJson);
-      if (/* resEnJson.resNombreUsuario !== null ||  */res.status === 200) {
+      if (res.status === 200) {
         console.log(" SE ACTUALIZO USUARIO :", resEnJson);
         toast("Usuario Actualizado", {
           position: "top-left",

@@ -65,8 +65,9 @@ const CrearRep = () => {
       setTimeout(() => {
         setSeleccion("menu");
       }, 5000);
-    }if (res.status===400){
-      toast("Repuesto No Registrado", {
+    }else{ 
+    if (res.status===409){
+      toast("ERROR! Tipo: Parabrisas, Espejo o Radiador. Marca: Citroen o Lael", {
         position: "top-left",
         autoClose: 5000,
         hideProgressBar: false,
@@ -77,7 +78,7 @@ const CrearRep = () => {
       });
     }
      else {
-      toast(resEnJson.message, {
+      toast("Datos Incorrectos", {
         position: "top-left",
         autoClose: 5000,
         hideProgressBar: false,
@@ -87,7 +88,7 @@ const CrearRep = () => {
         progreso: undefined,
       });
 
-
+    }
       }
     } catch (error) {
       console.log(" hubo un error :( EN LA ACTUALIZACION :", error);

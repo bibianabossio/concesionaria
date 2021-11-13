@@ -28,7 +28,7 @@ const SeleccionProvider = ({ children,setSesionActiva }) => {
     name: null,
     color: null,
     price: null,
-   /*  user_id: null, */
+
   });
   const handleSeleccion = (e) => {
     if(e.target.value!=="cerrar sesion"){
@@ -52,7 +52,7 @@ const SeleccionProvider = ({ children,setSesionActiva }) => {
         name: e.target.nameInputModif.value,
         color: e.target.colorInputModif.value,
         price: e.target.precioInputModif.value,
-        /* user_id: e.target.userIdInputModif.value, */
+     
       });
       setSeleccion(e.target.tipoComponente.value);
     } else if (e.target.tipoComponente.value === "perfil") {

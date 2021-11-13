@@ -59,7 +59,7 @@
 .submit-button {
   border: none;
   outline: none;
-  color: white;
+  color: white ;
   cursor: "pointer";
   width: -webkit-fill-available;
   background: rgb(158, 6, 5);

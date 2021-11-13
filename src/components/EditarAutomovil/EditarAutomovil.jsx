@@ -5,7 +5,7 @@ import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-/* import { useParams } from "react-router-dom"; */
+
 
 const EditarAutomovil = () => {
   const { setSeleccion, autoModificar } = useContext(BarraNavegacionContexto);
@@ -64,8 +64,8 @@ const EditarAutomovil = () => {
           setTimeout(() => {
             setSeleccion("menu");
           }, 5000);
-        } else {
-          toast(resEnJson.message.color, {
+        } if (res.status===409){
+          toast(resEnJson.message.modelo, {
             position: "top-left",
             autoClose: 5000,
             hideProgressBar: false,
@@ -75,7 +75,29 @@ const EditarAutomovil = () => {
             progreso: undefined,
           });
         }
-
+         else {
+           if(resEnJson.message.color){
+            toast(resEnJson.message.color, {
+              position: "top-left",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progreso: undefined,
+            });
+           } else{
+            toast("Verificar los campos ingresados", {
+              position: "top-left",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progreso: undefined,
+            });
+           }
+          }
             
       
     } catch (error) {

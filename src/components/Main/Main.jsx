@@ -7,14 +7,14 @@ import Menu from "../Menu/Menu";
 import './Main.css'
 import BarraNavegacion from '../BarraNavegacion/BarraNavegacion';
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
-import Login from '../Login/Login';
-import Registrarse from '../Registrarse/Registrarse';
+/* import Login from '../Login/Login';
+import Registrarse from '../Registrarse/Registrarse'; */
 import CrearRepuesto from '../CrearRepuesto/CrearRepuesto';
 import CrearAutomovil from '../CrearAutomovil/CrearAutomovil';
 import EditarAutomovil from '../EditarAutomovil/EditarAutomovil';
 import EditarRepuesto from '../EditarRepuesto/EditarRepuesto';
 import Perfil from '../Perfil/Perfil';
-import { useHistory } from "react-router-dom";
+/* import { useHistory } from "react-router-dom"; */
 const Main = ({sesionActiva}) => {
   const {seleccion,form} = useContext(BarraNavegacionContexto)
   /* let sesionHistori=useHistory()
@@ -33,7 +33,7 @@ const Main = ({sesionActiva}) => {
     
     switch(seleccion) {
 
-      /* case "login":   return <Login/>;
+     /*  case "login":   return <Login/>;
       case "registrarse":   return <Registrarse/>; */
       case "crear repuesto": return <CrearRepuesto/>;
       case "menu":  return <Menu/>;

@@ -56,9 +56,7 @@ const Registrarse = () => {
       let resEnJson = await res.json();
       console.dir(resEnJson);
       if (
-        resEnJson.idUsuario !== null ||
-        resEnJson.mensaje !== "Nombre de usuario existente"
-      ) {
+        res.status===201) {
         console.log(" SE CREO UN NUEVO USUARIO :", resEnJson);
         toast("Usuario Registrado", {
           position: "top-left",
@@ -84,7 +82,7 @@ const Registrarse = () => {
         });
       }
     } catch (error) {
-      console.log(" hubo un error :( EN LA ACTUALIZAXCION :", error);
+      console.log(" hubo un error :( EN LA ACTUALIZACION :", error);
     }
   };
   
