@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
-  BrowserRouter as Router,
   useHistory,
   Link,
 } from "react-router-dom";
@@ -8,11 +7,9 @@ import Title from "../Title/Title";
 import Label from "../Label/Label";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import "./Registrarse.css";
 
 const Registrarse = () => {
-  const { setSeleccion } = useContext(BarraNavegacionContexto);
   let historia = useHistory();
   const crearUsuario = async (event) => {
     event.preventDefault();

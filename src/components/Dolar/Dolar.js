@@ -17,7 +17,7 @@ fetch(`https://www.dolarsi.com/api/api.php?type=valoresprincipales`)
     data.map((item) => {
       dolarOficial =        item["casa"].nombre === "Dolar Oficial" ? item["casa"] :dolarOficial ;
       dolarBlue = item["casa"].nombre === "Dolar Blue" ? item["casa"] : dolarBlue;
-     
+     return null;
     });
   })
   .catch((err) => console.log(err));

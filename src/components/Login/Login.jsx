@@ -8,38 +8,27 @@ import { useContext } from "react";
 import BarraNavegacionContexto from "../../context/BarraNavegacionContexto";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-
-import {
-  BrowserRouter as Router,
-  Redirect,
-  useHistory,
-  Link,
-} from "react-router-dom";
-
+import { useHistory, Link } from "react-router-dom";
 
 const Login = ({ setSesionActiva, sesionActiva }) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
-  
-  const [hasError] = useState(false);
-  const { handleSeleccion, setSeleccion } = useContext(BarraNavegacionContexto);
-  let history = useHistory();
 
-  
+  const [hasError] = useState(false);
+  const { setSeleccion } = useContext(BarraNavegacionContexto);
+  let history = useHistory();
 
   function handleChange(name, value) {
     if (name === "usuario") {
       setUser(value);
-    } 
-      if (value.length < 6||value.length > 6 ) {
-        setPasswordError(true);
-      } else {
-        setPasswordError(false);
-        setPassword(value);
-      }
-    
+    }
+    if (value.length < 6 || value.length > 6) {
+      setPasswordError(true);
+    } else {
+      setPasswordError(false);
+      setPassword(value);
+    }
   }
   const formHandler = async (e) => {
     e.preventDefault();
@@ -99,18 +88,16 @@ const Login = ({ setSesionActiva, sesionActiva }) => {
       } catch (error) {
         console.log(" hubo un error :(  :", error);
       }
-    }else {
-      
-        toast("Los campos no pueden estar vacíos", {
-          position: "top-left",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progreso: undefined,
-        });
-       
+    } else {
+      toast("Los campos no pueden estar vacíos", {
+        position: "top-left",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progreso: undefined,
+      });
     }
   };
 
@@ -118,7 +105,6 @@ const Login = ({ setSesionActiva, sesionActiva }) => {
     <div className="login-container">
       <div className="login-content">
         {" "}
-        
         <br />
         <Title className="title-label" text="Concesionaria Citroën" />
         <form className="form">
@@ -156,9 +142,7 @@ const Login = ({ setSesionActiva, sesionActiva }) => {
             />
           </div>
           {passwordError && (
-            <label className="label-error">
-             Campo de 6 caractéres
-            </label>
+            <label className="label-error">Campo de 6 caractéres</label>
           )}
           <br />
           <div className="submit-button-container">
@@ -169,7 +153,7 @@ const Login = ({ setSesionActiva, sesionActiva }) => {
             >
               Ingresar al Sistema
             </button>
-          
+
             <ToastContainer> </ToastContainer>
           </div>
           <div className="crear-cuenta-login">

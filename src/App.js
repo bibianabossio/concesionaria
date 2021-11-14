@@ -17,22 +17,18 @@ let tokenExpirado =
 function App() {
   const [sesionActiva, setSesionActiva] = useState(false);
 
-  const { decodedToken, isExpired } = useJwt(
+  const { isExpired } = useJwt(
     JSON.parse(localStorage.getItem("sesion"))?.token
       ? JSON.parse(localStorage.getItem("sesion")).token
       : tokenExpirado
   );
-  if (JSON.parse(localStorage.getItem("sesion")) !== "") {
-    console.log("token", JSON.parse(localStorage.getItem("sesion")));
-    console.log("decodificado", decodedToken);
-    console.log("esta expirado???", isExpired);
-  }
+ 
 
   useEffect(() => {
     if (localStorage.getItem("activo") === "true") {
       if (!isExpired) {
         setSesionActiva(true);
-        console.log("entro aca inicial");
+  
       } else {
         setSesionActiva(false);
       }
